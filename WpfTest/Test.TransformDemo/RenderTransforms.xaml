@@ -1,0 +1,124 @@
+﻿<Window x:Class="Test.TransformDemo.RenderTransforms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test.TransformDemo"
+        mc:Ignorable="d"
+        Title="RenderTransforms"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Button Content="I not"
+                    Width="150"
+                    Height="30"
+                    Background="Yellow" />
+            <Button x:Name="btn1"
+                    Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red">
+                <Button.RenderTransform>
+                    <TranslateTransform X="10" Y="10" />
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button Content="I not"
+                    Width="150"
+                    Height="30"
+                    Background="Yellow" />
+            <Button Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red"
+                    RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <RotateTransform Angle="35" CenterX="0" CenterY="0" />
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red">
+                <Button.RenderTransform>
+                    <RotateTransform Angle="35" CenterX="0" CenterY="0" />
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Content="I not"
+                    Width="150"
+                    Height="30"
+                    Background="Yellow">
+                <Button.RenderTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="I not"
+                    Width="150"
+                    Height="30"
+                    Background="Yellow"
+                    RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Content="I not"
+                    Width="150"
+                    Height="30"
+                    Background="Yellow" />
+            <Button Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red">
+                <Button.RenderTransform>
+                    <SkewTransform AngleX="15" AngleY="15" />
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red"
+                    RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <SkewTransform AngleX="15" AngleY="15" />
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button Content="I not"
+                    Width="150"
+                    Height="30"
+                    Background="Yellow" />
+            <Button Content="I AM Rotated 35 btn1"
+                    Width="150"
+                    Height="30"
+                    Background="Red"
+                    RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="35" />
+                        <SkewTransform AngleX="25" AngleY="25" />
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </Grid>
+
+        <!--  MatrixTransform  -->
+    </Grid>
+</Window>

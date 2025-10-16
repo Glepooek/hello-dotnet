@@ -1,0 +1,74 @@
+﻿<Window
+    x:Class="Test.Moonpdf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Test.Moonpdf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mpp="clr-namespace:MoonPdfLib;assembly=MoonPdfLib"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+
+    <DockPanel LastChildFill="True">
+        <Border Background="#f0f0f0" DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <!--<Button
+                    Width="50"
+                    Margin="5,5"
+                    Click="FileButton_Click"
+                    Content="文件" />-->
+                <Button
+                    Width="50"
+                    Margin="0,5"
+                    Click="ZoomInButton_Click"
+                    Content="放大" />
+                <Button
+                    Width="50"
+                    Margin="5,5"
+                    Click="ZoomOutButton_Click"
+                    Content="缩小" />
+                <Button
+                    Width="50"
+                    Margin="0,5"
+                    Click="NormalButton_Click"
+                    Content="100%" />
+                <Button
+                    Width="50"
+                    Margin="5,5"
+                    Click="FitToHeightButton_Click"
+                    Content="整页" />
+                <Button
+                    Width="50"
+                    Margin="0,5"
+                    Click="SinglePageButton_Click"
+                    Content="单页" />
+                <Button
+                    Width="50"
+                    Margin="5,5"
+                    Click="FacingButton_Click"
+                    Content="双页" />
+            </StackPanel>
+        </Border>
+
+        <TabControl
+            x:Name="tabControl"
+            DockPanel.Dock="Left"
+            TabStripPlacement="Left">
+            <TabItem Header="爱学习隐私权政策" />
+            <TabItem Header="爱学习用户服务协议" />
+        </TabControl>
+
+        <mpp:MoonPdfPanel
+            x:Name="moonPdfPanel"
+            AllowDrop="True"
+            Background="LightGray"
+            DockPanel.Dock="Right"
+            PageMargin="0,2,4,2"
+            PageRowDisplay="ContinuousPageRows"
+            ViewType="SinglePage" />
+
+    </DockPanel>
+</Window>

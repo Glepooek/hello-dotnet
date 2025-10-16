@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" />
+    <PackageReference Include="HandyControl" />
+    <PackageReference Include="JsonSubTypes" />
+    <PackageReference Include="K4os.Compression.LZ4.Streams" />
+    <PackageReference Include="log4net" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
+    <PackageReference Include="MvvmDialogs" />
+    <PackageReference Include="MvvmLight" />
+    <PackageReference Include="MySql.Data" />
+    <PackageReference Include="NAudio" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="SqlSugar" />
+    <PackageReference Include="System.Collections.Concurrent" />
+    <PackageReference Include="System.ComponentModel.Annotations" />
+    <PackageReference Include="System.ComponentModel.Primitives" />
+    <PackageReference Include="System.Speech" />
+    <PackageReference Include="System.ValueTuple" />
+    <PackageReference Include="TencentCloudSDK" />
+  </ItemGroup>
+</Project>

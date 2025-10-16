@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MoonPdfLib, Version=0.3.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MoonPdf-0.3.0-x64\MoonPdfLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MouseKeyboardActivityMonitor, Version=3.0.1.29759, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MoonPdf-0.3.0-x64\MouseKeyboardActivityMonitor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documents\爱学习用户服务协议（20210318-终版-清洁版）.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documents\爱学习隐私权政策（20210318-终版-清洁版）.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MoonPdf-0.3.0-x64\libmupdf.dll" />
+    <Content Include="MoonPdf-0.3.0-x64\MoonPdf.exe" />
+    <Content Include="MoonPdf-0.3.0-x64\MoonPdfLib.dll" />
+    <Content Include="MoonPdf-0.3.0-x64\MouseKeyboardActivityMonitor.dll" />
+    <Content Include="MoonPdf-0.3.0-x86\libmupdf.dll" />
+    <Content Include="MoonPdf-0.3.0-x86\MoonPdf.exe" />
+    <Content Include="MoonPdf-0.3.0-x86\MoonPdfLib.dll" />
+    <Content Include="MoonPdf-0.3.0-x86\MouseKeyboardActivityMonitor.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" />
+    <PackageReference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>xcopy /y $(SolutionDir)Test.Moonpdf\MoonPdf-0.3.0-x64\libmupdf.dll $(TargetDir)</PreBuildEvent>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+</Project>

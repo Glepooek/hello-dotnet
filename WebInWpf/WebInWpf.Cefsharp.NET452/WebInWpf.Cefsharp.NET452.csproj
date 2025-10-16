@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net452</TargetFramework>
+        <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+        <OutputType>WinExe</OutputType>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <UseWindowsForms>true</UseWindowsForms>
+        <UseWPF>true</UseWPF>
+        <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+        <PlatformTarget>$(Platform)</PlatformTarget>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="TestWeb\default.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="TestWeb\index.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\WebInWpf.Cefsharp.NET452.Controls\WebInWpf.Cefsharp.NET452.Controls.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="CefSharp.Wpf" />
+        <PackageReference Include="Microsoft.CSharp" />
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" VersionOverride="1.1.39" />
+        <PackageReference Include="MouseKeyHook" />
+        <PackageReference Include="System.Data.DataSetExtensions" />
+    </ItemGroup>
+</Project>

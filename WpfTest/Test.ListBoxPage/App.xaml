@@ -1,0 +1,7 @@
+﻿<Application x:Class="Test.ListBoxPage.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Test.ListBoxPage"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources />
+</Application>

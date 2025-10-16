@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+    <title></title>
+</head>
+<body>
+    <div id="app3" style="height:20px"></div>
+    <div id="app4">
+        <p>{{ message }}</p>
+        <button style="margin-left:10px" v-on:click="closeWindow">关闭主窗口</button>
+        <button style="margin-left:10px" v-on:click="minimizeWindow">最小化主窗口</button>
+        <button style="margin-left:10px" v-on:click="maximizeWindow">最大化、还原窗口</button>
+    </div>
+
+    <script>
+        var hostObject = window.chrome.webview.hostObjects.UniStuWebView2HostObject;
+
+        // 拖动窗体
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('app3').addEventListener('mousedown', evt => {
+                chrome.webview.hostObjects.UniStuWebView2HostObject.MouseDownDrag();
+            });
+        });
+
+        var app4 = new Vue({
+            el: '#app4',
+            data: {
+                message: 'Hello WebView2！以下测试JS调用C#方法！',
+                result: 'Hello WebView2！以下测试C#调用JS方法！'
+            },
+            // 计算属性是基于它们的响应式依赖进行缓存的。
+            // 只在相关响应式依赖发生改变时它们才会重新求值。
+            computed: {
+                reverseMessage: function () {
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            methods: {
+                async closeWindow() {
+                    await hostObject.CloseWindow();
+                },
+                async minimizeWindow() {
+                    await hostObject.MinimizeWindow();
+                },
+                async maximizeWindow() {
+                    await hostObject.MaximizeWindow();
+                },
+                calculateAdd1(num1, num2) {
+                    this.result = num1 + num2;
+                    alert("传入参数: num1=" + num1 + " num2=" + num2 + " result=" + this.result);
+                    return this.result;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

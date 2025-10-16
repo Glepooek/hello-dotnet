@@ -1,0 +1,62 @@
+﻿<Window x:Class="Test.ChangeLang.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test.ChangeLang"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#FF9DC5FD" Offset="0" />
+                    <GradientStop Color="#FF4242CF" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="{DynamicResource MainWindow_name}"
+                   d:Text="姓名"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="36"
+                   Foreground="White" />
+
+        <TextBlock Grid.Row="1"
+                   Text="{DynamicResource MainWindow_age}"
+                   d:Text="年龄"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="36"
+                   Foreground="White" />
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="{DynamicResource MainWindow_Language}"
+                    d:Content="切换语言"
+                    Click="SwitchLanguage_Click"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="22" />
+            <Button Content="{DynamicResource MainWindow_show}"
+                    d:Content="显示提示"
+                    Click="ShowToast_Click"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="22"
+                    Margin="10,0,0,0" />
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Window
+    x:Class="Test.CountDown.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Test.CountDown"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Topmost="True"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <local:CountDownControl BackgroundImage="Images/倒计时—基础.png" TotalSeconds="10" />
+</Window>

@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net452</TargetFramework>
+        <OutputType>Library</OutputType>
+        <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <UseWindowsForms>true</UseWindowsForms>
+        <UseWPF>true</UseWPF>
+        <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+        <PlatformTarget>$(Platform)</PlatformTarget>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="CefSharp.Wpf" />
+        <PackageReference Include="Microsoft.CSharp" />
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf"  VersionOverride="1.1.39" />
+        <PackageReference Include="System.Data.DataSetExtensions" />
+    </ItemGroup>
+</Project>

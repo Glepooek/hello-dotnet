@@ -1,0 +1,22 @@
+﻿<Window x:Class="MainDomain.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainDomain"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <StackPanel Orientation="Horizontal">
+        <Button x:Name="NewEbook"
+                Content="NEWEbook"
+                Width="100"
+                Height="30"
+                Click="NewEbook_Click" />
+        <Button Content="CloseEbook"
+                Width="100"
+                Height="30"
+                Click="CloseEbook_Click" />
+    </StackPanel>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="Test.ComboboxDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test.ComboboxDemo"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="sexValues"
+                            MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Sex" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ComboBox Width="200"
+                  Height="50"
+                  SelectedItem="{Binding Sex}"
+                  ItemsSource="{Binding Source={StaticResource sexValues}}" />
+
+        <ComboBox Grid.Row="1"
+                  Width="300"
+                  Height="100"
+                  HorizontalAlignment="Center"
+                  ItemsSource="{Binding ActorList}"
+                  SelectedItem="{Binding SelectedActor}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding HeaderImg}"
+                               Stretch="Uniform"
+                               Height="100" />
+                        <StackPanel Margin="10,0">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding BorthDate}" />
+                            <TextBlock Text="{Binding Description}" FontStyle="Italic" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </Grid>
+</Window>

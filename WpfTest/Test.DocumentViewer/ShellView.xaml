@@ -1,0 +1,30 @@
+﻿<Window x:Class="Test.DocumentViewer.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Test.DocumentViewer"
+        Title="Test.DocumentViewer"
+        WindowState="Maximized">
+
+    <DockPanel LastChildFill="True">
+        <ListBox x:Name="listbox"
+                 ItemsSource="{Binding UserAgreementItems}"
+                 SelectedItem="{Binding SelectedUserAgreementItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!--<DocumentViewer
+            x:Name="docViewer"
+            DockPanel.Dock="Right"
+            Document="{Binding ElementName=listbox, Path=SelectedItem.Document}" />-->
+
+        <local:XpsDocumentViewer x:Name="docViewer"
+                                 DockPanel.Dock="Right"
+                                 DocumentProxy="{Binding ElementName=listbox, Path=SelectedItem.Document}" />
+
+    </DockPanel>
+
+</Window>

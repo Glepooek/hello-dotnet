@@ -1,0 +1,63 @@
+﻿<Window x:Class="Test.MultiTouch.MouseWhellAndMultiTouchZoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+
+    <Grid x:Name="touchPad"
+          Background="Gray"
+          ManipulationStarting="touchPad_ManipulationStarting"
+          ManipulationDelta="touchPad_ManipulationDelta"
+          ManipulationCompleted="touchPad_ManipulationCompleted"
+          ManipulationInertiaStarting="touchPad_ManipulationInertiaStarting">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="dec"
+                Content="-"
+                Width="50"
+                Height="30"
+                Click="dec_Click" />
+        <Slider x:Name="slider"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Maximum="400.0"
+                Minimum="100.0"
+                Value="100"
+                SmallChange="5"
+                LargeChange="5"
+                ValueChanged="slider_ValueChanged" />
+        <Button x:Name="inc"
+                Grid.Column="2"
+                Content="+"
+                Width="50"
+                Height="30"
+                Click="inc_Click" />
+        <Image Width="400"
+               Grid.Row="1"
+               Grid.ColumnSpan="3"
+               x:Name="image"
+               Panel.ZIndex="-100"
+               IsManipulationEnabled="True"
+               MouseWheel="image_MouseWheel"
+               MouseLeftButtonDown="image_MouseLeftButtonDown"
+               MouseLeftButtonUp="image_MouseLeftButtonUp"
+               MouseMove="image_MouseMove"
+               Source="Images/P1.jpg">
+            <Image.RenderTransform>
+                <MatrixTransform x:Name="matrixTrans" />
+            </Image.RenderTransform>
+        </Image>
+    </Grid>
+
+</Window>

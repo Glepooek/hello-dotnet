@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="sendToCsharp()">Send Message to C#</button>
+    <button onclick="callCsharpMethod()">Call C# Method</button>
+    <script>
+        function sendToCsharp() {
+            // 通过 PostMessage 发送
+            CefSharp.PostMessage("Hello from JS via CefSharp.PostMessage");
+        }
+
+        function callCsharpMethod() {
+            // 通过绑定的 C# 对象发送
+            window.webView.onMessageReceived("Hello from JS via Binding");
+        }
+
+        function calledByCsharp(message) {
+            console.log(message);
+        }
+
+        // 监听来自 C# 的消息
+        window.addEventListener("message", (event) => {
+            console.log("C# says:", event.data);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Test.SubWpfApp": {
+      "commandName": "Project",
+      "commandLineArgs": "1"
+    }
+  }
+}

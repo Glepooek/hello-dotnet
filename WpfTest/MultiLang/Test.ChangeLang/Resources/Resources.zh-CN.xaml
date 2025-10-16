@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <system:String x:Key="MainWindow_name">姓名</system:String>
+    <system:String x:Key="MainWindow_age">年龄</system:String>
+    <system:String x:Key="MainWindow_show">显示提示</system:String>
+    <system:String x:Key="MainWindow_Toast_Msg">这是提示信息</system:String>
+    <system:String x:Key="MainWindow_Language">English</system:String>
+</ResourceDictionary>
