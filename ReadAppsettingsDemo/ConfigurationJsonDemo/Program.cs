@@ -1,21 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ConfigurationJsonDemo;
+﻿using ConfigurationJsonDemo;
 using Microsoft.Extensions.Configuration;
-using System.Diagnostics;
 
-Console.WriteLine("Hello, World!");
-
-var builder = new ConfigurationBuilder()
+IConfigurationRoot? config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true); ;
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .Build();
 
-IConfigurationRoot config = builder.Build();
-var connectionString = config["ConnectionString"];
+string? version = config["Version"];
+string? connectionString = config.GetConnectionString("ConnectionString");
 
-string appName = config["ApplicationSettings:AppName"];
+string? appName = config["ApplicationSettings:AppName"];
 
-Debug.WriteLine(connectionString);
-Debug.WriteLine(appName);
+Console.WriteLine(version);
+Console.WriteLine(connectionString);
+Console.WriteLine(appName);
 
 
 // 绑定配置到对象
@@ -27,8 +25,8 @@ AppSettings appSettings = new AppSettings
 config.GetSection("Logging").Bind(appSettings.Logging);
 config.GetSection("ApplicationSettings").Bind(appSettings.Application);
 
-Debug.WriteLine($"Log Level: {appSettings.Logging.LogLevel.Default}");
-Debug.WriteLine($"App Name: {appSettings.Application.AppName}");
-Debug.WriteLine($"App Version: {appSettings.Application.Version}");
+Console.WriteLine($"Log Level: {appSettings.Logging.LogLevel.Default}");
+Console.WriteLine($"App Name: {appSettings.Application.AppName}");
+Console.WriteLine($"App Version: {appSettings.Application.Version}");
 
 Console.ReadLine();
