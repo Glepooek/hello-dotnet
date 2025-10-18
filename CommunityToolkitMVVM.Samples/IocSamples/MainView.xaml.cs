@@ -2,6 +2,7 @@
 using IocSamples.Services;
 using IocSamples.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace IocSamples
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Ioc.Default.GetService<ILogger>().Information("call Button_Click");
             MessageBox.Show(Ioc.Default.GetService<MainViewModel>().FileName);
         }
     }
