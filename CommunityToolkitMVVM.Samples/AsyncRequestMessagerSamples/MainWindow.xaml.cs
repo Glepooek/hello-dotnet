@@ -1,6 +1,6 @@
-﻿using MessagerSamples.Messages;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using MessagerSamples.Messages;
 using MessagerSamples.Models;
-using Microsoft.Toolkit.Mvvm.Messaging;
 using System.Threading.Tasks;
 using System.Windows;
 

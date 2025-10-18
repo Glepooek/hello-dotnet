@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IocSamples"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
@@ -12,6 +13,6 @@
         <Button Content="test"
                 Height="40"
                 Width="100"
-                Click="Button_Click"/>
+                Click="Button_Click" />
     </Grid>
 </Window>

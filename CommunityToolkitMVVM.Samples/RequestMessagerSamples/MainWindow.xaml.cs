@@ -1,6 +1,6 @@
 ﻿using MessagerSamples.Messages;
 using MessagerSamples.Models;
-using Microsoft.Toolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Windows;
 
 namespace MessagerSamples

@@ -1,5 +1,5 @@
 ﻿using MessagerSamples.Models;
-using Microsoft.Toolkit.Mvvm.Messaging.Messages;
+using CommunityToolkit.Mvvm.Messaging.Messages;
 
 namespace MessagerSamples.Messages
 {

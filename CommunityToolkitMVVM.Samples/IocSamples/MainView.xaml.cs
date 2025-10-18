@@ -1,4 +1,6 @@
-﻿using IocSamples.Services;
+﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using IocSamples.Services;
+using IocSamples.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,7 @@ namespace IocSamples
     /// </summary>
     public partial class MainView : Window
     {
-        private MainViewModel viewModel;
+        //private MainViewModel viewModel;
         public MainView()
         {
             InitializeComponent();
@@ -30,13 +32,13 @@ namespace IocSamples
             //IFilesService fileService = App.Current.Services.GetService<IFilesService>();
             //MessageBox.Show(fileService.GetFile("test"));
 
-            viewModel = App.Current.Services.GetService<MainViewModel>();
-            this.DataContext = viewModel;
+            //viewModel = App.Current.Services.GetService<MainViewModel>();
+            //this.DataContext = viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(viewModel.FileName);
+            MessageBox.Show(Ioc.Default.GetService<MainViewModel>().FileName);
         }
     }
 }

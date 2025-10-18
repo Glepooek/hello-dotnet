@@ -1,7 +1,9 @@
 ﻿<Application x:Class="IocSamples.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:IocSamples"
+             xmlns:vm="clr-namespace:IocSamples.ViewModels"
              StartupUri="MainView.xaml">
-    <Application.Resources />
+    <Application.Resources>
+        <vm:ViewModelLocator x:Key="Locator" />
+    </Application.Resources>
 </Application>
