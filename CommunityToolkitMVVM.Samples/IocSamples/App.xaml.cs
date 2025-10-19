@@ -13,14 +13,6 @@ namespace IocSamples
 {
     public partial class App : Application
     {
-        #region Constructor
-
-        public App()
-        {
-        }
-
-        #endregion
-
         #region Methods
 
         protected override void OnStartup(StartupEventArgs e)
@@ -33,13 +25,13 @@ namespace IocSamples
                     .Build();
 
                 // 初始化 ServiceCollection 并配置服务、ViewModels、Logger、IoC提供程序
-                ServiceCollection mServices = new ServiceCollection();
-                mServices.ConfigureServices()
-                   .ConfigureViewModels()
-                   .ConfigureConfiguration(config)
-                   .ConfigureLogger(config);
+                ServiceCollection mServices = new ServiceCollection()
+                    .ConfigureServices()
+                    .ConfigureViewModels()
+                    .ConfigureConfiguration(config)
+                    .ConfigureLogger(config);
 
-                IServiceProvider serviceProvider = mServices.BuildServiceProvider();
+                IServiceProvider serviceProvider = mServices.BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true, ValidateScopes = true });
                 Ioc.Default.ConfigureServices(serviceProvider);
             }
             catch (Exception ex)

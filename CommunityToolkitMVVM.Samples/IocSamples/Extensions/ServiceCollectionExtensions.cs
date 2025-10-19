@@ -56,7 +56,6 @@ namespace IocSamples.Extensions
 
             // 注册 IConfiguration
             services.AddSingleton<IConfiguration>(configuration);
-
             // 注册配置类，推荐使用 Configure<T>
             services.Configure<LoggingSettings>(configuration.GetSection(LoggingSettings.Logging));
             services.Configure<ApplicationSettings>(configuration.GetSection(ApplicationSettings.Application));
@@ -73,6 +72,7 @@ namespace IocSamples.Extensions
         public static ServiceCollection ConfigureLogger(this ServiceCollection services, IConfiguration configuration)
         {
             Guard.IsNotNull(services);
+
             // 代码配置 Serilog 日志
             //Log.Logger = new LoggerConfiguration()
             //    .MinimumLevel.Debug()
@@ -87,8 +87,9 @@ namespace IocSamples.Extensions
                 .ReadFrom.Configuration(configuration)
                 .CreateLogger();
 
-            Log.Information("Serilog log initilized");
+            Guard.IsNotNull(Log.Logger, nameof(Log.Logger));
 
+            Log.Information("Serilog log initilized");
             services.AddSingleton<ILogger>(Log.Logger);
 
             return services;

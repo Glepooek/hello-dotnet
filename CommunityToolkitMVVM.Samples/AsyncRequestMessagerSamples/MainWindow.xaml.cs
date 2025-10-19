@@ -46,7 +46,7 @@ namespace MessagerSamples
 
         public async Task<User> GetUserAsync()
         {
-            return new User { Name = "any" };
+            return await Task.FromResult<User>(new User { Name = "any" });
         }
     }
 }

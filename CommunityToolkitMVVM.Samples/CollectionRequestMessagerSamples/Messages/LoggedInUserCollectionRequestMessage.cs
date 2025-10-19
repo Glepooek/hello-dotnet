@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace MessagerSamples.Messages
 {
+    // AsyncCollectionRequestMessage<>
     public class LoggedInUserCollectionRequestMessage : CollectionRequestMessage<User>
     {
-        
     }
 }

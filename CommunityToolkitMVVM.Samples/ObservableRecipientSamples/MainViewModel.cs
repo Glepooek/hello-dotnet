@@ -14,20 +14,6 @@ namespace ObservableRecipientSamples
     {
         protected override void OnActivated()
         {
-            WeakReferenceMessenger.Default.Register<LoggedInUserChangedMessage<AppEnum>>(this, (r, m) =>
-            {
-                switch (m.Value)
-                {
-                    case AppEnum.AppStart:
-                        break;
-                    case AppEnum.AppLoading:
-                        break;
-                    case AppEnum.AppStop:
-                        break;
-                    default:
-                        break;
-                }
-            });
             WeakReferenceMessenger.Default.Register<MainViewModel, LoggedInUserChangedMessage<AppEnum>>(this, (r, m) => r.Receive(m));
         }
 
