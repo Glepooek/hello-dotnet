@@ -9,29 +9,47 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace RelayCommandSamples
 {
-    internal class MainViewModel : ObservableObject
+    internal partial class MainViewModel : ObservableObject
     {
         public MainViewModel()
         {
-            IncrementCounterCommand = new RelayCommand(IncrementCounter);
-            DownloadCommand = new AsyncRelayCommand(DownloadText);
+            //IncreaseCounterCommand = new RelayCommand(IncreaseCounter);
+            DownloadTextCommand = new AsyncRelayCommand(GetResultAsync);
         }
 
-        private int mCounter;
-        public int Counter
+        //private int mCounter;
+        //public int Counter
+        //{
+        //    get => mCounter;
+        //    set => SetProperty(ref mCounter, value);
+        //}
+
+        [ObservableProperty]
+        private int counter;
+
+        private string result;
+        public string Result
         {
-            get => mCounter;
-            set => SetProperty(ref mCounter, value);
+            get => result;
+            set => SetProperty(ref result, value);
         }
 
-        public ICommand IncrementCounterCommand { get; private set; }
-        public IAsyncRelayCommand DownloadCommand { get; private set; }
+        //public ICommand IncreaseCounterCommand { get; private set; }
+        public IAsyncRelayCommand DownloadTextCommand { get; private set; }
 
-        private void IncrementCounter() => Counter++;
+        [RelayCommand]
+        public void IncreaseCounter() => Counter++;
 
-        private Task<string> DownloadText()
+        private async Task<string> DownloadTextAsync()
         {
-            return Task.FromResult("test");
+            await Task.Delay(5000);
+            return await Task.FromResult("test");
+        }
+
+        private async Task GetResultAsync()
+        {
+            Result = string.Empty;
+            Result = await DownloadTextAsync();
         }
     }
 }
