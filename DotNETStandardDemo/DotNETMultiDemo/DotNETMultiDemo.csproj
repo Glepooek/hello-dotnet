@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFrameworks>net462;net9.0-windows</TargetFrameworks>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-windows'">
+		<PackageReference Include="CefSharp.Wpf.NETCore">
+			<Version>140.1.140</Version>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+		<PackageReference Include="CefSharp.Wpf">
+			<Version>140.1.140</Version>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
