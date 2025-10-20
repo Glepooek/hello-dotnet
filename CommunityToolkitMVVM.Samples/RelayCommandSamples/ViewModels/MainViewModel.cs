@@ -7,7 +7,7 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-namespace RelayCommandSamples
+namespace RelayCommandSamples.ViewModels
 {
     internal partial class MainViewModel : ObservableObject
     {

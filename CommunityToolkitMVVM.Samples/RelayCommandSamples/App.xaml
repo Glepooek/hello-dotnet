@@ -1,7 +1,9 @@
 ﻿<Application x:Class="RelayCommandSamples.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RelayCommandSamples"
-             StartupUri="MainView.xaml">
-    <Application.Resources />
+             xmlns:local="clr-namespace:RelayCommandSamples.ViewModels"
+             StartupUri="Views/MainCanExecutedView.xaml">
+    <Application.Resources>
+        <local:ViewModelLocator x:Key="Locator" />
+    </Application.Resources>
 </Application>
