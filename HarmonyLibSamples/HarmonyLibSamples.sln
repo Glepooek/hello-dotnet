@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyProfixSamples", "Har
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyPatch.Shared", "HarmonyPatch.Shared\HarmonyPatch.Shared.csproj", "{9BA8772E-244D-3C09-8D2C-5B30886CC072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyPostfixSamples", "HarmonyPostfixSamples\HarmonyPostfixSamples.csproj", "{CC4C7CAD-53C3-4B6B-9211-C13BD8F3B769}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BA8772E-244D-3C09-8D2C-5B30886CC072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BA8772E-244D-3C09-8D2C-5B30886CC072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BA8772E-244D-3C09-8D2C-5B30886CC072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4C7CAD-53C3-4B6B-9211-C13BD8F3B769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4C7CAD-53C3-4B6B-9211-C13BD8F3B769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4C7CAD-53C3-4B6B-9211-C13BD8F3B769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4C7CAD-53C3-4B6B-9211-C13BD8F3B769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

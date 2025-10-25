@@ -15,6 +15,20 @@ harmony.PatchAll();
 FileLog.FlushBuffer();
 
 Console.WriteLine("After patch GetName: " + person.GetName());
-Console.WriteLine("After patch MakeTotalMoney: " + person.MakeTotalMoney(10));
+Console.WriteLine("After patch MakeTotalMoney: " + person.MakeTotalMoney(10, 100));
+Console.WriteLine("After patch GetNumbers: ");
+foreach (var num in person.GetNumbers())
+{
+    Console.WriteLine(num);
+}
+
+
+
+
+
+
+
+
+
 
 Console.ReadLine();

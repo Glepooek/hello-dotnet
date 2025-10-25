@@ -23,14 +23,18 @@ namespace HarmonyPatch.Shared
             return Name;
         }
 
-        public int MakeTotalMoney(int money)
+        public int MakeTotalMoney(int money, int personalIncomeTax = 0)
         {
-            Console.WriteLine("In Original MakeTotalMoney");
-            for (int i = 0; i < 10000; i++)
-            {
-                
-            }
-            return Age * money;
+            Console.WriteLine($"In Original MakeTotalMoney，money parameter: {money}, personalIncomeTax parameter: {personalIncomeTax}");
+            return Age * money - personalIncomeTax;
+        }
+
+        public IEnumerable<int> GetNumbers()
+        {
+            Console.WriteLine("In Original GetNumbers");
+            yield return 1;
+            yield return 2;
+            yield return 3;
         }
 
         public override string ToString()
