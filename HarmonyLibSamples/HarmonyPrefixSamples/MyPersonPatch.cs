@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HarmonyProfixSamples;
+namespace HarmonyPrefixSamples;
 
 // 返回true无法修改方法返回值，返回false能修改方法返回值；
 // 返回false，会跳过原始方法，及其后的Prefix

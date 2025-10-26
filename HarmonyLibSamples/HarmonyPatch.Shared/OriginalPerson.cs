@@ -37,6 +37,16 @@ namespace HarmonyPatch.Shared
             yield return 3;
         }
 
+        public double Divide(double a, double b)
+        {
+            Console.WriteLine($"In Original Divide, a parameter: {a}, b parameter: {b}");
+            if (b == 0)
+            {
+                throw new InvalidOperationException("parameter b can not be zero.");
+            }
+            return a / b;
+        }
+
         public override string ToString()
         {
             return $"Name: {Name}, Age: {Age}";
