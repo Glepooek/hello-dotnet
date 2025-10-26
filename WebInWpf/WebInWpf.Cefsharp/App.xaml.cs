@@ -57,6 +57,11 @@ namespace Unipus.Student.Client
         [MethodImpl(MethodImplOptions.NoInlining)]
         private async Task<bool> InitializeCefAsync()
         {
+            if (Cef.IsInitialized.HasValue && Cef.IsInitialized.Value)
+            {
+                return true;
+            }
+
             CefSharpSettings.FocusedNodeChangedEnabled = true;
             CefSharpSettings.SubprocessExitIfParentProcessClosed = true;
             CefSharpSettings.ConcurrentTaskExecution = true;
@@ -81,16 +86,11 @@ namespace Unipus.Student.Client
             settings.CefCommandLineArgs.Add("touch-events", "1");
             settings.CefCommandLineArgs.Add("disable-web-security", "1");// 关闭同源策略，允许跨域调试
             settings.CefCommandLineArgs.Add("no-proxy-server", "1");// 禁用代理
+            //settings.CefCommandLineArgs.Add("no-sandbox", "1");// 禁用沙盒
 
-            var result = Cef.IsInitialized;
-            if (result.HasValue && !result.Value)
-            {
-                //Cef.EnableHighDPISupport();
-                //Perform dependency check to make sure all relevant resources are in our output directory.
-                return await Cef.InitializeAsync(settings, performDependencyCheck: true, browserProcessHandler: null);
-            }
-
-            return false;
+            //Cef.EnableHighDPISupport();
+            //Perform dependency check to make sure all relevant resources are in our output directory.
+            return await Cef.InitializeAsync(settings, performDependencyCheck: true, browserProcessHandler: null);
         }
 
         #endregion

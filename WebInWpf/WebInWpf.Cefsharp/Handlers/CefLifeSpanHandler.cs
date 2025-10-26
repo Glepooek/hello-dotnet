@@ -7,7 +7,13 @@ internal class CefLifeSpanHandler : ILifeSpanHandler
 {
     public bool DoClose(IWebBrowser browserControl, IBrowser browser)
     {
-        return false;
+        var isDevToolsOpened = browserControl.GetBrowserHost()?.HasDevTools;
+        if (isDevToolsOpened.HasValue && isDevToolsOpened.Value
+            && browser.IsPopup)
+        {
+            return false;
+        }
+        return true;
     }
 
     public void OnAfterCreated(IWebBrowser browserControl, IBrowser browser)
