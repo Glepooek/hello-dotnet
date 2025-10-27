@@ -25,8 +25,16 @@ namespace HarmonyAuxiliaryMethodsSamples
     [HarmonyLib.HarmonyPatch]
     internal class MyServiceProviderEngineScopePatch
     {
+        static void Prepare(MethodBase original, Harmony harmony, Exception ex)
+        {
+            Console.WriteLine("++++++++++++++ Prepare ++++++++++++++");
+            Console.WriteLine($"original:{original?.Name}");
+        }
+
         static MethodBase TargetMethod()
         {
+            Console.WriteLine("++++++++++++++ TargetMethod ++++++++++++++");
+
             //Type type = Type.GetType("Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope, Microsoft.Extensions.DependencyInjection");
             //ConstructorInfo constructor = type.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)[0];
 
@@ -42,12 +50,18 @@ namespace HarmonyAuxiliaryMethodsSamples
             return constructor;
         }
 
-        public static void Prefix(bool isRootScope)
+        static void Prefix(bool isRootScope)
         {
             Console.WriteLine("----------------------------");
             Console.WriteLine($"isRootScope:{isRootScope}");
             Console.WriteLine(Environment.StackTrace);
             Console.WriteLine("----------------------------");
+        }
+
+        static void Cleanup(MethodBase original, Harmony harmony, Exception ex)
+        {
+            Console.WriteLine("++++++++++++++ Cleanup ++++++++++++++");
+            Console.WriteLine($"original:{original?.Name}");
         }
     }
 }
