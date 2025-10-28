@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyInjectionsSamples", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyAuxiliaryMethodsSamples", "HarmonyAuxiliaryMethodsSamples\HarmonyAuxiliaryMethodsSamples.csproj", "{E58F8260-4CB4-46D9-BABA-8BF8D3E91AEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyReversePatchSamples", "HarmonyReversePatchSamples\HarmonyReversePatchSamples.csproj", "{4571C342-154F-4B57-8129-E6F00FA03000}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{E58F8260-4CB4-46D9-BABA-8BF8D3E91AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E58F8260-4CB4-46D9-BABA-8BF8D3E91AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E58F8260-4CB4-46D9-BABA-8BF8D3E91AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4571C342-154F-4B57-8129-E6F00FA03000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4571C342-154F-4B57-8129-E6F00FA03000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4571C342-154F-4B57-8129-E6F00FA03000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4571C342-154F-4B57-8129-E6F00FA03000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
