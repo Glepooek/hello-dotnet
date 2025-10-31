@@ -7,6 +7,4 @@
 
 
 
-
-
 Console.ReadLine();

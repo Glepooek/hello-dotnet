@@ -7,12 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Lib.Harmony" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HarmonyPatch.Shared\HarmonyPatch.Shared.csproj" />
-  </ItemGroup>
-
 </Project>

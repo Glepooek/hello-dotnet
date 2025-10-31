@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HarmonyPatch.Shared\HarmonyPatch.Shared.csproj" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
   </ItemGroup>
 
 </Project>

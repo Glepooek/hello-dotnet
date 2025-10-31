@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Lib.Harmony" Version="2.4.1" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
   </ItemGroup>
 </Project>
