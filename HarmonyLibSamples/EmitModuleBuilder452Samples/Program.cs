@@ -26,9 +26,13 @@ namespace EmitModuleBuilder452Samples
 
             // 3. 在 Module1 中定义类型并生成
             TypeBuilder typeBuilder1 = moduleBuilder1.DefineType(
-                "MyClass", TypeAttributes.Public | TypeAttributes.BeforeFieldInit);
+                "MyClass",
+                TypeAttributes.Public | TypeAttributes.BeforeFieldInit);
             MethodBuilder methodBuilder1 = typeBuilder1.DefineMethod(
-                "MyMethod", MethodAttributes.Public | MethodAttributes.Static, typeof(void), null);
+                "MyMethod",
+                MethodAttributes.Public | MethodAttributes.Static,
+                typeof(void),
+                null);
             ILGenerator il1 = methodBuilder1.GetILGenerator();
             il1.EmitWriteLine("Hello from Module1!");
             il1.Emit(OpCodes.Ret);
@@ -37,9 +41,13 @@ namespace EmitModuleBuilder452Samples
 
             // 4. 在 Module2 中定义类型，引用 Module1 的方法
             TypeBuilder typeBuilder2 = moduleBuilder2.DefineType(
-                "MyClass2", TypeAttributes.Public | TypeAttributes.BeforeFieldInit);
+                "MyClass2",
+                TypeAttributes.Public | TypeAttributes.BeforeFieldInit);
             MethodBuilder methodBuilder2 = typeBuilder2.DefineMethod(
-                "MyMethod2", MethodAttributes.Public | MethodAttributes.Static, typeof(void), null);
+                "MyMethod2",
+                MethodAttributes.Public | MethodAttributes.Static,
+                typeof(void),
+                null);
             ILGenerator il2 = methodBuilder2.GetILGenerator();
             il2.EmitWriteLine("Hello from Module2!");
             il2.EmitCall(OpCodes.Call, myMethod, null); // 跨模块调用
@@ -56,6 +64,9 @@ namespace EmitModuleBuilder452Samples
             // 5. 调用方法
             MethodInfo myMethod2 = myClass2Type.GetMethod("MyMethod2");
             myMethod2.Invoke(null, null); // 此时应正常执行
+
+            // 6. 保存程序集和模块到磁盘
+            assemblyBuilder.Save($"{assemblyName.Name}.dll");
 
             Console.Read();
         }
