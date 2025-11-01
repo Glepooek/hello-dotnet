@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilder452Samples",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilderSamples", "EmitTypeBuilderSamples\EmitTypeBuilderSamples.csproj", "{611943B2-F9D7-4A35-A1B6-CA05619DC526}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitMethodBuilderSamples", "EmitMethodBuilderSamples\EmitMethodBuilderSamples.csproj", "{8C94C425-A2B6-88EB-9E34-23009CB9CD08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitMethodBuilder452Samples", "EmitMethodBuilder452Samples\EmitMethodBuilder452Samples.csproj", "{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

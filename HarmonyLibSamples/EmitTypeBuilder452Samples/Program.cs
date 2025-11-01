@@ -216,6 +216,7 @@ namespace EmitTypeBuilder452Samples
                 MethodAttributes.Public,
                 typeof(void),
                 new[] { typeof(string) });
+            raiseMethod.DefineParameter(1, ParameterAttributes.None, "message");
 
             ILGenerator raiseIl = raiseMethod.GetILGenerator();
             Label label = raiseIl.DefineLabel();
@@ -237,7 +238,7 @@ namespace EmitTypeBuilder452Samples
 
             #region 测试事件
 
-            object eventDemo = Activator.CreateInstance(classType);
+            object dynamicClass = Activator.CreateInstance(classType);
 
             // 定义事件处理方法（作为静态方法，方便反射获取）
             // 注意：不能直接用 lambda 转换，必须通过 Delegate.CreateDelegate 创建匹配类型的委托
@@ -250,16 +251,16 @@ namespace EmitTypeBuilder452Samples
             Delegate handler = Delegate.CreateDelegate(delegateType, handlerMethod);
 
             // 注册事件
-            classType.GetEvent("MyEvent").AddEventHandler(eventDemo, handler);
+            classType.GetEvent("MyEvent").AddEventHandler(dynamicClass, handler);
 
             // 触发事件
-            classType.GetMethod("RaiseEvent").Invoke(eventDemo, new object[] { "Hello from dynamic event!" });
+            classType.GetMethod("RaiseEvent").Invoke(dynamicClass, new object[] { "Hello from dynamic event!" });
 
             // 注销事件
-            classType.GetEvent("MyEvent").RemoveEventHandler(eventDemo, handler);
+            classType.GetEvent("MyEvent").RemoveEventHandler(dynamicClass, handler);
 
             // 再次触发（无输出）
-            classType.GetMethod("RaiseEvent").Invoke(eventDemo, new object[] { "This message won't be handled" });
+            classType.GetMethod("RaiseEvent").Invoke(dynamicClass, new object[] { "This message won't be handled" });
 
             #endregion
 
