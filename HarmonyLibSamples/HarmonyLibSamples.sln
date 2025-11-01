@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitModuleBuilder452Samples
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilder452Samples", "EmitTypeBuilder452Samples\EmitTypeBuilder452Samples.csproj", "{5651D91A-AE3F-4309-B727-4D9555519611}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilderSamples", "EmitTypeBuilderSamples\EmitTypeBuilderSamples.csproj", "{611943B2-F9D7-4A35-A1B6-CA05619DC526}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{5651D91A-AE3F-4309-B727-4D9555519611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5651D91A-AE3F-4309-B727-4D9555519611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5651D91A-AE3F-4309-B727-4D9555519611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

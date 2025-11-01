@@ -114,19 +114,19 @@ namespace EmitTypeBuilder452Samples
             ILGenerator iL = protectedMethodBuilder.GetILGenerator();
             iL.Emit(OpCodes.Ret);
 
-            // 定义泛型参数
-            string[] typeParamNames = { "T" };
-            GenericTypeParameterBuilder[] typeParams = classBuilder.DefineGenericParameters(typeParamNames);
+            //// 定义泛型参数
+            //string[] typeParamNames = { "T" };
+            //GenericTypeParameterBuilder[] typeParams = classBuilder.DefineGenericParameters(typeParamNames);
 
-            // 定义泛型方法
-            MethodBuilder genericMethodBuilder = classBuilder.DefineMethod(
-                "GetT",
-                MethodAttributes.Public,
-                typeParams[0],
-                new Type[] { typeof(object) });
-            ILGenerator ilGenerator = genericMethodBuilder.GetILGenerator();
-            ilGenerator.Emit(OpCodes.Ldarg_0);
-            ilGenerator.Emit(OpCodes.Ret);
+            //// 定义泛型方法
+            //MethodBuilder genericMethodBuilder = classBuilder.DefineMethod(
+            //    "GetT",
+            //    MethodAttributes.Public,
+            //    typeParams[0],
+            //    new Type[] { typeof(object) });
+            //ILGenerator ilGenerator = genericMethodBuilder.GetILGenerator();
+            //ilGenerator.Emit(OpCodes.Ldarg_0);
+            //ilGenerator.Emit(OpCodes.Ret);
 
             //classBuilder.CreateType();
             Console.WriteLine("类已创建：");
@@ -134,24 +134,24 @@ namespace EmitTypeBuilder452Samples
 
             #region 定义委托
 
-            // 定义内部类，并在内部类中定义委托类型
-            TypeBuilder delegateBuilder = classBuilder.DefineNestedType(
+            // 定义委托类型
+            TypeBuilder delegateBuilder = moduleBuilder.DefineType(
                 "MyNameSpace.AuthDelegate",
-                TypeAttributes.Class | TypeAttributes.NestedPublic | TypeAttributes.Sealed,
+                TypeAttributes.Class | TypeAttributes.Public | TypeAttributes.Sealed,
                 typeof(MulticastDelegate));
 
             // 添加委托的构造函数
             ConstructorBuilder constructor = delegateBuilder.DefineConstructor(
-                MethodAttributes.Public, CallingConventions.Standard,
-                new Type[] { typeof(object),
-                typeof(IntPtr) });
+                MethodAttributes.RTSpecialName | MethodAttributes.HideBySig | MethodAttributes.Public, 
+                CallingConventions.Standard,
+                new Type[] { typeof(object), typeof(IntPtr) });
             constructor.SetImplementationFlags(MethodImplAttributes.Runtime | MethodImplAttributes.Managed);
 
             // 添加Invoke方法
             delegateBuilder.DefineMethod(
                 "Invoke",
                 MethodAttributes.Public,
-                typeof(bool),
+                typeof(void),
                 new Type[] { typeof(string) })
               .SetImplementationFlags(MethodImplAttributes.Runtime | MethodImplAttributes.Managed);
 
@@ -162,39 +162,116 @@ namespace EmitTypeBuilder452Samples
 
             #region 定义事件
 
-            //定义事件
-            EventBuilder eb = classBuilder.DefineEvent(
-                "MyEvent", 
+            // 3.1 事件底层字段
+            FieldBuilder eventField = classBuilder.DefineField(
+                "_myEvent",
+                delegateType,
+                FieldAttributes.Private);
+
+            // 3.2 定义事件
+            EventBuilder myEvent = classBuilder.DefineEvent(
+                "MyEvent",
                 EventAttributes.None,
-                delegateBuilder);
+                delegateType);
 
+            // 3.3 add 访问器
             MethodBuilder addMethod = classBuilder.DefineMethod(
-                "add_OnAuth", 
-                MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName, 
-                typeof(void), 
-                new Type[] { delegateBuilder });
-            ILGenerator addMethodIL = addMethod.GetILGenerator();
-            //......
-            addMethodIL.Emit(OpCodes.Ret);
-            eb.SetAddOnMethod(addMethod);
-
-            MethodBuilder removeMethod = classBuilder.DefineMethod(
-                "remove_OnAuth",
+                "add_MyEvent",
                 MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName,
                 typeof(void),
-                new Type[] { delegateBuilder });
-            ILGenerator removeMethodIL = removeMethod.GetILGenerator();
-            //......
-            removeMethodIL.Emit(OpCodes.Ret);
-            eb.SetRemoveOnMethod(removeMethod);
-            Console.WriteLine("事件已创建：");
+                new[] { delegateType });
 
-            classBuilder.CreateType();
+            ILGenerator addIl = addMethod.GetILGenerator();
+            addIl.Emit(OpCodes.Ldarg_0);
+            addIl.Emit(OpCodes.Ldarg_0);
+            addIl.Emit(OpCodes.Ldfld, eventField);
+            addIl.Emit(OpCodes.Ldarg_1);
+            addIl.Emit(OpCodes.Call, typeof(Delegate).GetMethod("Combine", new[] { typeof(Delegate), typeof(Delegate) }));
+            addIl.Emit(OpCodes.Castclass, delegateType);
+            addIl.Emit(OpCodes.Stfld, eventField);
+            addIl.Emit(OpCodes.Ret);
+            myEvent.SetAddOnMethod(addMethod);
+
+            // 3.4 remove 访问器
+            MethodBuilder removeMethod = classBuilder.DefineMethod(
+                "remove_MyEvent",
+                MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName,
+                typeof(void),
+                new[] { delegateType });
+
+            ILGenerator removeIl = removeMethod.GetILGenerator();
+            removeIl.Emit(OpCodes.Ldarg_0);
+            removeIl.Emit(OpCodes.Ldarg_0);
+            removeIl.Emit(OpCodes.Ldfld, eventField);
+            removeIl.Emit(OpCodes.Ldarg_1);
+            removeIl.Emit(OpCodes.Call, typeof(Delegate).GetMethod("Remove", new[] { typeof(Delegate), typeof(Delegate) }));
+            removeIl.Emit(OpCodes.Castclass, delegateType);
+            removeIl.Emit(OpCodes.Stfld, eventField);
+            removeIl.Emit(OpCodes.Ret);
+            myEvent.SetRemoveOnMethod(removeMethod);
+
+            // 3.5 触发事件的方法
+            MethodBuilder raiseMethod = classBuilder.DefineMethod(
+                "RaiseEvent",
+                MethodAttributes.Public,
+                typeof(void),
+                new[] { typeof(string) });
+
+            ILGenerator raiseIl = raiseMethod.GetILGenerator();
+            Label label = raiseIl.DefineLabel();
+            raiseIl.Emit(OpCodes.Ldarg_0);
+            raiseIl.Emit(OpCodes.Ldfld, eventField);
+            raiseIl.Emit(OpCodes.Brfalse_S, label);
+            raiseIl.Emit(OpCodes.Ldarg_0);
+            raiseIl.Emit(OpCodes.Ldfld, eventField);
+            raiseIl.Emit(OpCodes.Ldarg_1);
+            raiseIl.Emit(OpCodes.Callvirt, delegateType.GetMethod("Invoke"));
+            raiseIl.MarkLabel(label);
+            raiseIl.Emit(OpCodes.Ret);
+
+            Console.WriteLine("事件已创建：");
+            // 获取泛型类型定义
+            Type classType = classBuilder.CreateType();
+
+            #endregion
+
+            #region 测试事件
+
+            object eventDemo = Activator.CreateInstance(classType);
+
+            // 定义事件处理方法（作为静态方法，方便反射获取）
+            // 注意：不能直接用 lambda 转换，必须通过 Delegate.CreateDelegate 创建匹配类型的委托
+
+            // 获取处理方法的 MethodInfo
+            MethodInfo handlerMethod = typeof(Program)
+                .GetMethod("HandleEvent", BindingFlags.Static | BindingFlags.NonPublic);
+
+            // 创建 MyDelegate 类型的委托实例（关键修正）
+            Delegate handler = Delegate.CreateDelegate(delegateType, handlerMethod);
+
+            // 注册事件
+            classType.GetEvent("MyEvent").AddEventHandler(eventDemo, handler);
+
+            // 触发事件
+            classType.GetMethod("RaiseEvent").Invoke(eventDemo, new object[] { "Hello from dynamic event!" });
+
+            // 注销事件
+            classType.GetEvent("MyEvent").RemoveEventHandler(eventDemo, handler);
+
+            // 再次触发（无输出）
+            classType.GetMethod("RaiseEvent").Invoke(eventDemo, new object[] { "This message won't be handled" });
+
             #endregion
 
             assemblyBuilder.Save("MyDynamicAssembly.dll");
 
             Console.Read();
+        }
+
+        // 事件处理方法（签名与 MyDelegate 匹配）
+        private static void HandleEvent(string message)
+        {
+            Console.WriteLine($"事件触发：{message}");
         }
     }
 }
