@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorSamples", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGenerator452Samples", "EmitILGenerator452Samples\EmitILGenerator452Samples.csproj", "{1FF68CC6-5BE6-4B25-887A-C4B223EA9184}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorLdInstruction452Samples", "EmitILGeneratorLdInstruction452Samples\EmitILGeneratorLdInstruction452Samples.csproj", "{69429F9A-4155-44E0-AEDB-EDAC8312B003}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{1FF68CC6-5BE6-4B25-887A-C4B223EA9184}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FF68CC6-5BE6-4B25-887A-C4B223EA9184}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FF68CC6-5BE6-4B25-887A-C4B223EA9184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

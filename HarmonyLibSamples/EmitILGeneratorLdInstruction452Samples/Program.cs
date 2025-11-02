@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmitILGeneratorLdInstruction452Samples;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -6,7 +7,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmitILGenerator452Samples
+namespace EmitILGeneratorLdInstructionSamples
 {
     internal class Program
     {
@@ -24,10 +25,10 @@ namespace EmitILGenerator452Samples
                     "MyNamespace.MyClass",
                     TypeAttributes.Public | TypeAttributes.Class);
 
-            ILGeneratorWriteLineDemo.Run(classBuilder);
-            ILGeneratorCatchExceptionDemo.Run(classBuilder);
-            ILGeneratorThrowExceptionDemo.Run(classBuilder);
-            ILGeneratorLocalBuilderDemo.Run(classBuilder);
+            LdargInstructionDemo.Run(classBuilder);
+            LdargaInstructionDemo.Run(classBuilder);
+            //ILGeneratorThrowExceptionDemo.Run(classBuilder);
+            //ILGeneratorLocalBuilderDemo.Run(classBuilder);
 
             Type classType = classBuilder.CreateType();
 
@@ -36,12 +37,15 @@ namespace EmitILGenerator452Samples
             #region 测试执行
 
             object dynamicClassInstance = Activator.CreateInstance(classType);
-            classType.GetMethod("MyMethod1").Invoke(dynamicClassInstance, new object[] { 42, "Hello from EmitWriteLine!" });
+            object result = classType.GetMethod("Add").Invoke(dynamicClassInstance, new object[] { 42, 0 });
+            Console.WriteLine($"Add Result: {result}");
 
-            classType.GetMethod("MyMethod2").Invoke(dynamicClassInstance, new object[] { 42, "Hello on try..catch..finally!" });
+            int x = 5;
+            object[] parameters = { x };
+            classType.GetMethod("Increment").Invoke(null, parameters);
+            Console.WriteLine($"Increment Result: {parameters[0]}"); // 输出：6
 
-            object result = classType.GetMethod("MyMethod4").Invoke(dynamicClassInstance, new object[] { 1, 13 });
-            Console.WriteLine($"MyMethod4 Result: {result}");
+            LdlocaInstructionDemo.Run();
             #endregion
 
             Console.ReadLine();

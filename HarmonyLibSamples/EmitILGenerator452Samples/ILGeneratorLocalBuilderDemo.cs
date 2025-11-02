@@ -27,7 +27,7 @@ namespace EmitILGenerator452Samples
             Label returnLabel = ilGenerator.DefineLabel();
 
             ilGenerator.Emit(OpCodes.Ldarg_1);
-            ilGenerator.Emit(OpCodes.Ldarg_2);
+            ilGenerator.Emit(OpCodes.Ldarg, 2);
             ilGenerator.Emit(OpCodes.Add);
             ilGenerator.Emit(OpCodes.Stloc, localVar);
 
