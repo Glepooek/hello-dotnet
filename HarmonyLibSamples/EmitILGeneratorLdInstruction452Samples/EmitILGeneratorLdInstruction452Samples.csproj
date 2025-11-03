@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LdelemInstructionDemo.cs" />
+    <Compile Include="LdfldInstructionDemo.cs" />
     <Compile Include="LdlocaInstructionDemo.cs" />
     <Compile Include="LdargaInstructionDemo.cs" />
     <Compile Include="LdargInstructionDemo.cs" />
+    <Compile Include="LdtokenInstructionDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

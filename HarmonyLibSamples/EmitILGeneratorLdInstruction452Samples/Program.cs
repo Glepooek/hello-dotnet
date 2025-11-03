@@ -27,7 +27,7 @@ namespace EmitILGeneratorLdInstructionSamples
 
             LdargInstructionDemo.Run(classBuilder);
             LdargaInstructionDemo.Run(classBuilder);
-            //ILGeneratorThrowExceptionDemo.Run(classBuilder);
+            LdtokenInstructionDemo.Run(classBuilder);
             //ILGeneratorLocalBuilderDemo.Run(classBuilder);
 
             Type classType = classBuilder.CreateType();
@@ -46,6 +46,17 @@ namespace EmitILGeneratorLdInstructionSamples
             Console.WriteLine($"Increment Result: {parameters[0]}"); // 输出：6
 
             LdlocaInstructionDemo.Run();
+            LdfldInstructionDemo.Run();
+
+            object result2 = classType.GetMethod("GetTypeToken").Invoke(null, new object[] { typeof(bool) });
+            Type type = Type.GetTypeFromHandle((RuntimeTypeHandle)result2);
+            Console.WriteLine($"GetTypeToken Result: {type.Name}");
+
+            LdtokenInstructionDemo.CreateTypeChecker();
+
+            Console.WriteLine("++++++++++++++++++Ldelem指令++++++++++++++++:");
+            LdelemInstructionDemo.TestValueTypeArray();
+            LdelemInstructionDemo.TestReferenceTypeArray();
             #endregion
 
             Console.ReadLine();

@@ -43,7 +43,7 @@ namespace EmitILGeneratorLdInstruction452Samples
             il.Emit(OpCodes.Dup);            // 复制地址
             il.Emit(OpCodes.Ldind_I4);       // 间接加载int值
             il.Emit(OpCodes.Ldc_I4_1);       // 加载常量1
-            il.Emit(OpCodes.Add);             // 相加
+            il.Emit(OpCodes.Add);            // 相加
             il.Emit(OpCodes.Stind_I4);       // 存储回原地址
             il.Emit(OpCodes.Ret);
 
