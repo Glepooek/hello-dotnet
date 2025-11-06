@@ -8,5 +8,12 @@ namespace HarmonyPatch.Shared
     {
         public string Name;
         public int Age;
+
+        public Person() { }
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
     }
 }

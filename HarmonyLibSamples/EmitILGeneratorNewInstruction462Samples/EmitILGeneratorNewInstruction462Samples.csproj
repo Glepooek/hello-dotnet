@@ -44,11 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewarrInstructionDemo.cs" />
+    <Compile Include="NewobjInstructionDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StelemInstructionDemo.cs.cs" />
+    <Compile Include="StelemRefInstructionDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HarmonyPatch.Shared\HarmonyPatch.Shared.csproj">
+      <Project>{9ba8772e-244d-3c09-8d2c-5b30886cc072}</Project>
+      <Name>HarmonyPatch.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
