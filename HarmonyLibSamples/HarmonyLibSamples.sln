@@ -23,23 +23,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitAssemblyBuilderSamples"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitModuleBuilderSamples", "EmitModuleBuilderSamples\EmitModuleBuilderSamples.csproj", "{EDF9C67C-FDE8-483F-B475-BA283FC46939}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitModuleBuilder452Samples", "EmitModuleBuilder452Samples\EmitModuleBuilder452Samples.csproj", "{3E1245EB-3407-4D74-875B-AE0164DBDB5A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilder452Samples", "EmitTypeBuilder452Samples\EmitTypeBuilder452Samples.csproj", "{5651D91A-AE3F-4309-B727-4D9555519611}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilderSamples", "EmitTypeBuilderSamples\EmitTypeBuilderSamples.csproj", "{611943B2-F9D7-4A35-A1B6-CA05619DC526}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitMethodBuilderSamples", "EmitMethodBuilderSamples\EmitMethodBuilderSamples.csproj", "{8C94C425-A2B6-88EB-9E34-23009CB9CD08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitMethodBuilder452Samples", "EmitMethodBuilder452Samples\EmitMethodBuilder452Samples.csproj", "{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorSamples", "EmitILGeneratorSamples\EmitILGeneratorSamples.csproj", "{29F22260-DA08-4F5F-94D3-ABA6F71A8D48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGenerator452Samples", "EmitILGenerator452Samples\EmitILGenerator452Samples.csproj", "{1FF68CC6-5BE6-4B25-887A-C4B223EA9184}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGenerator462Samples", "EmitILGenerator462Samples\EmitILGenerator462Samples.csproj", "{1FF68CC6-5BE6-4B25-887A-C4B223EA9184}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorLdInstruction452Samples", "EmitILGeneratorLdInstruction452Samples\EmitILGeneratorLdInstruction452Samples.csproj", "{69429F9A-4155-44E0-AEDB-EDAC8312B003}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorLdInstruction462Samples", "EmitILGeneratorLdInstruction462Samples\EmitILGeneratorLdInstruction462Samples.csproj", "{69429F9A-4155-44E0-AEDB-EDAC8312B003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorStInstruction452Samples", "EmitILGeneratorStInstruction452Samples\EmitILGeneratorStInstruction452Samples.csproj", "{A2BF2D13-AC86-444B-A445-A8EC038895C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorNewInstruction462Samples", "EmitILGeneratorNewInstruction462Samples\EmitILGeneratorNewInstruction462Samples.csproj", "{7E9B8A10-4ADF-48FF-9E02-E10ABD74E8D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorStInstruction462Samples", "EmitILGeneratorStInstruction462Samples\EmitILGeneratorStInstruction462Samples.csproj", "{A2BF2D13-AC86-444B-A445-A8EC038895C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitMethodBuilder462Samples", "EmitMethodBuilder462Samples\EmitMethodBuilder462Samples.csproj", "{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitModuleBuilder462Samples", "EmitModuleBuilder462Samples\EmitModuleBuilder462Samples.csproj", "{2FB46348-548A-04C0-405F-6312CE77DBE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitTypeBuilder462Samples", "EmitTypeBuilder462Samples\EmitTypeBuilder462Samples.csproj", "{5651D91A-AE3F-4309-B727-4D9555519611}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,14 +89,6 @@ Global
 		{EDF9C67C-FDE8-483F-B475-BA283FC46939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDF9C67C-FDE8-483F-B475-BA283FC46939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDF9C67C-FDE8-483F-B475-BA283FC46939}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E1245EB-3407-4D74-875B-AE0164DBDB5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E1245EB-3407-4D74-875B-AE0164DBDB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E1245EB-3407-4D74-875B-AE0164DBDB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E1245EB-3407-4D74-875B-AE0164DBDB5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5651D91A-AE3F-4309-B727-4D9555519611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5651D91A-AE3F-4309-B727-4D9555519611}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5651D91A-AE3F-4309-B727-4D9555519611}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5651D91A-AE3F-4309-B727-4D9555519611}.Release|Any CPU.Build.0 = Release|Any CPU
 		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611943B2-F9D7-4A35-A1B6-CA05619DC526}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -103,10 +97,6 @@ Global
 		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C94C425-A2B6-88EB-9E34-23009CB9CD08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29F22260-DA08-4F5F-94D3-ABA6F71A8D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29F22260-DA08-4F5F-94D3-ABA6F71A8D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F22260-DA08-4F5F-94D3-ABA6F71A8D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -119,10 +109,26 @@ Global
 		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69429F9A-4155-44E0-AEDB-EDAC8312B003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9B8A10-4ADF-48FF-9E02-E10ABD74E8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9B8A10-4ADF-48FF-9E02-E10ABD74E8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9B8A10-4ADF-48FF-9E02-E10ABD74E8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9B8A10-4ADF-48FF-9E02-E10ABD74E8D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A2BF2D13-AC86-444B-A445-A8EC038895C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A2BF2D13-AC86-444B-A445-A8EC038895C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2BF2D13-AC86-444B-A445-A8EC038895C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2BF2D13-AC86-444B-A445-A8EC038895C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7695D3BF-230E-4FF6-9C93-C5BCFB957B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB46348-548A-04C0-405F-6312CE77DBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB46348-548A-04C0-405F-6312CE77DBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB46348-548A-04C0-405F-6312CE77DBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB46348-548A-04C0-405F-6312CE77DBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5651D91A-AE3F-4309-B727-4D9555519611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5651D91A-AE3F-4309-B727-4D9555519611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5651D91A-AE3F-4309-B727-4D9555519611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5651D91A-AE3F-4309-B727-4D9555519611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
