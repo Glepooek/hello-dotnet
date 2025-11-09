@@ -1,5 +1,4 @@
-﻿using EmitILGeneratorBranchInstruction462Samples;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,7 +6,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmitILGeneratorConvInstruction462Samples
+namespace EmitILGeneratorOperationInstruction462Samples
 {
     internal class Program
     {
@@ -24,21 +23,27 @@ namespace EmitILGeneratorConvInstruction462Samples
                 "MyNameSpance.MyClass",
                 TypeAttributes.Class);
 
-            CastclassInstructionDemo.Run(classBuilder);
-            IsinstInstructionDemo.Run(classBuilder);
-            BoxInstructionDemo.Run(classBuilder);
-            UnboxInstructionDemo.Run(classBuilder);
-            ConvInstructionDemo.Run(classBuilder);
+            LogicalOperationInstructionDemo.Run(classBuilder);
+            CompareInstructionDemo.Run(classBuilder);
+            //BoxInstructionDemo.Run(classBuilder);
+            //UnboxInstructionDemo.Run(classBuilder);
+            //ConvInstructionDemo.Run(classBuilder);
 
             Type type = classBuilder.CreateType();
             assemblyBuilder.Save($"{assemblyName.Name}.dll");
 
             #region 测试执行
 
-            var result = type.GetMethod("UnboxInstructionMethod").Invoke(null, new object[] { 11 });
+            var result = type.GetMethod("AndInstructionMethod").Invoke(null, new object[] { 12, 0 });
             Console.WriteLine(result);
 
-            result = type.GetMethod("ConvInstructionMethod").Invoke(null, new object[] { 3.1415926 });
+            result = type.GetMethod("CompareValueTypeNotEqual").Invoke(null, new object[] { 11, 11 });
+            Console.WriteLine(result);
+
+            result = type.GetMethod("CompareValueTypeLessEqual").Invoke(null, new object[] { 12, 11 });
+            Console.WriteLine(result);
+
+            result = type.GetMethod("CompareValueTypeGreaterEqual").Invoke(null, new object[] { 12, 11 });
             Console.WriteLine(result);
             #endregion
 
