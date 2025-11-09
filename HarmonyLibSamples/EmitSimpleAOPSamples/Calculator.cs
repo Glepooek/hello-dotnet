@@ -11,13 +11,13 @@ namespace EmitSimpleAOPSamples
     {
         public int Add(int a, int b)
         {
-            Console.WriteLine($"  [业务逻辑] 执行 Add({a}, {b})");
+            Console.WriteLine($" [业务逻辑] 执行 Add({a}, {b})");
             return a + b;
         }
 
         public int Subtract(int a, int b)
         {
-            Console.WriteLine($"  [业务逻辑] 执行 Subtract({a}, {b})");
+            Console.WriteLine($" [业务逻辑] 执行 Subtract({a}, {b})");
             return a - b;
         }
     }

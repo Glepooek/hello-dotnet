@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.Remoting.Proxies;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,10 +22,10 @@ namespace EmitSimpleAOPSamples
                 Console.WriteLine("=== 测试 Add 方法 ===");
                 int addResult = proxy.Add(10, 20);
 
-                Console.WriteLine("\n=== 测试 Subtract 方法 ===");
+                Console.WriteLine("=== 测试 Subtract 方法 ===");
                 int subResult = proxy.Subtract(50, 15);
 
-                Console.WriteLine($"\n最终结果：10+20={addResult}，50-15={subResult}");
+                Console.WriteLine($"最终结果：10+20={addResult}，50-15={subResult}");
             }
             catch (Exception ex)
             {

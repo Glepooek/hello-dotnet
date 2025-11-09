@@ -24,10 +24,10 @@ namespace EmitSimpleAOPSamples
             // 1. 创建动态程序集、模块、代理类
             AssemblyName assemblyName = new AssemblyName("MyAopProxyAssembly");
             AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
-                assemblyName, 
+                assemblyName,
                 AssemblyBuilderAccess.RunAndSave);
             ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule(
-                "AopProxyModule", 
+                "AopProxyModule",
                 "AopProxyModule.netmoudle");
             TypeBuilder typeBuilder = moduleBuilder.DefineType(
                 $"MyNameSpace.AopProxy_{interfaceType.Name}",
@@ -37,7 +37,9 @@ namespace EmitSimpleAOPSamples
 
             // 2. 定义存储目标对象的字段
             FieldBuilder targetField = typeBuilder.DefineField(
-                "_target", interfaceType, FieldAttributes.Private);
+                "_target", 
+                interfaceType, 
+                FieldAttributes.Private);
 
             // 3. 定义构造函数
             DefineConstructor(typeBuilder, targetField);
@@ -64,6 +66,7 @@ namespace EmitSimpleAOPSamples
 
             ILGenerator il = ctor.GetILGenerator();
             // this → base() → this._target = 参数
+            // 编译器要求必须先调用父类构造
             il.Emit(OpCodes.Ldarg_0);
             il.Emit(OpCodes.Call, typeof(object).GetConstructor(Type.EmptyTypes));
             il.Emit(OpCodes.Ldarg_0);
@@ -132,7 +135,7 @@ namespace EmitSimpleAOPSamples
             // 2. 调用目标方法
             il.Emit(OpCodes.Ldarg_0); // this
             il.Emit(OpCodes.Ldfld, targetField); // this._target
-                                                 // 加载所有参数（传递给目标方法）
+            // 加载所有参数（传递给目标方法）
             for (int i = 0; i < parameters.Length; i++)
             {
                 il.Emit(OpCodes.Ldarg, i + 1);
