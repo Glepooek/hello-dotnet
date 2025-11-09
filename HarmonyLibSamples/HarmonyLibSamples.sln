@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorConvInstruct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorOperationInstruction462Samples", "EmitILGeneratorOperationInstruction462Samples\EmitILGeneratorOperationInstruction462Samples.csproj", "{EA65F79D-E54E-428B-8843-E145C6887990}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitSimpleAOPSamples", "EmitSimpleAOPSamples\EmitSimpleAOPSamples.csproj", "{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{EA65F79D-E54E-428B-8843-E145C6887990}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA65F79D-E54E-428B-8843-E145C6887990}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA65F79D-E54E-428B-8843-E145C6887990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
