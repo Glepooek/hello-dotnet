@@ -8,15 +8,18 @@ using System.Reflection.Emit;
 // +++++++++++++++++++++++++++++++++
 
 // 1. 创建动态程序集
-AssemblyName assemblyName = new AssemblyName("DynamicMultiModuleAssembly");
+AssemblyName assemblyName = new AssemblyName("MyDynamicMultiModuleAssembly");
 AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
     assemblyName, 
     AssemblyBuilderAccess.Run);
 
 // 2. 为程序集创建第一个模块（主模块）
-ModuleBuilder module1 = assemblyBuilder.DefineDynamicModule("Module1");
-TypeBuilder type1 = module1.DefineType("TypeInModule1", TypeAttributes.Public);
-MethodBuilder methodBuilder1 = type1.DefineMethod("SayHello", 
+ModuleBuilder module1 = assemblyBuilder.DefineDynamicModule("MyModule1");
+TypeBuilder type1 = module1.DefineType(
+    "MyNameSpace.MyClass", 
+    TypeAttributes.Public);
+MethodBuilder methodBuilder1 = type1.DefineMethod(
+    "SayHello", 
     MethodAttributes.Public | MethodAttributes.Static,
     typeof(void), 
     Type.EmptyTypes);
@@ -40,15 +43,18 @@ Type finishedType1 = type1.CreateType();
 //Type finishedType2 = type2.CreateType();
 
 // 4. 调用两个模块中的方法
-finishedType1.InvokeMember("SayHello",
+finishedType1.InvokeMember(
+    "SayHello",
     BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static,
-    null, null, null); // 输出：Hello from Module1!
+    null, 
+    null, 
+    null); // 输出：Hello from Module1!
 
 //finishedType2.InvokeMember("SayHi",
 //    BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static,
 //    null, null, null); // 输出：Hi from Module2!
 
 // 验证模块数量
-Console.WriteLine($"程序集中的模块数：{assemblyBuilder.GetModules().Length}"); // 输出：2
+Console.WriteLine($"程序集中的模块数：{assemblyBuilder.GetModules().Length}"); // 输出：1
 
 Console.ReadLine();

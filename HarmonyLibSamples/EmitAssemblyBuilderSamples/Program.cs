@@ -5,14 +5,16 @@ using System.Reflection.Emit;
 // 创建动态程序集
 AssemblyName assemblyName = new AssemblyName("DynamicAssembly");
 AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
-    assemblyName, AssemblyBuilderAccess.RunAndCollect);
+    assemblyName, 
+    AssemblyBuilderAccess.RunAndCollect);
 
 // 创建动态模块
 ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("DynamicModule");
 
-// 创建动态类
+// 创建动态类。可以指定继承的父类、接口等
 TypeBuilder typeBuilder = moduleBuilder.DefineType(
-    "DynamicCalculator", TypeAttributes.Public);
+    "DynamicCalculator", 
+    TypeAttributes.Public);
 
 // 创建Add方法
 MethodBuilder addMethod = typeBuilder.DefineMethod(

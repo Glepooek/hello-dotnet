@@ -26,7 +26,7 @@ namespace EmitModuleBuilder462Samples
 
             // 3. 在 Module1 中定义类型并生成
             TypeBuilder typeBuilder1 = moduleBuilder1.DefineType(
-                "MyClass",
+                "MyNameSpace.MyClass",
                 TypeAttributes.Public | TypeAttributes.BeforeFieldInit);
             MethodBuilder methodBuilder1 = typeBuilder1.DefineMethod(
                 "MyMethod",
@@ -36,12 +36,13 @@ namespace EmitModuleBuilder462Samples
             ILGenerator il1 = methodBuilder1.GetILGenerator();
             il1.EmitWriteLine("Hello from Module1!");
             il1.Emit(OpCodes.Ret);
+
             Type myClassType = typeBuilder1.CreateType();
             MethodInfo myMethod = myClassType.GetMethod("MyMethod");
 
             // 4. 在 Module2 中定义类型，引用 Module1 的方法
             TypeBuilder typeBuilder2 = moduleBuilder2.DefineType(
-                "MyClass2",
+                "MyNameSpace.MyClass2",
                 TypeAttributes.Public | TypeAttributes.BeforeFieldInit);
             MethodBuilder methodBuilder2 = typeBuilder2.DefineMethod(
                 "MyMethod2",
@@ -54,19 +55,18 @@ namespace EmitModuleBuilder462Samples
             il2.Emit(OpCodes.Ret);
             Type myClass2Type = typeBuilder2.CreateType();
 
-            Console.WriteLine($"程序集中的模块数：{assemblyBuilder.GetLoadedModules().Length}"); // 输出：3
+            // 5. 调用方法
+            MethodInfo myMethod2 = myClass2Type.GetMethod("MyMethod2");
+            myMethod2.Invoke(null, null);
 
+            // 6. 保存程序集和模块到磁盘
+            assemblyBuilder.Save($"{assemblyName.Name}.dll");
+
+            Console.WriteLine($"\n程序集中的模块数：{assemblyBuilder.GetLoadedModules().Length}"); // 输出：3
             assemblyBuilder.GetLoadedModules()?.ToList()?.ForEach(module =>
             {
                 Console.WriteLine($"模块名称: {module.ScopeName}");
             });
-
-            // 5. 调用方法
-            MethodInfo myMethod2 = myClass2Type.GetMethod("MyMethod2");
-            myMethod2.Invoke(null, null); // 此时应正常执行
-
-            // 6. 保存程序集和模块到磁盘
-            assemblyBuilder.Save($"{assemblyName.Name}.dll");
 
             Console.Read();
         }

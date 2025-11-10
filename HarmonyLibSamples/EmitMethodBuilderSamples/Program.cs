@@ -4,12 +4,11 @@ using System.Reflection;
 using System.Reflection.Emit;
 
 AssemblyName assemblyName = new AssemblyName("MyDynamicAssembly");
-//AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.RunAndSave);
-//ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("Mudule1", "Mudule1.netmoudle");
+AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
+        assemblyName,
+        AssemblyBuilderAccess.RunAndCollect);
 
-AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
 ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("Mudule1");
-
 
 TypeBuilder classBuilder = moduleBuilder.DefineType(
         "MyNamespace.MyClass",
@@ -51,13 +50,19 @@ ilGenerator.Emit(OpCodes.Ret);
 #endregion
 
 Type classType = classBuilder.CreateType();
-//assemblyBuilder.Save($"{assemblyName.Name}.dll");
 
 #region 测试执行
 
 object dynamicClassInstance = Activator.CreateInstance(classType);
 // 调用实例方法
-object result = classType.GetMethod("MyMethod").Invoke(dynamicClassInstance, new object[] { 99, "World" });
+//object result = classType.GetMethod("MyMethod").Invoke(dynamicClassInstance, new object[] { 99, "World" });
+object result = classType.InvokeMember(
+    "MyMethod", 
+    BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Instance, 
+    null,
+    dynamicClassInstance, 
+    new object[] { 99, "World" });
+
 // 调用类方法
 //object result = classType.GetMethod("MyMethod").Invoke(null, new object[] { 99, "World" });
 Console.WriteLine(result); // 输出结果：Hello, World

@@ -11,7 +11,7 @@ internal class DynamicMethodDemo
 {
     public static void Run()
     {
-        //创建动态方法
+        //创建动态方法。默认是静态方法
         DynamicMethod dynamicMethod = new DynamicMethod(
             "MyMethod",
             typeof(string),
