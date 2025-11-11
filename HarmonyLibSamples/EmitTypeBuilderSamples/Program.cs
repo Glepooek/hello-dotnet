@@ -9,7 +9,8 @@ public class DynamicDelegateEventExample
         // 1. 创建动态程序集和模块（.NET Framework 用 AppDomain，.NET Core+ 用 AssemblyBuilder.DefineDynamicAssembly）
         AssemblyName assemblyName = new AssemblyName("DynamicEventAssembly");
         AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
-            assemblyName, AssemblyBuilderAccess.Run);
+            assemblyName, 
+            AssemblyBuilderAccess.Run);
         ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("DynamicEventModule");
 
         // 2. 动态定义委托类型（MyDelegate）

@@ -42,6 +42,7 @@ namespace EmitMethodBuilder462Samples
             ilGenerator.Emit(OpCodes.Call, typeof(string).GetMethod("Format", new Type[] { typeof(string), typeof(object), typeof(object) }));
             ilGenerator.Emit(OpCodes.Ret);
 
+            // 为方法添加特性
             ConstructorInfo attributeConstructor = typeof(AssemblyTitleAttribute).GetConstructor(new Type[] { typeof(string) });
             CustomAttributeBuilder attributeBuilder = new CustomAttributeBuilder(attributeConstructor, new object[] { "ExampleAttribute" });
             methodBuilder.SetCustomAttribute(attributeBuilder);

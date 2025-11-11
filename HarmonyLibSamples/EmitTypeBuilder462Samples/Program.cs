@@ -56,12 +56,19 @@ namespace EmitTypeBuilder462Samples
                 typeof(string),
                 Type.EmptyTypes);
             propertyBuilder.SetGetMethod(getMethodBuilder);
+            MethodBuilder setMethodBuilder = interfaceBuilder.DefineMethod(
+                "set_MyName",
+                MethodAttributes.Public | MethodAttributes.Abstract | MethodAttributes.Virtual | MethodAttributes.SpecialName | MethodAttributes.HideBySig,
+                typeof(void),
+                new Type[] { typeof(string) });
+            propertyBuilder.SetSetMethod(setMethodBuilder);
 
             interfaceBuilder.DefineMethod(
                 "GetMyName",
                 MethodAttributes.Public | MethodAttributes.Abstract | MethodAttributes.Virtual,
                 typeof(string),
                 new Type[] { typeof(int) });
+
 
             interfaceBuilder.CreateType();
             Console.WriteLine("接口类型已创建：");
@@ -70,12 +77,12 @@ namespace EmitTypeBuilder462Samples
             #region 定义结构体
             TypeBuilder structBuilder = moduleBuilder.DefineType(
                 "MyNameSpace.MyStruct",
-                TypeAttributes.Public | TypeAttributes.SequentialLayout | TypeAttributes.Sealed | TypeAttributes.BeforeFieldInit,
+                TypeAttributes.Public | TypeAttributes.SequentialLayout | TypeAttributes.Sealed,
                 typeof(ValueType)); // 继承自 ValueType
 
             // 定义字段
-            structBuilder.DefineField("ID", typeof(int), FieldAttributes.Public);
-            structBuilder.DefineField("Name", typeof(string), FieldAttributes.Public);
+            structBuilder.DefineField("id", typeof(int), FieldAttributes.Public);
+            structBuilder.DefineField("name", typeof(string), FieldAttributes.Public);
 
             structBuilder.CreateType();
             Console.WriteLine("结构体类型已创建：");
@@ -87,8 +94,13 @@ namespace EmitTypeBuilder462Samples
             "MyNameSpace.MyClassBase",
                 TypeAttributes.Public | TypeAttributes.Abstract | TypeAttributes.Class);
 
-            abstractClassBuilder.DefineField("ID", typeof(int), FieldAttributes.Public);
-            abstractClassBuilder.DefineMethod("MyProtectedMethod",
+            abstractClassBuilder.DefineField(
+                "id", 
+                typeof(int), 
+                FieldAttributes.Public);
+
+            abstractClassBuilder.DefineMethod(
+                "MyProtectedMethod",
                 MethodAttributes.Family | MethodAttributes.Abstract | MethodAttributes.Virtual,
                 typeof(void),
                 Type.EmptyTypes);
@@ -142,7 +154,7 @@ namespace EmitTypeBuilder462Samples
 
             // 添加委托的构造函数
             ConstructorBuilder constructor = delegateBuilder.DefineConstructor(
-                MethodAttributes.RTSpecialName | MethodAttributes.HideBySig | MethodAttributes.Public, 
+                MethodAttributes.RTSpecialName | MethodAttributes.HideBySig | MethodAttributes.Public,
                 CallingConventions.Standard,
                 new Type[] { typeof(object), typeof(IntPtr) });
             constructor.SetImplementationFlags(MethodImplAttributes.Runtime | MethodImplAttributes.Managed);
@@ -162,19 +174,19 @@ namespace EmitTypeBuilder462Samples
 
             #region 定义事件
 
-            // 3.1 事件底层字段
+            // 事件底层字段
             FieldBuilder eventField = classBuilder.DefineField(
                 "_myEvent",
                 delegateType,
                 FieldAttributes.Private);
 
-            // 3.2 定义事件
+            // 定义事件
             EventBuilder myEvent = classBuilder.DefineEvent(
                 "MyEvent",
                 EventAttributes.None,
                 delegateType);
 
-            // 3.3 add 访问器
+            // add 访问器
             MethodBuilder addMethod = classBuilder.DefineMethod(
                 "add_MyEvent",
                 MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName,
@@ -192,7 +204,7 @@ namespace EmitTypeBuilder462Samples
             addIl.Emit(OpCodes.Ret);
             myEvent.SetAddOnMethod(addMethod);
 
-            // 3.4 remove 访问器
+            // remove 访问器
             MethodBuilder removeMethod = classBuilder.DefineMethod(
                 "remove_MyEvent",
                 MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.SpecialName,
@@ -210,7 +222,7 @@ namespace EmitTypeBuilder462Samples
             removeIl.Emit(OpCodes.Ret);
             myEvent.SetRemoveOnMethod(removeMethod);
 
-            // 3.5 触发事件的方法
+            // 触发事件的方法
             MethodBuilder raiseMethod = classBuilder.DefineMethod(
                 "RaiseEvent",
                 MethodAttributes.Public,
@@ -220,7 +232,7 @@ namespace EmitTypeBuilder462Samples
 
             ILGenerator raiseIl = raiseMethod.GetILGenerator();
             Label label = raiseIl.DefineLabel();
-            raiseIl.Emit(OpCodes.Ldarg_0);
+            raiseIl.Emit(OpCodes.Ldarg_0);// 加载this
             raiseIl.Emit(OpCodes.Ldfld, eventField);
             raiseIl.Emit(OpCodes.Brfalse_S, label);
             raiseIl.Emit(OpCodes.Ldarg_0);
@@ -264,7 +276,7 @@ namespace EmitTypeBuilder462Samples
 
             #endregion
 
-            assemblyBuilder.Save("MyDynamicAssembly.dll");
+            assemblyBuilder.Save($"{assemblyName.Name}.dll");
 
             Console.Read();
         }

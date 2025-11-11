@@ -70,5 +70,6 @@ Console.WriteLine(result); // 输出结果：Hello, World
 #endregion
 
 DynamicMethodDemo.Run();
+DynamicMethodDemo.Run1();
 
 Console.ReadLine();
