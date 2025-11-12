@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmitMethodBuilderSamples;
 
 internal class DynamicMethodDemo
 {
     delegate void IncrementDelegate(ref int value);
-
 
     public static void Run()
     {
@@ -42,28 +37,33 @@ internal class DynamicMethodDemo
 
     public static void Run1()
     {
-        // 1. 创建 DynamicMethod（void Increment(ref int value)）
         DynamicMethod incrementMethod = new DynamicMethod(
             name: "Increment",
-            returnType: typeof(void),
-            parameterTypes: new[] { typeof(int).MakeByRefType() }, 
-            typeof(DynamicMethodDemo).Module);// ref int 参数
+            typeof(void),
+            new[] { typeof(int).MakeByRefType() }, // ref int 参数
+            typeof(DynamicMethodDemo).Module);
 
         // 2. 生成 IL 逻辑（value++）
         ILGenerator il = incrementMethod.GetILGenerator();
-        il.Emit(OpCodes.Ldarg_0); // 加载 ref 参数（value 的地址）
-        il.Emit(OpCodes.Ldind_I4); // 读取地址中的 int 值（value）
-        il.Emit(OpCodes.Ldc_I4_1); // 压入 1
-        il.Emit(OpCodes.Add);     // value + 1
-        il.Emit(OpCodes.Stind_I4); // 将结果写回 ref 参数地址
-        il.Emit(OpCodes.Ret);     // 返回
+        il.Emit(OpCodes.Ldarg_0);        // 加载参数地址（ref int）
+        il.Emit(OpCodes.Dup);            // 复制地址
+        il.Emit(OpCodes.Ldind_I4);       // 间接加载int值
+        il.Emit(OpCodes.Ldc_I4_1);       // 加载常量1
+        il.Emit(OpCodes.Add);            // 相加
+        il.Emit(OpCodes.Stind_I4);       // 存储回原地址
+        il.Emit(OpCodes.Ret);
 
-        // 3. 编译为委托（Action<int> 不支持 ref，需自定义委托）
-        IncrementDelegate incrementDelegate = (IncrementDelegate)incrementMethod.CreateDelegate(typeof(IncrementDelegate));
+        //int num = 5;
+        //object[] parameters = new object[] { num }; // ref 参数需先传入初始值
+        //incrementMethod.Invoke(null, parameters); // 参数数组
 
-        // 4. 执行委托
+        //// 从参数数组中获取修改后的值（ref 参数会修改数组元素）
+        //num = (int)parameters[0];
+        //Console.WriteLine($"自增后：{num}"); // 输出：6（正常执行）
+
+        IncrementDelegate increment = (IncrementDelegate)incrementMethod.CreateDelegate(typeof(IncrementDelegate));
         int num = 5;
-        incrementDelegate(ref num);
-        Console.WriteLine($"自增后：{num}"); // 输出：6
+        increment(ref num);
+        Console.WriteLine($"自增后：{num}");
     }
 }
