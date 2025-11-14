@@ -82,7 +82,7 @@ namespace Unipus.Student.Client
             settings.CefCommandLineArgs.Add("use-fake-ui-for-media-stream");
             settings.CefCommandLineArgs.Add("enable-usermedia-screen-capturing");
             settings.CefCommandLineArgs.Add("disable-gpu", "1"); // 禁用gpu,解决闪烁的问题
-            settings.CefCommandLineArgs.Add("disable-gpu-compositing", "1");
+            //settings.CefCommandLineArgs.Add("disable-gpu-compositing", "1");
             settings.CefCommandLineArgs.Add("touch-events", "1");
             settings.CefCommandLineArgs.Add("disable-web-security", "1");// 关闭同源策略，允许跨域调试
             settings.CefCommandLineArgs.Add("no-proxy-server", "1");// 禁用代理

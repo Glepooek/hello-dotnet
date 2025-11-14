@@ -8,14 +8,14 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="CefSharp.Wpf" Version="109.1.110" />
-    <PackageVersion Include="CefSharp.Wpf.NETCore" Version="137.0.100" />
-    <PackageVersion Include="chromiumembeddedframework.runtime.win-arm64" Version="137.0.10" />
-    <PackageVersion Include="chromiumembeddedframework.runtime.win-x64" Version="137.0.10" />
-    <PackageVersion Include="chromiumembeddedframework.runtime.win-x86" Version="137.0.10" />
+    <PackageVersion Include="CefSharp.Wpf.NETCore" Version="141.0.110" />
+    <PackageVersion Include="chromiumembeddedframework.runtime.win-arm64" Version="141.0.11" />
+    <PackageVersion Include="chromiumembeddedframework.runtime.win-x64" Version="141.0.11" />
+    <PackageVersion Include="chromiumembeddedframework.runtime.win-x86" Version="141.0.11" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="9.0.71" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="10.0.10" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.3296.44" />
+    <PackageVersion Include="Microsoft.Web.WebView2" Version="1.0.3595.46" />
     <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageVersion Include="MouseKeyHook" Version="5.6.0" />
     <PackageVersion Include="System.Data.DataSetExtensions" Version="4.5.0" />
