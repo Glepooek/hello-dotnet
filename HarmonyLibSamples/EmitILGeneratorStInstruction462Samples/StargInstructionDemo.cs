@@ -24,8 +24,7 @@ namespace EmitILGeneratorStInstruction462Samples
             ilGenerator.Emit(OpCodes.Ldstr, "Hello, {0}");
             ilGenerator.Emit(OpCodes.Ldarg_0); // 加载第一个参数（name）
             ilGenerator.Emit(OpCodes.Call, typeof(string).GetMethod("Format", new Type[] { typeof(string), typeof(object) }));
-            ilGenerator.Emit(OpCodes.Starg, 0); // 将将格式化后的值传递给局部变量
-
+            ilGenerator.Emit(OpCodes.Starg, 0); // 将将格式化后的值存储到入参中
             // 返回局部变量的值
             ilGenerator.Emit(OpCodes.Ldarg_0); // 加载第一个参数（message）
             ilGenerator.Emit(OpCodes.Ret);     // 返回该值

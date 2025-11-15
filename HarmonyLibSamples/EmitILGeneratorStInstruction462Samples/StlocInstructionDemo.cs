@@ -23,7 +23,6 @@ namespace EmitILGeneratorStInstruction462Samples
             ILGenerator ilGenerator = methodBuilder.GetILGenerator();
             // 定义局部变量
             LocalBuilder result = ilGenerator.DeclareLocal(typeof(int));
-            // 使用 stloc 指令将计算结果存储到局部变量
             ilGenerator.Emit(OpCodes.Ldarg_1); // 加载第一个参数
             ilGenerator.Emit(OpCodes.Ldarg_2); // 加载第二个参数
             ilGenerator.Emit(OpCodes.Add);      // 执行加法操作
