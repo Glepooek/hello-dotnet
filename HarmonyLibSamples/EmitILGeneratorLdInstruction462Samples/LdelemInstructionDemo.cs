@@ -33,7 +33,7 @@ namespace EmitILGeneratorLdInstruction462Samples
 
             int[] numbers = { 10, 20, 30, 40, 50 };
             int result = func(numbers, 2);
-            Console.WriteLine($"int数组[2] = {result}"); // 输出: 30
+            Console.WriteLine($"int数组[2] = {result}");
         }
 
         public static void TestReferenceTypeArray()
@@ -58,8 +58,8 @@ namespace EmitILGeneratorLdInstruction462Samples
             var func = (Func<string[], int, string>)method.CreateDelegate(typeof(Func<string[], int, string>));
 
             string[] strings = { "apple", "banana", "cherry", "date" };
-            string result = func(strings, 1);
-            Console.WriteLine($"string数组[1] = {result}"); // 输出: banana
+            string result = func(strings, 2);
+            Console.WriteLine($"string数组[2] = {result}");
         }
     }
 }

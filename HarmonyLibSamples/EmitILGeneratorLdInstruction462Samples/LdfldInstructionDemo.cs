@@ -15,7 +15,7 @@ namespace EmitILGeneratorLdInstruction462Samples
                 "GetPersonAge",
                 typeof(object),
                 new[] { typeof(Person) },
-                typeof(Person));
+                typeof(LdfldInstructionDemo));
 
             ILGenerator il = method.GetILGenerator();
             il.Emit(OpCodes.Ldarg_0);

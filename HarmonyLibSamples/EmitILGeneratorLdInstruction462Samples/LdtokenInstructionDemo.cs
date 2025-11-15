@@ -22,7 +22,7 @@ namespace EmitILGeneratorLdInstruction462Samples
             // Load the Type argument onto the stack
             ilGenerator.Emit(OpCodes.Ldarg_0);
             // Load the runtime type handle of the Type argument
-            // 调用 type.TypeHandle 获取运行时句柄
+            // 调用 type.TypeHandle属性的get方法 获取运行时句柄
             ilGenerator.Emit(OpCodes.Callvirt, typeof(Type).GetProperty("TypeHandle").GetGetMethod());
             ilGenerator.Emit(OpCodes.Ret);
         }
@@ -33,7 +33,7 @@ namespace EmitILGeneratorLdInstruction462Samples
                 "IsStringType",
                 typeof(bool),
                 new[] { typeof(object) },
-                typeof(Program).Module,
+                typeof(LdtokenInstructionDemo).Module,
                 skipVisibility: true);
 
             ILGenerator il = method.GetILGenerator();
