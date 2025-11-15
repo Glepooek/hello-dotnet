@@ -2,6 +2,8 @@
 using CefSharp.Wpf;
 using CefSharp.Wpf.Experimental;
 using System;
+using System.Linq;
+using System.Reflection;
 using WebInWpf.Cefsharp.Handlers;
 
 namespace WebInWpf.Cefsharp.Controls;
@@ -32,6 +34,18 @@ internal class UniStuChromiumBrowser : ChromiumWebBrowser
         Console.WriteLine(e.Message);
     }
 
+    private void OnBrowserFrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+    {
+        if (e.Frame != null)
+        {
+            MethodInfo[] methodInfos = typeof(BoundObject).GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
+            string methodName = methodInfos.Select(m => m.Name).ToArray()[1];
+            // 执行JS，将BoundObject中的异步代码包装为同步实现
+            string js = $@"";
+            e.Frame.ExecuteJavaScriptAsync(js);
+        }
+    }
+
     #endregion
 
     #region Methods
@@ -47,6 +61,7 @@ internal class UniStuChromiumBrowser : ChromiumWebBrowser
         this.JavascriptObjectRepository.Register(name, objectToBind, BindingOptions.DefaultBinder);
         this.JavascriptMessageReceived -= OnBrowserJavascriptMessageReceived;
         this.JavascriptMessageReceived += OnBrowserJavascriptMessageReceived;
+        this.FrameLoadEnd += OnBrowserFrameLoadEnd;
     }
 
     /// <summary>
