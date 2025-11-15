@@ -2,23 +2,49 @@
 <html>
 <body>
     <button onclick="sendToCsharp()">Send Message to C#</button>
-    <button onclick="callCsharpMethod()">Call C# Method</button>
+    <button onclick="callCsharpMethod2()">Call C# Method(Promise)</button>
+    <button onclick="callCsharpMethod1()">Call C# Method(await\async)</button>
+    <button onclick="callCsharpMethod3()">Call C# Method</button>
+
     <script>
         function sendToCsharp() {
             // 通过 PostMessage 发送
             CefSharp.PostMessage("Hello from JS via CefSharp.PostMessage");
         }
 
-        function callCsharpMethod() {
+        async function callCsharpMethod1() {
+            try {
+                const json = await window.webView.getUserInfo();
+                const userInfo = JSON.parse(json);
+                console.log(`await\async：${userInfo.name}`);
+            } catch (error) {
+                console.error('获取用户信息失败:', error);
+            }
+        }
+
+        function callCsharpMethod2() {
             // 通过绑定的 C# 对象发送
             //window.webView.onMessageReceived("Hello from JS via Binding");
 
-            // .NET版本的cefsharp调用C#方法返回值，需要使用Promise
-            window.webView.getUserInfo()
-                .then(json => {
-                    const userInfo = JSON.parse(json);
-                    console.log(userInfo);
-                });
+            try {
+                // .NET版本的cefsharp调用C#方法返回值，需要使用Promise
+                window.webView.getUserInfo()
+                    .then(json => {
+                        const userInfo = JSON.parse(json);
+                        console.log(`使用Promise: ${userInfo.name}`);
+                    });
+            } catch (error) {
+                console.error('获取用户信息失败:', error);
+            }
+        }
+
+        function callCsharpMethod3() {
+            try {
+                const userInfo = window.webView.getUserInfo();
+                console.log(`${userInfo}`);
+            } catch (error) {
+                console.error('获取用户信息失败:', error);
+            }
         }
 
         function calledByCsharp(message) {
