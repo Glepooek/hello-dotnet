@@ -28,8 +28,8 @@ namespace EmitILGeneratorCallInstruction462Samples
                 ILGenerator iLGenerator = dynamicMethod.GetILGenerator();
                 iLGenerator.Emit(OpCodes.Ldarg_0); // 加载第一个参数
                 iLGenerator.Emit(OpCodes.Ldarg_1); // 加载第二个参数
-                                                   // 调用静态AddNumbers方法
-                iLGenerator.Emit(OpCodes.Call, typeof(CallInstructionDemo).GetMethod("AddNumbers", new Type[] { typeof(int), typeof(int) }));
+                // 调用静态AddNumbers方法
+                iLGenerator.Emit(OpCodes.Call, typeof(CallInstructionDemo).GetMethod(nameof(AddNumbers), new Type[] { typeof(int), typeof(int) }));
                 iLGenerator.Emit(OpCodes.Ret); // 返回结果
 
                 Func<int, int, int> addDelegate = (Func<int, int, int>)dynamicMethod.CreateDelegate(typeof(Func<int, int, int>));
@@ -51,6 +51,7 @@ namespace EmitILGeneratorCallInstruction462Samples
                 // 调用实例SayHello方法
                 iLGenerator.Emit(OpCodes.Call, syaHelloMethodInfo);
                 MethodInfo writeLineMethodInfo = typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) });
+                // 调用静态WriteLine方法
                 iLGenerator.Emit(OpCodes.Call, writeLineMethodInfo);
                 iLGenerator.Emit(OpCodes.Ret); // 返回结果
 
@@ -65,6 +66,7 @@ namespace EmitILGeneratorCallInstruction462Samples
                     typeof(void),
                     new Type[] { typeof(Animal) },
                     typeof(CallInstructionDemo).Module);
+
                 ILGenerator iLGenerator = dynamicMethod.GetILGenerator();
                 iLGenerator.Emit(OpCodes.Ldarg_0);// 加载第一个参数（Animal实例）
                 MethodInfo speakMethodInfo = typeof(Animal).GetMethod("Speak", BindingFlags.Public | BindingFlags.Instance);
@@ -73,6 +75,7 @@ namespace EmitILGeneratorCallInstruction462Samples
                 // ++++++++++ OpCodes.Callvirt：根据运行时类型 Person，调用重写的实现（多态）++++++++++ 
                 iLGenerator.Emit(OpCodes.Callvirt, speakMethodInfo);
                 iLGenerator.Emit(OpCodes.Ret); // 返回结果
+
                 Action<Animal> speakDelegate = (Action<Animal>)dynamicMethod.CreateDelegate(typeof(Action<Animal>));
                 Animal person = new Person();
                 speakDelegate(person);

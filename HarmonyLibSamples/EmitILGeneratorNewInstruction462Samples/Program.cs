@@ -13,11 +13,16 @@ namespace EmitILGeneratorNewInstruction462Samples
     {
         static void Main(string[] args)
         {
-            AssemblyName assName = new AssemblyName("myAssembly") { Version = new Version("1.1.1.2") };
+            AssemblyName assName = new AssemblyName("myAssembly")
+            {
+                Version = new Version("1.1.1.2")
+            };
             AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
                 assName,
                 AssemblyBuilderAccess.RunAndSave);
-            ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("MyModule", "MyModule.netmodule");
+            ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule(
+                "MyModule", 
+             "MyModule.netmodule");
             TypeBuilder classBuilder = moduleBuilder.DefineType(
                 "MyNameSpace.MyClass",
                 TypeAttributes.Public | TypeAttributes.Class);

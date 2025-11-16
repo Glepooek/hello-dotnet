@@ -17,7 +17,7 @@ namespace EmitILGeneratorNewInstruction462Samples
                 "CreateRefArray",
                 MethodAttributes.Public | MethodAttributes.Static,
                 typeof(Person[]),
-                new Type[] { });
+                Type.EmptyTypes);
 
             ILGenerator iLGenerator = methodBuilder.GetILGenerator();
 
@@ -36,7 +36,7 @@ namespace EmitILGeneratorNewInstruction462Samples
 
                 iLGenerator.Emit(OpCodes.Ldloc_0);// 加载数组
                 iLGenerator.Emit(OpCodes.Ldc_I4, i);// 加载索引
-                iLGenerator.Emit(OpCodes.Ldloc_1);// 加载Entity
+                iLGenerator.Emit(OpCodes.Ldloc_1);// 加载Person
 
                 iLGenerator.Emit(OpCodes.Stelem_Ref);//引用类型赋值
             }

@@ -38,9 +38,13 @@ namespace EmitILGeneratorCallInstruction462Samples
             assemblyBuilder.Save($"{assemblyName.Name}.dll");
 
             #region 调用执行
+
             MethodInfo callMethod = callerType.GetMethod("CallDelegate");
             callMethod.Invoke(null, null);
+
+            CallInstructionDemo.Run();
             #endregion
+
             Console.ReadLine();
         }
     }

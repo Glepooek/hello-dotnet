@@ -29,7 +29,6 @@ namespace EmitILGeneratorOperationInstruction462Samples
             iLGenerator.Emit(OpCodes.Ldarg_1);
             iLGenerator.Emit(OpCodes.And);
             iLGenerator.Emit(OpCodes.Ret);
-
         }
     }
 }

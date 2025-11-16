@@ -32,9 +32,14 @@ namespace EmitILGeneratorNewInstruction462Samples
             methodBuilder.DefineParameter(2, ParameterAttributes.None, "age");
 
             ILGenerator ilGenerator = methodBuilder.GetILGenerator();
+            ConstructorInfo constructorInfo = typeof(Person).GetConstructor(
+                BindingFlags.Public | BindingFlags.Instance, 
+                null, 
+                new Type[] { typeof(string), typeof(int) }, 
+                null);
             ilGenerator.Emit(OpCodes.Ldarg_0);
             ilGenerator.Emit(OpCodes.Ldarg_1);
-            ilGenerator.Emit(OpCodes.Newobj, typeof(Person).GetConstructor(BindingFlags.Public | BindingFlags.Instance, null, new Type[] { typeof(string), typeof(int) }, null));
+            ilGenerator.Emit(OpCodes.Newobj, constructorInfo);
             ilGenerator.Emit(OpCodes.Ret);
         }
     }

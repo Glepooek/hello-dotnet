@@ -23,9 +23,9 @@ namespace EmitILGeneratorBranchInstruction462Samples
 
             ILGenerator iLGenerator = methodBuilder.GetILGenerator();
             iLGenerator.Emit(OpCodes.Ldarg_0);
-            //iLGenerator.Emit(OpCodes.Unbox, typeof(int));
-            //iLGenerator.Emit(OpCodes.Ldobj, typeof(int));
-            iLGenerator.Emit(OpCodes.Unbox_Any, typeof(int));
+            iLGenerator.Emit(OpCodes.Unbox, typeof(int));
+            iLGenerator.Emit(OpCodes.Ldobj, typeof(int));
+            //iLGenerator.Emit(OpCodes.Unbox_Any, typeof(int));
             iLGenerator.Emit(OpCodes.Ret);
         }
     }

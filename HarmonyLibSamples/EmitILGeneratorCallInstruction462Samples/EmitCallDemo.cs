@@ -28,7 +28,7 @@ namespace EmitILGeneratorCallInstruction462Samples
                 ILGenerator iLGenerator = dynamicMethod.GetILGenerator();
                 iLGenerator.Emit(OpCodes.Ldarg_0); // 加载第一个参数
                 iLGenerator.Emit(OpCodes.Ldarg_1); // 加载第二个参数
-                                                   // 调用静态AddNumbers方法
+                // 调用静态AddNumbers方法
                 iLGenerator.EmitCall(OpCodes.Call, typeof(CallInstructionDemo).GetMethod("AddNumbers", new Type[] { typeof(int), typeof(int) }), null);
                 iLGenerator.Emit(OpCodes.Ret); // 返回结果
 
