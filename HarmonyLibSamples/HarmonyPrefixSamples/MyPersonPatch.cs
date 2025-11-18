@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace HarmonyPrefixSamples;
 
+// +++++++++++++++针对同一方法的前缀补丁++++++++++++++++
 // 返回true无法修改方法返回值，返回false能修改方法返回值；
-// 返回false，会跳过原始方法，及其后的Prefix
+// 返回false，会跳过原始方法，及其后的前缀补丁，其后的后缀、终接器补丁不受影响；
 // 能访问和修改原始方法的参数
-// 设置可以在后者中调用的状态
+// 设置可以在后缀补丁中调用的状态
 
 [HarmonyLib.HarmonyPatch(typeof(OriginalPerson), "GetName")]
 public class MyPersonPatch
