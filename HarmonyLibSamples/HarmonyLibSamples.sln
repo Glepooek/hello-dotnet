@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36616.10
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11205.157 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyPatch.Shared", "HarmonyPatch.Shared\HarmonyPatch.Shared.csproj", "{9BA8772E-244D-3C09-8D2C-5B30886CC072}"
 EndProject
@@ -52,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitILGeneratorOperationInstruction462Samples", "EmitILGeneratorOperationInstruction462Samples\EmitILGeneratorOperationInstruction462Samples.csproj", "{EA65F79D-E54E-428B-8843-E145C6887990}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmitSimpleAOPSamples", "EmitSimpleAOPSamples\EmitSimpleAOPSamples.csproj", "{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonyUtilitiesSamples", "HarmonyUtilitiesSamples\HarmonyUtilitiesSamples.csproj", "{697DD894-3C2C-4234-81C3-F0644088CE61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFCA99FE-B03F-4379-8DF6-03AEF31ADB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{697DD894-3C2C-4234-81C3-F0644088CE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697DD894-3C2C-4234-81C3-F0644088CE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697DD894-3C2C-4234-81C3-F0644088CE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697DD894-3C2C-4234-81C3-F0644088CE61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

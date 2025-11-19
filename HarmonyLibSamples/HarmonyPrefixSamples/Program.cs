@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using HarmonyLib;
+﻿using HarmonyLib;
 using HarmonyPatch.Shared;
 
 Harmony.DEBUG = true;
