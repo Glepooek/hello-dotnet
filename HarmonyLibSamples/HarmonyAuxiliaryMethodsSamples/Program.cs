@@ -1,4 +1,4 @@
-﻿using HarmonyAuxiliaryMethodsSamples;
+﻿using HarmonyPatch.Shared;
 using HarmonyLib;
 using Microsoft.Extensions.DependencyInjection;
 using System;

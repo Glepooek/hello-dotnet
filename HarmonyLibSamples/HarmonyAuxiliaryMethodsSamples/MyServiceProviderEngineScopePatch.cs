@@ -52,10 +52,10 @@ namespace HarmonyAuxiliaryMethodsSamples
 
         static void Prefix(bool isRootScope)
         {
-            Console.WriteLine("----------------------------");
+            Console.WriteLine("-------------Prefix Start---------------");
             Console.WriteLine($"isRootScope:{isRootScope}");
             Console.WriteLine(Environment.StackTrace);
-            Console.WriteLine("----------------------------");
+            Console.WriteLine("-------------Prefix End---------------");
         }
 
         static void Cleanup(MethodBase original, Harmony harmony, Exception ex)

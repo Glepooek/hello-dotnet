@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HarmonyPatch.Shared\HarmonyPatch.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

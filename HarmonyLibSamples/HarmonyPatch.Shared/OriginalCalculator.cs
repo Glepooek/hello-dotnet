@@ -10,13 +10,14 @@ namespace HarmonyPatch.Shared
     {
         public virtual int Add(int a, int b)
         {
+            Console.WriteLine("OriginalCalculator.Add called");
             return a + b;
         }
 
         public string SpecialCalculation(string original, int n)
         {
-            var parts = original.Split('-');
-            var str = string.Join("", parts) + n;
+            string[] parts = original.Split('-');
+            string str = string.Join("", parts) + n;
             return str + "Prolog";
         }
     }

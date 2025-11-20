@@ -9,7 +9,7 @@ namespace HarmonyReversePatchSamples
     [HarmonyLib.HarmonyPatch(typeof(OriginalCalculator), "Add")]
     public class MyCalculatorPatch
     {
-        [HarmonyLib.HarmonyReversePatch]
+        [HarmonyReversePatch]
         public static int OriginalAdd(OriginalCalculator instance, int a, int b)
         {
             // 这里的实现会被Harmony替换为原始Add的实现
@@ -45,13 +45,21 @@ namespace HarmonyReversePatchSamples
             //
             IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
-                var list = Transpilers.Manipulator(instructions,
+                // 把所有 OpCodes.Ldarg_1 的指令改为 OpCodes.Ldarg_0：
+                // 原因：原方法是实例方法（arg0 = this, arg1 = original）。
+                // 但目标 StringOperation(string original) 是一个非实例/不同签名的方法，original 在新方法中是 arg0。
+                // 因此所有原来访问 original 的 ldarg.1 必须改为 ldarg.0，
+                // 否则会加载错误的值（this 或其它），导致语义错乱或运行时错误。
+                List<CodeInstruction>? list = instructions.Manipulator(
                     item => item.opcode == OpCodes.Ldarg_1,
-                    item => item.opcode = OpCodes.Ldarg_0
-                ).ToList();
-                var mJoin = SymbolExtensions.GetMethodInfo(() => string.Join(null, null));
-                var idx = list.FindIndex(item => item.opcode == OpCodes.Call && item.operand as MethodInfo == mJoin);
-                list.RemoveRange(idx + 1, list.Count - (idx + 1));
+                    item => item.opcode = OpCodes.Ldarg_0)
+                    .ToList();
+                MethodInfo? mJoin = SymbolExtensions.GetMethodInfo(() => string.Join(null, null));
+                int idx = list.FindIndex(item => item.opcode == OpCodes.Call && item.operand as MethodInfo == mJoin);
+                if (idx >= 0)
+                {
+                    list.RemoveRange(idx + 1, list.Count - (idx + 1));
+                }
                 return list.AsEnumerable();
             }
 

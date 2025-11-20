@@ -11,7 +11,7 @@ Console.WriteLine($"Result of patched Add(3, 5): {result}"); // 应该输出16�
 
 string specialResult = calculator.SpecialCalculation("part1-part2-part3", 10);
 
-Console.WriteLine($"Result of SpecialCalculation: {specialResult}"); // "part1part2part310Prolog" ，最终输出 "part1part2part3Prolog"
+Console.WriteLine($"Result of SpecialCalculation: {specialResult}"); // "part1part2part310Prolog" ，最终输出 "part1part2part3"
 
 
 

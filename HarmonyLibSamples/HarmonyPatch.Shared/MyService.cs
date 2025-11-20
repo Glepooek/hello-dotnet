@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HarmonyAuxiliaryMethodsSamples
+namespace HarmonyPatch.Shared
 {
-    internal class MyService : IDisposable
+    public class MyService : IDisposable
     {
         public MyService()
         {
