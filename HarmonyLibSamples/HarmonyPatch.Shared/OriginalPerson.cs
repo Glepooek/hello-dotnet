@@ -10,6 +10,7 @@ namespace HarmonyPatch.Shared
     {
         public string Name { get; set; }
         public int Age { get; set; }
+        private int[] _dataArray = new int[] { 1, 2, 3, 4, 5 };
 
         public OriginalPerson(string name, int age)
         {
@@ -45,6 +46,20 @@ namespace HarmonyPatch.Shared
                 throw new InvalidOperationException("parameter b can not be zero.");
             }
             return a / b;
+        }
+
+        public ref int GetReferenceToData(int index)
+        {
+            if (index >= 0 && index < _dataArray.Length)
+            {
+                return ref _dataArray[index];
+            }
+            throw new IndexOutOfRangeException();
+        }
+
+        public string Greet(string prefix)
+        {
+            return string.Format("{0}, {1}", prefix, this.Name);
         }
 
         public override string ToString()
