@@ -28,7 +28,7 @@ namespace HarmonyAuxiliaryMethodsSamples
         static void Prepare(MethodBase original, Harmony harmony, Exception ex)
         {
             Console.WriteLine("++++++++++++++ Prepare ++++++++++++++");
-            Console.WriteLine($"original:{original?.Name}");
+            Console.WriteLine($"original:{original?.Name ?? "Unknown"}");
         }
 
         static MethodBase TargetMethod()
@@ -61,7 +61,7 @@ namespace HarmonyAuxiliaryMethodsSamples
         static void Cleanup(MethodBase original, Harmony harmony, Exception ex)
         {
             Console.WriteLine("++++++++++++++ Cleanup ++++++++++++++");
-            Console.WriteLine($"original:{original?.Name}");
+            Console.WriteLine($"original:{original?.Name ?? "Unknown"}");
         }
     }
 }

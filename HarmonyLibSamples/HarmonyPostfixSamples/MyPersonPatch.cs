@@ -11,7 +11,6 @@ namespace HarmonyProfixSamples;
 [HarmonyLib.HarmonyPatch(typeof(OriginalPerson), "GetName")]
 public class MyPersonPatch
 {
-
     static void Postfix(ref string __result)
     {
         Console.WriteLine($"{nameof(MyPersonPatch)}, In Postfix of GetName");
@@ -35,7 +34,7 @@ public class MyPersonPatch1
     }
 }
 
-// 传递后缀
+// 穿透式后缀补丁
 [HarmonyLib.HarmonyPatch(typeof(OriginalPerson), "GetNumbers")]
 public class MyPersonPatch2
 {
