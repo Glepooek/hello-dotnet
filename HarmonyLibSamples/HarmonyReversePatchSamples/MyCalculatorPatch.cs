@@ -6,42 +6,41 @@ using System.Runtime.CompilerServices;
 
 namespace HarmonyReversePatchSamples
 {
-    [HarmonyLib.HarmonyPatch(typeof(OriginalCalculator), "Add")]
+    [HarmonyLib.HarmonyPatch(typeof(OriginalCalculator))]
     public class MyCalculatorPatch
     {
         [HarmonyReversePatch]
+        [HarmonyLib.HarmonyPatch("Add")]
         public static int OriginalAdd(OriginalCalculator instance, int a, int b)
         {
             // 这里的实现会被Harmony替换为原始Add的实现
             throw new NotImplementedException("Stub for reverse patching.");
         }
 
+        [HarmonyLib.HarmonyPatch("Add")]
         static bool Prefix(OriginalCalculator __instance, ref int __result, int a, int b)
         {
             // 在Patch中调用原始实现
             __result = OriginalAdd(__instance, a, b) * 2;
             return false; // 跳过原方法
         }
-    }
 
-    [HarmonyLib.HarmonyPatch(typeof(OriginalCalculator), "SpecialCalculation")]
-    public class MyCalculatorPatch1
-    {
-        // When reverse patched, StringOperation will contain all the
-        // code from the original including the Join() but not the +n
+        // 反向修补后，StringOperation 方法将包含
+        // 原始方法中的所有代码（包括 Join() 逻辑），但不包含 "+n" 和 "Prolog" 逻辑
         //
-        // Basically
+        // 大致等效于：
         // var parts = original.Split('-');
         // return string.Join("", parts)
         //
         [HarmonyReversePatch]
+        [HarmonyLib.HarmonyPatch("SpecialCalculation")]
         public static string StringOperation(string original)
         {
-            // This inner transpiler will be applied to the original and
-            // the result will replace this method
+            // 此内部转译器将作用于原始方法，
+            // 转译结果会替代当前方法的逻辑
             //
-            // That will allow this method to have a different signature
-            // than the original and it must match the transpiled result
+            // 这使得当前方法可以拥有与原始方法不同的签名，
+            // 但签名必须与转译结果匹配
             //
             IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
@@ -63,11 +62,12 @@ namespace HarmonyReversePatchSamples
                 return list.AsEnumerable();
             }
 
-            // make compiler happy
+            // 使编译器不报错，最终会被替换掉
             _ = Transpiler(null);
             return original;
         }
 
+        [HarmonyLib.HarmonyPatch("SpecialCalculation")]
         static bool Prefix(OriginalCalculator __instance, ref string __result, string original)
         {
             // 在Patch中调用原始实现
