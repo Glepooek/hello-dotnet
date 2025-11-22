@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net481</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Aspose.Total.lic">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspose.Cells" />
+    <PackageReference Include="Aspose.PDF" />
+    <PackageReference Include="Aspose.Slides.NET" />
+    <PackageReference Include="Aspose.Words" />
+    <PackageReference Include="Lib.Harmony" />
+  </ItemGroup>
+
+</Project>
