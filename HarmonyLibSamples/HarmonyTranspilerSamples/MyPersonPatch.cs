@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace HarmonyTranspilerSamples
 {
@@ -19,23 +20,36 @@ namespace HarmonyTranspilerSamples
         //}
 
         // 方式2：使用 Transpiler（IL层面修改）
-        static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator iLGenerator, MethodBase methodBase)
+        static IEnumerable<CodeInstruction> Transpiler(
+                IEnumerable<CodeInstruction> instructions, 
+                ILGenerator iLGenerator, 
+                MethodBase methodBase)
         {
-            foreach (CodeInstruction instruction in instructions)
+            MethodInfo? methodInfo = typeof(MyPersonPatch).GetMethod("ModifyPrefix", new Type[] { typeof(string) });
+
+            //foreach (CodeInstruction instruction in instructions)
+            //{
+            //    // 在所有加载参数的地方，将加载的参数替换掉
+            //    if (instruction.opcode == OpCodes.Ldarg_1)
+            //    {
+            //        // 先加载原始值
+            //        yield return new CodeInstruction(OpCodes.Ldarg_1);
+            //        // 调用修改方法
+            //        yield return new CodeInstruction(OpCodes.Call, methodInfo);
+            //    }
+            //    else
+            //    {
+            //        yield return instruction;
+            //    }
+            //}
+
+            CodeMatcher matcher = new CodeMatcher(instructions, iLGenerator);
+            while (matcher.MatchStartForward(new CodeMatch(ins => ins.opcode == OpCodes.Ldarg_1)).IsValid)
             {
-                // 直接替换所有加载参数的地方
-                if (instruction.opcode == OpCodes.Ldarg_1)
-                {
-                    // 先加载原始值
-                    yield return new CodeInstruction(OpCodes.Ldarg_1);
-                    // 调用修改方法
-                    yield return new CodeInstruction(OpCodes.Call, typeof(MyPersonPatch).GetMethod("ModifyPrefix", new Type[] { typeof(string) }));
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                matcher.InsertAfterAndAdvance(new CodeInstruction(OpCodes.Call, methodInfo));
             }
+
+            return matcher.InstructionEnumeration();
         }
 
         public static string ModifyPrefix(string originalPrefix)

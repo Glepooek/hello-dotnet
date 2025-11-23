@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MinHookSamples.Shared/MinHookSamples.Shared.csproj" />
+  <Project Path="MinHookSamples.WpfSamples/MinHookSamples.WpfSamples.csproj" />
+  <Project Path="MinHookSamples/MinHookSamples.csproj" />
+</Solution>
