@@ -7,10 +7,6 @@ namespace MinHookSamples.Shared
 {
     public class HookManager
     {
-        // 定义 MessageBox 的委托
-        [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Unicode)]
-        public delegate int MessageBoxDelegate(IntPtr hWnd, string text, string caption, uint type);
-
         /// <summary>
         /// 原始函数的指针
         /// </summary>
@@ -20,7 +16,7 @@ namespace MinHookSamples.Shared
         /// </summary>
         private static IntPtr _targetFunction = IntPtr.Zero;
 
-        public static void InstallHook(string moduleName, string functionName, MessageBoxDelegate detourFunc)
+        public static void InstallHook(string moduleName, string functionName, Delegate detourFunc)
         {
             // 1. 初始化 MinHook
             MinHook.MH_STATUS status = MinHook.MH_Initialize();
