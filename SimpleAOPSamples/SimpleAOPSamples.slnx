@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SimpleAOP462Samples/SimpleAOP462Samples.csproj" />
+  <Project Path="SimpleAOPSamples.Shared/SimpleAOPSamples.Shared.csproj" />
+  <Project Path="SimpleAOPSamples/SimpleAOPSamples.csproj" />
+</Solution>
