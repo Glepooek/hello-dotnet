@@ -12,25 +12,25 @@ public delegate IntPtr SendMessageWDelegate(IntPtr hWnd, uint Msg, IntPtr wParam
 
 public class Program
 {
+    private static MessageBoxDelegate _OriginalMessageBoxFunction;
+    private static SendMessageWDelegate _OriginalSendMessageFunction;
+
     public static void Main(string[] args)
     {
         // 在 Win32 API 层面：
         // MessageBoxW 是 Windows 导出的 Unicode 版本函数（参数类型为 LPCWSTR，也就是 UTF‑16 / wchar_t*）。
         // MessageBoxA 是 ANSI 版本（参数为 LPCSTR，按当前代码页编码的字节串）。
         // 在 C/C++ 头文件里通常有一个宏 MessageBox，它根据是否定义 UNICODE 映射到 MessageBoxW（Unicode）或 MessageBoxA（ANSI）。
-
         MessageBoxDelegate messageBoxDl = new MessageBoxDelegate((hWnd, text, caption, type) =>
         {
             Console.WriteLine($"我已成功拦截到 MessageBox：内容 {text}, 标题: {caption}");
-            MessageBoxDelegate original = Marshal.GetDelegateForFunctionPointer<MessageBoxDelegate>(HookManager.OriginalFunction);
-            return original(hWnd, text, caption, type);
+            return _OriginalMessageBoxFunction(hWnd, text, caption, type);
         });
 
         SendMessageWDelegate sendMessageDl = new SendMessageWDelegate((IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam) =>
         {
             Console.WriteLine($"[HOOK] SendMessageW: hWnd=0x{hWnd.ToInt64():X}, Msg=0x{Msg:X}");
 
-            SendMessageWDelegate? original = Marshal.GetDelegateForFunctionPointer<SendMessageWDelegate>(HookManager.OriginalFunction);
             // 获取窗口所属的线程和进程ID
             uint processId = 0;
             uint threadId = NativeMethodHelper.GetWindowThreadProcessId(hWnd, out processId);
@@ -65,7 +65,7 @@ public class Program
             }
 
             // 调用原始函数
-            return original(hWnd, Msg, wParam, lParam);
+            return _OriginalSendMessageFunction(hWnd, Msg, wParam, lParam);
         });
 
         #region 测试SendMessage
@@ -87,7 +87,7 @@ public class Program
         #endregion
 
         #region 测试MessageBox
-        HookManager.InstallHook("user32.dll", "MessageBoxW", messageBoxDl);
+        _OriginalMessageBoxFunction = HookManager.InstallHook("user32.dll", "MessageBoxW", messageBoxDl);
         NativeMethodHelper.MessageBox(IntPtr.Zero, "This is a test", "Test", 0);
         #endregion
 
