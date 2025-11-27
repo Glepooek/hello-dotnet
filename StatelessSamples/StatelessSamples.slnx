@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AlarmExample/AlarmExample.csproj" />
+  <Project Path="BugTrackerExample/BugTrackerExample.csproj" />
+  <Project Path="JsonExample/JsonExample.csproj" />
+  <Project Path="OnOffExample/OnOffExample.csproj" />
+  <Project Path="TelephoneCallExample/TelephoneCallExample.csproj" />
+</Solution>
