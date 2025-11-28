@@ -1,0 +1,151 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="Avalonia.MusicStore.Views.WebViewWindow"
+        Title="WebViewWindow"
+        WindowStartupLocation="CenterOwner"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        ShowInTaskbar="False">
+
+    <Window.Styles>
+        <Style Selector="Canvas">
+            <Style.Animations>
+                <Animation Duration="0:0:2" IterationCount="INFINITE">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="RotateTransform.Angle" Value="360" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Ellipse.ellipse3">
+            <Style.Animations>
+                <Animation Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </KeyFrame>
+                    <KeyFrame Cue="70%">
+                        <Setter Property="Opacity" Value="1.0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Ellipse.ellipse3">
+            <Style.Animations>
+                <Animation Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </KeyFrame>
+                    <KeyFrame Cue="70%">
+                        <Setter Property="Opacity" Value="1.0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Ellipse.ellipse2">
+            <Style.Animations>
+                <Animation Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </KeyFrame>
+                    <KeyFrame Cue="70%">
+                        <Setter Property="Opacity" Value="1.0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Ellipse.ellipse1">
+            <Style.Animations>
+                <Animation Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0.75" />
+                    </KeyFrame>
+                    <KeyFrame Cue="70%">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0.75" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Ellipse.ellipse">
+            <Style.Animations>
+                <Animation Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="70%">
+                        <Setter Property="Opacity" Value="0.25" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </Window.Styles>
+
+    <Panel x:Name="panel">
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial BackgroundSource="Digger"
+                                             TintColor="Black"
+                                             TintOpacity="1"
+                                             MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Canvas x:Name="canvas"
+                Height="45"
+                Width="45">
+            <Canvas.RenderTransform>
+                <RotateTransform />
+            </Canvas.RenderTransform>
+            <Ellipse x:Name="ellipse3"
+                     Classes="ellipse3"
+                     Fill="#0092FA"
+                     Height="16"
+                     Width="16"
+                     Opacity="0.25" />
+            <Ellipse x:Name="ellipse2"
+                     Classes="ellipse2"
+                     Fill="#0092FA"
+                     Height="16"
+                     Width="16"
+                     Canvas.Left="29"
+                     Opacity="0.5" />
+            <Ellipse x:Name="ellipse1"
+                     Classes="ellipse1"
+                     Fill="#0092FA"
+                     Height="16"
+                     Width="16"
+                     Canvas.Top="29"
+                     Opacity="0.75" />
+            <Ellipse x:Name="ellipse"
+                     Classes="ellipse"
+                     Fill="#0092FA"
+                     Height="16"
+                     Width="16"
+                     Canvas.Left="29"
+                     Canvas.Top="29" />
+        </Canvas>
+
+    </Panel>
+</Window>

@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Remove="Assets\Langs\Resources.en-US.resx" />
+        <AvaloniaResource Remove="Assets\Langs\Resources.resx" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Assets\iconfont.ttf" />
+        <None Remove="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaXaml Include="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AsyncImageLoader.Avalonia" Version="3.3.0" />
+        <PackageReference Include="Avalonia" Version="11.2.0" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.2.0" />
+        <PackageReference Include="Avalonia.HtmlRenderer" Version="11.0.0" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.0" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.2.0" />
+        <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.2.0" />
+        <PackageReference Include="CefGlue.Avalonia" Version="120.6099.210" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+        <PackageReference Include="iTunesSearch" Version="1.0.44" />
+        <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="System.Xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Assets\Langs\Resources.en-US.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Assets\Langs\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <Compile Update="Assets\Langs\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="TestWeb\index.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="TestWeb\vue.js">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+</Project>

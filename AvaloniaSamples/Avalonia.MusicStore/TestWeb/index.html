@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="./vue.js" type="text/javascript" charset="utf-8"></script>
+    <title></title>
+</head>
+<body>
+    <div id="app3" style="height:20px"></div>
+    <div id="app4">
+        <p>{{ message }}</p>
+        <button style="margin-left:10px" v-on:click="closeWindow">关闭主窗口</button>
+        <button style="margin-left:10px" v-on:click="minimizeWindow">最小化主窗口</button>
+        <button style="margin-left:10px" v-on:click="maximizeWindow">最大化、还原窗口</button>
+        <button style="margin-left:10px" v-on:click="getHttpHeaderParamsInfo">获取httpheader参数方法</button>
+        <button style="margin-left:10px" v-on:click="checkAppUpdate">检查更新</button>
+        <p>{{ result }}</p>
+    </div>
+
+    <script>
+        var hostObject = window.AvaWebView;
+
+        // 拖动窗体
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('app3').addEventListener('mousedown', evt => {
+                AvaWebView.mouseDownDrag();
+            });
+        });
+
+        var app4 = new Vue({
+            el: '#app4',
+            data: {
+                message: 'Hello WebView2！以下测试JS调用C#方法！',
+                result: 'Hello WebView2！以下测试C#调用JS方法！'
+            },
+            methods: {
+                async closeWindow() {
+                    await hostObject.closeWindow();
+                },
+                async minimizeWindow() {
+                    await hostObject.minimizeWindow();
+                },
+                async maximizeWindow() {
+                    await hostObject.MaximizeWindow();
+                },
+                // 获取httpheader参数
+                // JSON格式: {"x-device-name":"DESKTOP-C9V2GQS","x-device-model":"Microsoft Windows 10 教育版","x-app-key":"unischool_student_pc", ...}
+                async getHttpHeaderParamsInfo() {
+                    this.message = await hostObject.GetHttpHeaderParamsInfo();
+                },
+                async checkAppUpdate() {
+                    await hostObject.CheckAppUpdate();
+                },
+                // C#调用JS方法1：app4.calculateAdd(12,13)
+                calculateAdd(num1, num2) {
+                    this.result = num1 + num2;
+                    alert("传入参数: num1=" + num1 + " num2=" + num2 + " result=" + this.result);
+                    return this.result;
+                }
+            }
+        })
+
+        // C#调用JS方法2：calculateAdd(12,13)
+        function calculateAdd1(num1, num2) {
+            app4.result = num1 + num2;
+            alert("传入参数: num1=" + num1 + " num2=" + num2 + " result=" + app4.result);
+            return app4.result;
+        }
+    </script>
+</body>
+</html>

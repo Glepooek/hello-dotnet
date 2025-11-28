@@ -1,0 +1,193 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+        xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        xmlns:html="using:TheArtOfDev.HtmlRenderer.Avalonia"
+        xmlns:vm="using:Avalonia.MusicStore.ViewModels"
+        xmlns:model="using:Avalonia.MusicStore.Models"
+        xmlns:datatemplates="using:Avalonia.MusicStore.DataTemplates"
+        xmlns:views="using:Avalonia.MusicStore.Views"
+        xmlns:lang="using:Avalonia.MusicStore.Assets.Langs"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="Avalonia.MusicStore.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Avalonia.MusicStore"
+        WindowState="Maximized"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True">
+    <!--  根元素中设置x:DataType="vm:MainWindowViewModel"，是为了支持编译绑定  -->
+
+    <Window.Resources>
+        <Flyout x:Key="SharedFlyout"
+                ShowMode="Standard"
+                Placement="BottomEdgeAlignedLeft">
+            <TextBlock Text="这是弹出层" />
+        </Flyout>
+
+        <!--  ControlTheme类似于WPF中的Style  -->
+        <ControlTheme x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Background" Value="Yellow" />
+            <Setter Property="BorderBrush" Value="Blue" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <Border.Styles>
+                                <Style Selector="Border:pointerover">
+                                    <Setter Property="Background" Value="Blue" />
+                                    <Setter Property="TextBlock.Foreground" Value="Black" />
+                                </Style>
+                            </Border.Styles>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </ControlTheme>
+    </Window.Resources>
+
+    <Window.Styles>
+        <StyleInclude Source="avares://Avalonia.MusicStore/Resources/ButtonStyles.axaml" />
+        <Style Selector="FlyoutPresenter">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Margin" Value="0,5,0,0" />
+
+            <!--  ^是嵌套样式选择器  -->
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="Blue" />
+            </Style>
+        </Style>
+    </Window.Styles>
+
+    <Window.DataTemplates>
+        <datatemplates:PersonDataTemplateSelector>
+            <datatemplates:PersonDataTemplateSelector.MaleDataTemplate>
+                <DataTemplate x:DataType="{x:Type model:Person}">
+                    <StackPanel Orientation="Horizontal" Background="Red">
+                        <TextBlock Text="{Binding Id}" FontSize="40" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" FontSize="20" />
+                            <TextBlock Text="{Binding Address}" FontSize="20" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </datatemplates:PersonDataTemplateSelector.MaleDataTemplate>
+            <datatemplates:PersonDataTemplateSelector.FemaleDataTemplate>
+                <DataTemplate x:DataType="{x:Type model:Person}">
+                    <StackPanel Orientation="Horizontal" Background="Yellow">
+                        <TextBlock Text="{Binding Id}" FontSize="40" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" FontSize="20" />
+                            <TextBlock Text="{Binding Address}" FontSize="20" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </datatemplates:PersonDataTemplateSelector.FemaleDataTemplate>
+        </datatemplates:PersonDataTemplateSelector>
+
+    </Window.DataTemplates>
+
+    <!--  设计时预览  -->
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <i:Interaction.Behaviors>
+        <ia:EventTriggerBehavior EventName="Loaded">
+            <ia:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </ia:EventTriggerBehavior>
+        <!--  Avalonia的bug，无法执行  -->
+        <ia:EventTriggerBehavior EventName="Unloaded">
+            <ia:InvokeCommandAction Command="{Binding UnloadedCommand}" />
+        </ia:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial BackgroundSource="Digger"
+                                             TintColor="Black"
+                                             TintOpacity="1"
+                                             MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+
+        <Grid Margin="40"
+              ShowGridLines="True"
+              RowDefinitions="auto,*,auto">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Spacing="10">
+                <Button Theme="{StaticResource ButtonStyle}"
+                        Classes="Call"
+                        Content="{x:Static lang:Resources.btn_ShowFlyout}"
+                        Flyout="{StaticResource SharedFlyout}" />
+                <Button Classes="Call"
+                        Content="{x:Static lang:Resources.btn_CallJSMethod}"
+                        Command="{Binding CallJSMethodCommand}" />
+                <Button Classes="Call"
+                        Content="{x:Static lang:Resources.btn_ShowWeb}"
+                        Command="{Binding ShowWebCommand}" />
+                <Button Classes="Icon" Command="{Binding ShowAlbumsCommand}">
+                    <PathIcon Data="{StaticResource store_microsoft_regular}" />
+                </Button>
+            </StackPanel>
+
+            <ItemsControl Grid.Row="1"
+                          Margin="0,40,0,0"
+                          ItemsSource="{Binding Albums}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:AlbumView Margin="0,0,20,20" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <StackPanel Grid.Row="2"
+                        Spacing="20"
+                        Orientation="Horizontal">
+                <!--  显示富文本  -->
+                <html:HtmlPanel Text="{Binding Text}" />
+                <!--  数据模版选择器  -->
+                <ListBox ItemsSource="{Binding People}">
+                    <ListBox.Styles>
+                        <Style Selector="ListBoxItem">
+                            <Setter Property="Height" Value="80" />
+                        </Style>
+                    </ListBox.Styles>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+                <!--  IconFont  -->
+                <TextBlock FontFamily="{StaticResource IconFont}"
+                           FontSize="20"
+                           Foreground="Red"
+                           Text="&#xe71a;" />
+            </StackPanel>
+        </Grid>
+    </Panel>
+
+</Window>
