@@ -1,0 +1,147 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>%24/WPFCodePlex/Learning.Prism/Learning.PrismDemo.DefaultTheme</SccProjectName>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccAuxPath>https://dev.azure.com/ekplex</SccAuxPath>
+    <SccLocalPath>.</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Command="xcopy &quot;$(TargetDir)$(TargetName)*$(TargetExt)&quot; &quot;$(SolutionDir)\Output\Modules\&quot; /Y /S" />
+    <Exec Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" Command="xcopy &quot;$(TargetDir)$(TargetName)*$(TargetExt)&quot; &quot;$(SolutionDir)\Release\Modules\&quot; /Y /S" />
+  </Target>
+  
+  <ItemGroup>
+    <None Remove="Fonts\msyh.ttc" />
+    <None Remove="Images\Animation\ico_main_menu_animation.png" />
+    <None Remove="Images\Call\ico_main_menu_call.png" />
+    <None Remove="Images\Common\close_loading_hover.png" />
+    <None Remove="Images\Common\close_loading_normal.png" />
+    <None Remove="Images\Common\goback.png" />
+    <None Remove="Images\Live\ico_main_menu_live.png" />
+    <None Remove="Images\Login\login_background.png" />
+    <None Remove="Images\MainPage\mainpage_background.png" />
+    <None Remove="Images\MediaPlayer\camera_hover.png" />
+    <None Remove="Images\MediaPlayer\camera_normal.png" />
+    <None Remove="Images\MediaPlayer\camera_off_normal.png" />
+    <None Remove="Images\MediaPlayer\close_hover.png" />
+    <None Remove="Images\MediaPlayer\close_normal.png" />
+    <None Remove="Images\MediaPlayer\mic_hover.png" />
+    <None Remove="Images\MediaPlayer\mic_normal.png" />
+    <None Remove="Images\MediaPlayer\mic_off_normal.png" />
+    <None Remove="Images\MediaPlayer\volume_hover.png" />
+    <None Remove="Images\MediaPlayer\volume_normal.png" />
+    <None Remove="Images\TitleBar\ico_close.png" />
+    <None Remove="Images\TitleBar\ico_max.png" />
+    <None Remove="Images\TitleBar\ico_min.png" />
+    <None Remove="Images\TitleBar\ico_revert.png" />
+    <None Remove="Images\TitleBar\ico_setting.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Index.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\msyh.ttc">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Animation\ico_main_menu_animation.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Common\close_loading_hover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Common\close_loading_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\mic_off_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Call\ico_main_menu_call.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Common\goback.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Live\ico_main_menu_live.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Learning.PrismDemo.Controls\Learning.PrismDemo.Controls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Login\login_background.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MainPage\mainpage_background.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\camera_hover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\camera_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\camera_off_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\close_hover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\close_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\mic_hover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\mic_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\volume_hover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\MediaPlayer\volume_normal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TitleBar\ico_close.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TitleBar\ico_max.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TitleBar\ico_min.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TitleBar\ico_revert.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TitleBar\ico_setting.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Index.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+  </ItemGroup>
+
+</Project>

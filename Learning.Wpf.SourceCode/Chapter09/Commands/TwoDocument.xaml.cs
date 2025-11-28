@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+
+namespace Commands
+{
+	public partial class TwoDocument : System.Windows.Window
+	{
+		public TwoDocument()
+		{
+			InitializeComponent();
+		}
+
+		private void SaveCommand(object sender, ExecutedRoutedEventArgs e)
+		{
+			string text = ((TextBox)sender).Text;
+			MessageBox.Show("About to save: " + text);
+			isDirty[sender] = false;
+		}
+
+		private Dictionary<Object, bool> isDirty = new Dictionary<Object, bool>();
+		private void txt_TextChanged(object sender, RoutedEventArgs e)
+		{
+			isDirty[sender] = true;
+		}
+
+		private void SaveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			if (isDirty.ContainsKey(sender) && isDirty[sender] == true)
+			{
+				e.CanExecute = true;
+			}
+			else
+			{
+				e.CanExecute = false;
+			}
+		}
+	}
+}

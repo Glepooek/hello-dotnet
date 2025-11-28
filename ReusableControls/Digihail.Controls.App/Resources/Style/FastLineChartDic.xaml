@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="http://schemas.abtsoftware.co.uk/scichart" 
+                    xmlns:fastLineChart="clr-namespace:ReusableControls.Library.FastLineChart;assembly=ReusableControls.Library"
+                    xmlns:local="clr-namespace:ReusableControls.Demos">
+    <local:TimeConverter x:Key="TimeConverter"></local:TimeConverter>
+    <Style x:Key="FastLineChartStyle" TargetType="{x:Type fastLineChart:FastLineChart}">
+        <Setter Property="TooltipLabelTemplate">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type s:TemplatableControl}">
+                    <Border Height="40" Margin="5,0,0,0">
+                        <StackPanel
+        						VerticalAlignment="Center" 
+        						HorizontalAlignment="Left">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="FontFamily" Value="SegoeUI"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="Padding" Value="2" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Text="{Binding XValue, Converter={StaticResource TimeConverter}}" Background="#70FF4000" FontSize="12" />
+                            <TextBlock  Text="{Binding YValue, StringFormat=\{0:0.0\}}" FontSize="15" Background="#FF4000" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="DataSelectionLineStyle" >
+            <Setter.Value>
+                <Style TargetType="{x:Type s:VerticalLineAnnotation}">
+                    <Setter Property="Stroke" Value="#5ACDCF" />
+                    <Setter Property="StrokeThickness" Value="3" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type fastLineChart:FastLineChart}">
+                    <s:SciChartSurface x:Name="PartSciChartSurface" 
+        					Margin="{TemplateBinding Margin}"
+        					BorderBrush="{TemplateBinding ChartBorderBrush}"
+        					s:ThemeManager.Theme="BrightSpark"
+        					XAxis="{Binding ChartXAxis, RelativeSource={RelativeSource AncestorType={x:Type fastLineChart:FastLineChart}}}"
+        					YAxis="{Binding ChartYAxis, RelativeSource={RelativeSource AncestorType={x:Type fastLineChart:FastLineChart}}}"
+        					Background="{TemplateBinding SurfaceBackground}">
+                        <s:SciChartSurface.GridLinesPanelStyle>
+                            <Style TargetType="{x:Type s:GridLinesPanel}">
+                                <Setter Property="BorderBrush" Value="#777777" />
+                                <Setter Property="BorderThickness" Value="{Binding ChartBorderThickness, RelativeSource={RelativeSource AncestorType={x:Type fastLineChart:FastLineChart}}}" />
+                            </Style>
+                        </s:SciChartSurface.GridLinesPanelStyle>
+                        <s:SciChartSurface.RenderableSeries>
+                            <s:FastLineRenderableSeries SeriesColor="{TemplateBinding DatasColor}"
+        							PointMarker="{TemplateBinding DatasPointMarker}"
+        							DataSeries="{TemplateBinding Datas}"
+        							StrokeThickness="{TemplateBinding SeriesThickness}"
+        							RolloverMarkerTemplate="{TemplateBinding RolloverMarkerTemplate}"/>
+                        </s:SciChartSurface.RenderableSeries>
+                        <s:SciChartSurface.ChartModifier>
+                            <s:ModifierGroup>
+                                <s:RolloverModifier x:Name="PartRolloverModifier"
+        								IsEnabled="{TemplateBinding IsEnableRolloverModifier}"
+        								ShowTooltipOn="Always"
+        								UseInterpolation="True" 
+        								ShowAxisLabels="False"
+        								DrawVerticalLine="False"
+        								TooltipLabelTemplate="{TemplateBinding TooltipLabelTemplate}" />
+                            </s:ModifierGroup>
+                        </s:SciChartSurface.ChartModifier>
+                        <s:SciChartSurface.Annotations>
+                            <s:VerticalLineAnnotation x:Name="PartVerticalLine" 
+        							Style="{TemplateBinding DataSelectionLineStyle}"
+        							Visibility="{TemplateBinding DataSelectionLineVisibility}" />
+                        </s:SciChartSurface.Annotations>
+                    </s:SciChartSurface>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Line" x:Key="TickStyle">
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+    <Style TargetType="Line" x:Key="GridLineStyle">
+        <Setter Property="Stroke" Value="#999999"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="StrokeDashArray" Value="1 5"/>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,189 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{B669B968-6C2F-4C7A-9249-39EBE52DDE65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Call", "Learning.PrismDemo.Call\Learning.PrismDemo.Call.csproj", "{97DA83FA-89CD-461F-A367-4D6F64DA7F2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Live", "Learning.PrismDemo.Live\Learning.PrismDemo.Live.csproj", "{377A6519-7345-4021-B424-F1909F85B4C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Login", "Learning.PrismDemo.Login\Learning.PrismDemo.Login.csproj", "{6AE506EB-F233-49C1-9611-B020C1F38F31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Main", "Learning.PrismDemo.Main\Learning.PrismDemo.Main.csproj", "{AD5730FF-CA95-481C-A2DE-760B616F4927}"
+	ProjectSection(ProjectDependencies) = postProject
+		{377A6519-7345-4021-B424-F1909F85B4C9} = {377A6519-7345-4021-B424-F1909F85B4C9}
+		{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84} = {B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84}
+		{42C56EE6-63E8-47D8-8331-E640493FD988} = {42C56EE6-63E8-47D8-8331-E640493FD988}
+		{6AE506EB-F233-49C1-9611-B020C1F38F31} = {6AE506EB-F233-49C1-9611-B020C1F38F31}
+		{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00} = {1CAB56ED-EBE1-4971-927B-ACD2BBB40E00}
+		{97DA83FA-89CD-461F-A367-4D6F64DA7F2F} = {97DA83FA-89CD-461F-A367-4D6F64DA7F2F}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Messages", "Learning.PrismDemo.Messages\Learning.PrismDemo.Messages.csproj", "{DEEB481B-12C7-4F28-AC59-5D98E92C0147}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Models", "Learning.PrismDemo.Models\Learning.PrismDemo.Models.csproj", "{CB55DF3E-F9A5-4B9C-911A-92055F6E8550}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Utilities", "Learning.PrismDemo.Utilities\Learning.PrismDemo.Utilities.csproj", "{D5FFCCF2-3AD9-4127-9F01-8DDA04FFC0E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Controls", "Learning.PrismDemo.Controls\Learning.PrismDemo.Controls.csproj", "{7A777BEC-D3C4-4A89-AFCF-2DE5D8A632BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Themes", "Themes", "{4639EEB1-8DAD-439D-B52F-B5D5B0075305}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.DefaultTheme", "Learning.PrismDemo.DefaultTheme\Learning.PrismDemo.DefaultTheme.csproj", "{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Controls.DialogServices", "Learning.PrismDemo.Controls.DialogServices\Learning.PrismDemo.Controls.DialogServices.csproj", "{8B19D83E-B504-4EC2-AA12-5E613E23E07E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Logs", "Learning.PrismDemo.Logs\Learning.PrismDemo.Logs.csproj", "{A08EAE1A-F7C0-4EE0-8C99-A2F5EE9D8B18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Services", "Learning.PrismDemo.Services\Learning.PrismDemo.Services.csproj", "{33CE4894-3B7C-42B8-9053-6F1E958D093C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Setting", "Learning.PrismDemo.Setting\Learning.PrismDemo.Setting.csproj", "{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.Cameras", "Learning.PrismDemo.Cameras\Learning.PrismDemo.Cameras.csproj", "{42C56EE6-63E8-47D8-8331-E640493FD988}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{820CB7F4-7429-4D27-B94B-868A3FBD4717}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.PrismDemo.MediaCodec", "Learning.PrismDemo.MediaCodec\Learning.PrismDemo.MediaCodec.csproj", "{54C1DBDF-0D70-4D21-A233-158FF7651FB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97DA83FA-89CD-461F-A367-4D6F64DA7F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97DA83FA-89CD-461F-A367-4D6F64DA7F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97DA83FA-89CD-461F-A367-4D6F64DA7F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97DA83FA-89CD-461F-A367-4D6F64DA7F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377A6519-7345-4021-B424-F1909F85B4C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377A6519-7345-4021-B424-F1909F85B4C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377A6519-7345-4021-B424-F1909F85B4C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377A6519-7345-4021-B424-F1909F85B4C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AE506EB-F233-49C1-9611-B020C1F38F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE506EB-F233-49C1-9611-B020C1F38F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE506EB-F233-49C1-9611-B020C1F38F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE506EB-F233-49C1-9611-B020C1F38F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5730FF-CA95-481C-A2DE-760B616F4927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5730FF-CA95-481C-A2DE-760B616F4927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5730FF-CA95-481C-A2DE-760B616F4927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5730FF-CA95-481C-A2DE-760B616F4927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEEB481B-12C7-4F28-AC59-5D98E92C0147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEEB481B-12C7-4F28-AC59-5D98E92C0147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEEB481B-12C7-4F28-AC59-5D98E92C0147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEEB481B-12C7-4F28-AC59-5D98E92C0147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB55DF3E-F9A5-4B9C-911A-92055F6E8550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB55DF3E-F9A5-4B9C-911A-92055F6E8550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB55DF3E-F9A5-4B9C-911A-92055F6E8550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB55DF3E-F9A5-4B9C-911A-92055F6E8550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FFCCF2-3AD9-4127-9F01-8DDA04FFC0E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FFCCF2-3AD9-4127-9F01-8DDA04FFC0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FFCCF2-3AD9-4127-9F01-8DDA04FFC0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FFCCF2-3AD9-4127-9F01-8DDA04FFC0E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A777BEC-D3C4-4A89-AFCF-2DE5D8A632BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A777BEC-D3C4-4A89-AFCF-2DE5D8A632BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A777BEC-D3C4-4A89-AFCF-2DE5D8A632BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A777BEC-D3C4-4A89-AFCF-2DE5D8A632BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B19D83E-B504-4EC2-AA12-5E613E23E07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B19D83E-B504-4EC2-AA12-5E613E23E07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B19D83E-B504-4EC2-AA12-5E613E23E07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B19D83E-B504-4EC2-AA12-5E613E23E07E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08EAE1A-F7C0-4EE0-8C99-A2F5EE9D8B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08EAE1A-F7C0-4EE0-8C99-A2F5EE9D8B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08EAE1A-F7C0-4EE0-8C99-A2F5EE9D8B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08EAE1A-F7C0-4EE0-8C99-A2F5EE9D8B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33CE4894-3B7C-42B8-9053-6F1E958D093C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33CE4894-3B7C-42B8-9053-6F1E958D093C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33CE4894-3B7C-42B8-9053-6F1E958D093C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33CE4894-3B7C-42B8-9053-6F1E958D093C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C56EE6-63E8-47D8-8331-E640493FD988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C56EE6-63E8-47D8-8331-E640493FD988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C56EE6-63E8-47D8-8331-E640493FD988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C56EE6-63E8-47D8-8331-E640493FD988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C1DBDF-0D70-4D21-A233-158FF7651FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C1DBDF-0D70-4D21-A233-158FF7651FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C1DBDF-0D70-4D21-A233-158FF7651FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C1DBDF-0D70-4D21-A233-158FF7651FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97DA83FA-89CD-461F-A367-4D6F64DA7F2F} = {B669B968-6C2F-4C7A-9249-39EBE52DDE65}
+		{377A6519-7345-4021-B424-F1909F85B4C9} = {B669B968-6C2F-4C7A-9249-39EBE52DDE65}
+		{6AE506EB-F233-49C1-9611-B020C1F38F31} = {B669B968-6C2F-4C7A-9249-39EBE52DDE65}
+		{B07CE097-DDFA-4CF1-956B-BFCEA1A5AA84} = {4639EEB1-8DAD-439D-B52F-B5D5B0075305}
+		{1CAB56ED-EBE1-4971-927B-ACD2BBB40E00} = {B669B968-6C2F-4C7A-9249-39EBE52DDE65}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97806E93-9626-471B-8B64-591E356CEE40}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 16
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Learning.PrismDemo.Call\\Learning.PrismDemo.Call.csproj
+		SccProjectTopLevelParentUniqueName1 = Learning.PrismDemo.sln
+		SccProjectName1 = Learning.PrismDemo.Call
+		SccLocalPath1 = Learning.PrismDemo.Call
+		SccProjectUniqueName2 = Learning.PrismDemo.Live\\Learning.PrismDemo.Live.csproj
+		SccProjectTopLevelParentUniqueName2 = Learning.PrismDemo.sln
+		SccProjectName2 = Learning.PrismDemo.Live
+		SccLocalPath2 = Learning.PrismDemo.Live
+		SccProjectUniqueName3 = Learning.PrismDemo.Login\\Learning.PrismDemo.Login.csproj
+		SccProjectTopLevelParentUniqueName3 = Learning.PrismDemo.sln
+		SccProjectName3 = Learning.PrismDemo.Login
+		SccLocalPath3 = Learning.PrismDemo.Login
+		SccProjectUniqueName4 = Learning.PrismDemo.Main\\Learning.PrismDemo.Main.csproj
+		SccProjectName4 = Learning.PrismDemo.Main
+		SccLocalPath4 = Learning.PrismDemo.Main
+		SccProjectUniqueName5 = Learning.PrismDemo.Messages\\Learning.PrismDemo.Messages.csproj
+		SccProjectName5 = Learning.PrismDemo.Messages
+		SccLocalPath5 = Learning.PrismDemo.Messages
+		SccProjectUniqueName6 = Learning.PrismDemo.Models\\Learning.PrismDemo.Models.csproj
+		SccProjectName6 = Learning.PrismDemo.Models
+		SccLocalPath6 = Learning.PrismDemo.Models
+		SccProjectUniqueName7 = Learning.PrismDemo.Utilities\\Learning.PrismDemo.Utilities.csproj
+		SccProjectName7 = Learning.PrismDemo.Utilities
+		SccLocalPath7 = Learning.PrismDemo.Utilities
+		SccProjectUniqueName8 = Learning.PrismDemo.Controls\\Learning.PrismDemo.Controls.csproj
+		SccProjectName8 = Learning.PrismDemo.Controls
+		SccLocalPath8 = Learning.PrismDemo.Controls
+		SccProjectUniqueName9 = Learning.PrismDemo.DefaultTheme\\Learning.PrismDemo.DefaultTheme.csproj
+		SccProjectTopLevelParentUniqueName9 = Learning.PrismDemo.sln
+		SccProjectName9 = Learning.PrismDemo.DefaultTheme
+		SccLocalPath9 = Learning.PrismDemo.DefaultTheme
+		SccProjectUniqueName10 = Learning.PrismDemo.Controls.DialogServices\\Learning.PrismDemo.Controls.DialogServices.csproj
+		SccProjectName10 = Learning.PrismDemo.Controls.DialogServices
+		SccLocalPath10 = Learning.PrismDemo.Controls.DialogServices
+		SccProjectUniqueName11 = Learning.PrismDemo.Logs\\Learning.PrismDemo.Logs.csproj
+		SccProjectName11 = Learning.PrismDemo.Logs
+		SccLocalPath11 = Learning.PrismDemo.Logs
+		SccProjectUniqueName12 = Learning.PrismDemo.Services\\Learning.PrismDemo.Services.csproj
+		SccProjectName12 = Learning.PrismDemo.Services
+		SccLocalPath12 = Learning.PrismDemo.Services
+		SccProjectUniqueName13 = Learning.PrismDemo.Setting\\Learning.PrismDemo.Setting.csproj
+		SccProjectTopLevelParentUniqueName13 = Learning.PrismDemo.sln
+		SccProjectName13 = Learning.PrismDemo.Setting
+		SccLocalPath13 = Learning.PrismDemo.Setting
+		SccProjectUniqueName14 = Learning.PrismDemo.Cameras\\Learning.PrismDemo.Cameras.csproj
+		SccProjectName14 = Learning.PrismDemo.Cameras
+		SccLocalPath14 = Learning.PrismDemo.Cameras
+		SccProjectUniqueName15 = Learning.PrismDemo.MediaCodec\\Learning.PrismDemo.MediaCodec.csproj
+		SccProjectName15 = Learning.PrismDemo.MediaCodec
+		SccLocalPath15 = Learning.PrismDemo.MediaCodec
+	EndGlobalSection
+EndGlobal

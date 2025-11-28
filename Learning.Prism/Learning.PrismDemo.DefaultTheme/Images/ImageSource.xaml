@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--首页图片资源START-->
+    <ImageSource x:Key="MainPage_Background">MainPage/mainpage_background.png</ImageSource>
+    <!--首页图片资源END-->
+
+    <!--通用图片资源START-->
+    <ImageSource x:Key="Module_Goback">Common/goback.png</ImageSource>
+    <ImageSource x:Key="Close_Loading_Normal">Common/close_loading_normal.png</ImageSource>
+    <ImageSource x:Key="Close_Loading_Hover">Common/close_loading_hover.png</ImageSource>
+    <!--通用图片资源END-->
+
+    <!--登录模块图片资源START-->
+    <ImageSource x:Key="Login_Background">Login/login_background.png</ImageSource>
+    <!--登录模块图片资源END-->
+    
+    <!--通话模块图片资源START-->
+    <ImageSource x:Key="Call_MainMenu">Call/ico_main_menu_call.png</ImageSource>
+    <!--通话模块图片资源END-->
+
+    <!--直播模块图片资源START-->
+    <ImageSource x:Key="Live_MainMenu">Live/ico_main_menu_live.png</ImageSource>
+    <!--直播模块图片资源END-->
+
+    <!--动画模块图片资源START-->
+    <ImageSource x:Key="Animation_MainMenu">Animation/ico_main_menu_animation.png</ImageSource>
+    <!--动画模块图片资源END-->
+
+    <!--Titlebar图片资源START-->
+    <ImageSource x:Key="ico_min">TitleBar/ico_min.png</ImageSource>
+    <ImageSource x:Key="ico_max">TitleBar/ico_max.png</ImageSource>
+    <ImageSource x:Key="ico_revert">TitleBar/ico_revert.png</ImageSource>
+    <ImageSource x:Key="ico_close">TitleBar/ico_close.png</ImageSource>
+    <ImageSource x:Key="ico_setting">TitleBar/ico_setting.png</ImageSource>
+    <!--Titlebar图片资源END-->
+
+    <!--MediaPlayer图片资源START-->
+    <ImageSource x:Key="Camera_Hover">MediaPlayer/camera_hover.png</ImageSource>
+    <ImageSource x:Key="Camera_Normal">MediaPlayer/camera_normal.png</ImageSource>
+    <ImageSource x:Key="Camera_Off_Normal">MediaPlayer/camera_off_normal.png</ImageSource>
+    <ImageSource x:Key="Close_Hover">MediaPlayer/close_hover.png</ImageSource>
+    <ImageSource x:Key="Close_Normal">MediaPlayer/close_normal.png</ImageSource>
+    <ImageSource x:Key="Mic_Hover">MediaPlayer/mic_hover.png</ImageSource>
+    <ImageSource x:Key="Mic_Normal">MediaPlayer/mic_normal.png</ImageSource>
+    <ImageSource x:Key="Mic_Off_Normal">MediaPlayer/mic_off_normal.png</ImageSource>
+    <ImageSource x:Key="Volume_Hover">MediaPlayer/volume_hover.png</ImageSource>
+    <ImageSource x:Key="Volume_Normal">MediaPlayer/volume_normal.png</ImageSource>
+    <!--MediaPlayer图片资源END-->
+
+</ResourceDictionary>

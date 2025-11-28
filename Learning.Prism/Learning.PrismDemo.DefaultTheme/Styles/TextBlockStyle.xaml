@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="CommonStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type TextBlock}"
+           x:Key="TextBlockBaseStyle">
+        <Setter Property="FontFamily"
+                Value="{StaticResource CommonFont}" />
+        <Setter Property="Foreground"
+                Value="White" />
+        <Setter Property="FontSize"
+                Value="36" />
+    </Style>
+
+    <!--主页时间控件-->
+    <Style TargetType="TextBlock"
+           x:Key="MainPage_DateTime_Date"
+           BasedOn="{StaticResource TextBlockBaseStyle}">
+        <Setter Property="FontSize"
+                Value="16" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+    </Style>
+    
+    <Style TargetType="TextBlock"
+           x:Key="MainPage_DateTime_Time"
+           BasedOn="{StaticResource TextBlockBaseStyle}">
+        <Setter Property="FontSize"
+                Value="32" />
+    </Style>
+    
+</ResourceDictionary>

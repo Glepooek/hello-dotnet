@@ -1,0 +1,45 @@
+﻿<Window x:Class="BackgroundWorkerSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Height="350"
+        Width="500">
+
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Start...."
+                       HorizontalAlignment="Center"
+                       x:Name="txtStatus" />
+            <ProgressBar x:Name="progressBar"
+                         Minimum="0"
+                         Maximum="100"
+                         Width="538"
+                         Height="21"
+                         Margin="3" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,20,0,0"
+                    Grid.Row="1">
+            <Button Content="Start Asynchronous Operation"
+                    Width="201"
+                    Height="21"
+                    Margin="3"
+                    Click="btnStartAsyncOperation_Click"
+                    x:Name="btnStartAsyncOperation" />
+            <Button Content="Cancel"
+                    Width="201"
+                    Height="21"
+                    Margin="3"
+                    IsEnabled="False"
+                    Click="btnCancel_Click"
+                    x:Name="btnCancel" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,190 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-StartingMEF", "01-StartingMEF\01-StartingMEF.csproj", "{34FB4E9E-C10F-42A0-8909-7CB00FAB1FE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-PropertyExports", "02-PropertyExports\02-PropertyExports.csproj", "{D1A1BC2D-466A-47AC-8193-DFBFA4FF48D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-MethodExports", "03-MethodExports\03-MethodExports.csproj", "{11BFECED-8B85-4D58-A01B-A39D952E26E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-InheritedExports", "04-InheritedExports\04-InheritedExports.csproj", "{73C17A4F-D91B-4B3A-A2AA-A649BC9C18F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-ImportingConstructor", "05-ImportingConstructor\05-ImportingConstructor.csproj", "{EFF479F6-13C6-4E43-A441-F41A2B4FC5D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-LazyExport", "06-LazyExport\06-LazyExport.csproj", "{132BD397-CC7F-49C5-AB50-E08A9C737082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-ExportMetadata", "07-ExportMetadata\07-ExportMetadata.csproj", "{6A7BFD47-D2DC-4C1D-AC3F-6C6AF4E1AD0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08-CustomExportAttribute", "08-CustomExportAttribute\08-CustomExportAttribute.csproj", "{B666012C-9E46-4971-9BFE-89578F989A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09-Catalogs", "09-Catalogs\09-Catalogs.csproj", "{19844315-D0E1-498C-A478-667C1C20F2F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10-FilteredCatalog", "10-FilteredCatalog", "{D678C012-6C22-41F8-99BC-C520AA2353DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-FilteredCatalog", "10-FilteredCatalog\10-FilteredCatalog.csproj", "{D08BDD2A-A791-47FC-A5C6-BF22C060DDFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-ModuleA", "10-ModuleA\10-ModuleA.csproj", "{8C20D431-6181-4013-B5DA-C60BC853A1E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-ModuleB", "10-ModuleB\10-ModuleB.csproj", "{774E3750-75CC-4303-82FB-D44C3DC3922F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10-Infrastructure", "10-Infrastructure\10-Infrastructure.csproj", "{A6DCBC0C-70E5-4D04-88FB-EB2E174BB750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11-PartLifecycle", "11-PartLifecycle\11-PartLifecycle.csproj", "{42C21A1B-257A-4AF0-9949-9534B0903A55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12-Recomposition", "12-Recomposition\12-Recomposition.csproj", "{D47356A1-044F-451B-A617-9C6566B66ABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13-SearchContainer", "13-SearchContainer\13-SearchContainer.csproj", "{DC872B26-675E-466D-9455-D2FF7338492A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14-CompositionBatch", "14-CompositionBatch\14-CompositionBatch.csproj", "{38669BAB-CD7C-4CA6-9608-0B69FC124037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34FB4E9E-C10F-42A0-8909-7CB00FAB1FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FB4E9E-C10F-42A0-8909-7CB00FAB1FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FB4E9E-C10F-42A0-8909-7CB00FAB1FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FB4E9E-C10F-42A0-8909-7CB00FAB1FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A1BC2D-466A-47AC-8193-DFBFA4FF48D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A1BC2D-466A-47AC-8193-DFBFA4FF48D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A1BC2D-466A-47AC-8193-DFBFA4FF48D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A1BC2D-466A-47AC-8193-DFBFA4FF48D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11BFECED-8B85-4D58-A01B-A39D952E26E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BFECED-8B85-4D58-A01B-A39D952E26E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BFECED-8B85-4D58-A01B-A39D952E26E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BFECED-8B85-4D58-A01B-A39D952E26E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C17A4F-D91B-4B3A-A2AA-A649BC9C18F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C17A4F-D91B-4B3A-A2AA-A649BC9C18F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C17A4F-D91B-4B3A-A2AA-A649BC9C18F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C17A4F-D91B-4B3A-A2AA-A649BC9C18F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFF479F6-13C6-4E43-A441-F41A2B4FC5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF479F6-13C6-4E43-A441-F41A2B4FC5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF479F6-13C6-4E43-A441-F41A2B4FC5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF479F6-13C6-4E43-A441-F41A2B4FC5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{132BD397-CC7F-49C5-AB50-E08A9C737082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{132BD397-CC7F-49C5-AB50-E08A9C737082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{132BD397-CC7F-49C5-AB50-E08A9C737082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{132BD397-CC7F-49C5-AB50-E08A9C737082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A7BFD47-D2DC-4C1D-AC3F-6C6AF4E1AD0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7BFD47-D2DC-4C1D-AC3F-6C6AF4E1AD0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7BFD47-D2DC-4C1D-AC3F-6C6AF4E1AD0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7BFD47-D2DC-4C1D-AC3F-6C6AF4E1AD0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B666012C-9E46-4971-9BFE-89578F989A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B666012C-9E46-4971-9BFE-89578F989A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B666012C-9E46-4971-9BFE-89578F989A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B666012C-9E46-4971-9BFE-89578F989A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19844315-D0E1-498C-A478-667C1C20F2F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19844315-D0E1-498C-A478-667C1C20F2F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19844315-D0E1-498C-A478-667C1C20F2F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19844315-D0E1-498C-A478-667C1C20F2F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08BDD2A-A791-47FC-A5C6-BF22C060DDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08BDD2A-A791-47FC-A5C6-BF22C060DDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08BDD2A-A791-47FC-A5C6-BF22C060DDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08BDD2A-A791-47FC-A5C6-BF22C060DDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C20D431-6181-4013-B5DA-C60BC853A1E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C20D431-6181-4013-B5DA-C60BC853A1E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C20D431-6181-4013-B5DA-C60BC853A1E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C20D431-6181-4013-B5DA-C60BC853A1E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{774E3750-75CC-4303-82FB-D44C3DC3922F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774E3750-75CC-4303-82FB-D44C3DC3922F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774E3750-75CC-4303-82FB-D44C3DC3922F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774E3750-75CC-4303-82FB-D44C3DC3922F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6DCBC0C-70E5-4D04-88FB-EB2E174BB750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6DCBC0C-70E5-4D04-88FB-EB2E174BB750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6DCBC0C-70E5-4D04-88FB-EB2E174BB750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6DCBC0C-70E5-4D04-88FB-EB2E174BB750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C21A1B-257A-4AF0-9949-9534B0903A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C21A1B-257A-4AF0-9949-9534B0903A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C21A1B-257A-4AF0-9949-9534B0903A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C21A1B-257A-4AF0-9949-9534B0903A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D47356A1-044F-451B-A617-9C6566B66ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D47356A1-044F-451B-A617-9C6566B66ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D47356A1-044F-451B-A617-9C6566B66ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D47356A1-044F-451B-A617-9C6566B66ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC872B26-675E-466D-9455-D2FF7338492A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC872B26-675E-466D-9455-D2FF7338492A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC872B26-675E-466D-9455-D2FF7338492A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC872B26-675E-466D-9455-D2FF7338492A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38669BAB-CD7C-4CA6-9608-0B69FC124037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38669BAB-CD7C-4CA6-9608-0B69FC124037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38669BAB-CD7C-4CA6-9608-0B69FC124037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38669BAB-CD7C-4CA6-9608-0B69FC124037}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D08BDD2A-A791-47FC-A5C6-BF22C060DDFB} = {D678C012-6C22-41F8-99BC-C520AA2353DD}
+		{8C20D431-6181-4013-B5DA-C60BC853A1E9} = {D678C012-6C22-41F8-99BC-C520AA2353DD}
+		{774E3750-75CC-4303-82FB-D44C3DC3922F} = {D678C012-6C22-41F8-99BC-C520AA2353DD}
+		{A6DCBC0C-70E5-4D04-88FB-EB2E174BB750} = {D678C012-6C22-41F8-99BC-C520AA2353DD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B32D32BF-F0F2-4CF5-8484-8326ACF2F70F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 18
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ekplex.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = 01-StartingMEF\\01-StartingMEF.csproj
+		SccProjectName1 = 01-StartingMEF
+		SccLocalPath1 = 01-StartingMEF
+		SccProjectUniqueName2 = 02-PropertyExports\\02-PropertyExports.csproj
+		SccProjectName2 = 02-PropertyExports
+		SccLocalPath2 = 02-PropertyExports
+		SccProjectUniqueName3 = 03-MethodExports\\03-MethodExports.csproj
+		SccProjectName3 = 03-MethodExports
+		SccLocalPath3 = 03-MethodExports
+		SccProjectUniqueName4 = 04-InheritedExports\\04-InheritedExports.csproj
+		SccProjectName4 = 04-InheritedExports
+		SccLocalPath4 = 04-InheritedExports
+		SccProjectUniqueName5 = 05-ImportingConstructor\\05-ImportingConstructor.csproj
+		SccProjectName5 = 05-ImportingConstructor
+		SccLocalPath5 = 05-ImportingConstructor
+		SccProjectUniqueName6 = 06-LazyExport\\06-LazyExport.csproj
+		SccProjectName6 = 06-LazyExport
+		SccLocalPath6 = 06-LazyExport
+		SccProjectUniqueName7 = 07-ExportMetadata\\07-ExportMetadata.csproj
+		SccProjectName7 = 07-ExportMetadata
+		SccLocalPath7 = 07-ExportMetadata
+		SccProjectUniqueName8 = 08-CustomExportAttribute\\08-CustomExportAttribute.csproj
+		SccProjectName8 = 08-CustomExportAttribute
+		SccLocalPath8 = 08-CustomExportAttribute
+		SccProjectUniqueName9 = 09-Catalogs\\09-Catalogs.csproj
+		SccProjectName9 = 09-Catalogs
+		SccLocalPath9 = 09-Catalogs
+		SccProjectUniqueName10 = 10-FilteredCatalog\\10-FilteredCatalog.csproj
+		SccProjectTopLevelParentUniqueName10 = Learning.MEF.sln
+		SccProjectName10 = 10-FilteredCatalog
+		SccLocalPath10 = 10-FilteredCatalog
+		SccProjectUniqueName11 = 10-Infrastructure\\10-Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName11 = Learning.MEF.sln
+		SccProjectName11 = 10-Infrastructure
+		SccLocalPath11 = 10-Infrastructure
+		SccProjectUniqueName12 = 10-ModuleA\\10-ModuleA.csproj
+		SccProjectTopLevelParentUniqueName12 = Learning.MEF.sln
+		SccProjectName12 = 10-ModuleA
+		SccLocalPath12 = 10-ModuleA
+		SccProjectUniqueName13 = 10-ModuleB\\10-ModuleB.csproj
+		SccProjectTopLevelParentUniqueName13 = Learning.MEF.sln
+		SccProjectName13 = 10-ModuleB
+		SccLocalPath13 = 10-ModuleB
+		SccProjectUniqueName14 = 11-PartLifecycle\\11-PartLifecycle.csproj
+		SccProjectName14 = 11-PartLifecycle
+		SccLocalPath14 = 11-PartLifecycle
+		SccProjectUniqueName15 = 12-Recomposition\\12-Recomposition.csproj
+		SccProjectName15 = 12-Recomposition
+		SccLocalPath15 = 12-Recomposition
+		SccProjectUniqueName16 = 13-SearchContainer\\13-SearchContainer.csproj
+		SccProjectName16 = 13-SearchContainer
+		SccLocalPath16 = 13-SearchContainer
+		SccProjectUniqueName17 = 14-CompositionBatch\\14-CompositionBatch.csproj
+		SccProjectName17 = 14-CompositionBatch
+		SccLocalPath17 = 14-CompositionBatch
+	EndGlobalSection
+EndGlobal

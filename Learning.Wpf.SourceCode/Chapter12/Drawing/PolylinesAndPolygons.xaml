@@ -1,0 +1,30 @@
+﻿<Window x:Class="Drawing.PolylinesAndPolygons"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PolylinesAndPolygons"
+        Height="660"
+        Width="377">
+
+    <Canvas>
+        <!--直线-->
+        <Line X1="0"
+              Y1="0"
+              X2="10"
+              Y2="100"
+              ToolTip="直线"
+              Canvas.Left="250"
+              Canvas.Top="100"
+              Stroke="Blue" />
+        <!--折线-->
+        <Polyline Stroke="Blue"
+                  StrokeThickness="5"
+                  Points="10,150 30,140 50,160 70,130 90,170 110,120 130,180 150,110 170,190 190,100 210,240" />
+        <!--多边形-->
+        <Polygon Stroke="Blue"
+                 StrokeThickness="5"
+                 Fill="Yellow"
+                 Canvas.Top="200"
+                 Points="10,150 30,140 50,160 70,130 90,170 110,120 130,180 150,110 170,190 190,100 210,240" />
+    </Canvas>
+
+</Window>

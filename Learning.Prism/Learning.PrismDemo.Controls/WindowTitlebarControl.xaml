@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Controls.WindowTitlebarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Learning.PrismDemo.Controls"
+             x:Name="root">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Border  Background="#55000000"
+                 Opacity="0.1">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseMove">
+                    <prism:InvokeCommandAction Command="{Binding MouseDragCommand}"
+                                               TriggerParameterPath="LeftButton" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="MouseDown">
+                    <prism:InvokeCommandAction Command="{Binding MouseDoubleClickCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Border>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Grid.Column="1"
+                    x:Name="panel">
+            <controls:ImageButton  ToolTip="设置"
+                                   ImageHeight="23"
+                                   ImageWidth="23"
+                                   NormalImage="{DynamicResource ico_setting}"
+                                   Visibility="{Binding ElementName=root, Path=SettingButtonVisiblity}"
+                                   Style="{DynamicResource Titlebar_ImageButton_Style}"
+                                   Command="{Binding SettingCommand}" />
+            <controls:ImageButton  ToolTip="最小化"
+                                   ImageHeight="4"
+                                   ImageWidth="23"
+                                   NormalImage="{DynamicResource ico_min}"
+                                   Style="{DynamicResource Titlebar_ImageButton_Style}"
+                                   Command="{Binding WindowMinCommand}" />
+            <ToggleButton Margin="5,0,0,0"
+                          x:Name="maxbtn"
+                          Style="{DynamicResource Titlebar_ToggleButton_Style}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Checked">
+                        <i:InvokeCommandAction Command="{Binding WindowMaxCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Unchecked">
+                        <i:InvokeCommandAction Command="{Binding WindowMaxCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ToggleButton>
+            <controls:ImageButton  ToolTip="关闭"
+                                   Margin="5,0,0,0"
+                                   ImageHeight="23"
+                                   ImageWidth="23"
+                                   NormalImage="{DynamicResource ico_close}"
+                                   Style="{DynamicResource Titlebar_ImageButton_Style}"
+                                   Command="{Binding WindowExitCommand}" />
+        </StackPanel>
+    </Grid>
+
+</UserControl>

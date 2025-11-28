@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Controls.MediaPlayerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Learning.PrismDemo.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             x:Name="root">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Uniform"
+                        ImageSource="{Binding ElementName=root ,Path=LocalImage}" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Image Stretch="Uniform"
+               Grid.Row="1"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom"
+               Width="240"
+               Height="180"
+               Source="{Binding ElementName=root ,Path=LocalImage}" />
+
+        <Grid Grid.Row="2"
+              Background="#7F000000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition  Width="60" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <local:ImageButton x:Name="close"
+                               Grid.Column="1"
+                               Width="52"
+                               Height="52"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Click="btnClose_Click"
+                               NormalImage="{DynamicResource Close_Normal}"
+                               HoverImage="{DynamicResource Close_Hover}"
+                               Style="{DynamicResource MediaPlayer_ImageButton_Style}"
+                               Visibility="{Binding ElementName=root,Path=CloseButtonVisibility}"
+                               Command="{Binding ElementName=root,Path= CloseCommand}" />
+
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Margin="0,0,10,0">
+                <ToggleButton Width="43"
+                              Height="43"
+                              Margin="10,0,0,0"
+                              Name="Camera_ToggleButton"
+                              Visibility="{Binding ElementName=root,Path=CameraButtonVisibility}"
+                              Style="{DynamicResource CameraToggleButtonStyle}" />
+
+                <ToggleButton Width="43"
+                              Height="43"
+                              Margin="10,0,0,0"
+                              Name="Mic_ToggleButton"
+                              Visibility="{Binding ElementName=root,Path=MicButtonVisibility}"
+                              Style="{DynamicResource MicToggleButtonStyle}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

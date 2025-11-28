@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ReusableControls.Library">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/BindableSliderScaleDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/FastColorScaleBarDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/FastColumnChartDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/FastHeatMapDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/FastLineChartDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/FastLineScatterChartDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/FastMountainChartDic.xaml"/>
+        <ResourceDictionary Source="/ReusableControls.Library;Component/Themes/StackedSideBySideChartDic.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

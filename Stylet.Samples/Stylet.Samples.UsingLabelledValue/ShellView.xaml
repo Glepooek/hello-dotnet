@@ -1,0 +1,13 @@
+﻿<Window
+    x:Class="Stylet.Samples.UsingLabelledValue.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="https://github.com/canton7/Stylet"
+    Title="MainWindow">
+
+    <ComboBox
+        Width="200"
+        Height="50"
+        ItemsSource="{Binding EnumValues}"
+        SelectedItem="{Binding SelectedEnumValue}" />
+</Window>

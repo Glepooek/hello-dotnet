@@ -1,0 +1,105 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Direct2D1.GettingStarted", "Learning.Direct2D1.GettingStarted\Learning.Direct2D1.GettingStarted.csproj", "{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Direct2D1.DrawGraphics", "Learning.Direct2D1.DrawGraphics\Learning.Direct2D1.DrawGraphics.csproj", "{85184C60-91E9-45A8-85F3-EEA46D2240CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.SharpDX.GettingStarted", "Learning.SharpDX.GettingStarted\Learning.SharpDX.GettingStarted.csproj", "{C0BCE309-9547-4753-9D20-D1A718ABC8DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.SharpDX.ShowInD3DImage", "Learning.SharpDX.ShowInD3DImage\Learning.SharpDX.ShowInD3DImage.csproj", "{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.SharpDX.DrawBitmaps", "Learning.SharpDX.DrawBitmaps\Learning.SharpDX.DrawBitmaps.csproj", "{729F3DC7-5168-4191-B83A-02F03243AC95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.SharpDX.DrawTexts", "Learning.SharpDX.DrawTexts\Learning.SharpDX.DrawTexts.csproj", "{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Debug|x64.ActiveCfg = Debug|x64
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Debug|x64.Build.0 = Debug|x64
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Release|x64.ActiveCfg = Release|x64
+		{DE4B8E22-A013-4D7C-A9CA-7D5C0B7662F8}.Release|x64.Build.0 = Release|x64
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Debug|x64.Build.0 = Debug|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Release|x64.ActiveCfg = Release|Any CPU
+		{85184C60-91E9-45A8-85F3-EEA46D2240CB}.Release|x64.Build.0 = Release|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{C0BCE309-9547-4753-9D20-D1A718ABC8DC}.Release|x64.Build.0 = Release|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Debug|x64.Build.0 = Debug|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Release|x64.ActiveCfg = Release|Any CPU
+		{008A21B5-BA95-4C50-9BE9-CC59F7DCF7C0}.Release|x64.Build.0 = Release|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Debug|x64.Build.0 = Debug|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Release|x64.ActiveCfg = Release|Any CPU
+		{729F3DC7-5168-4191-B83A-02F03243AC95}.Release|x64.Build.0 = Release|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Debug|x64.Build.0 = Debug|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Release|x64.ActiveCfg = Release|Any CPU
+		{BE0BB98D-EC9C-46A7-BF42-09F25CEAB835}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {095A7A3D-7693-4187-BB25-81846D89BFD2}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Learning.Direct2D1.GettingStarted\\Learning.Direct2D1.GettingStarted.csproj
+		SccProjectName1 = Learning.Direct2D1.GettingStarted
+		SccLocalPath1 = Learning.Direct2D1.GettingStarted
+		SccProjectUniqueName2 = Learning.Direct2D1.DrawGraphics\\Learning.Direct2D1.DrawGraphics.csproj
+		SccProjectName2 = Learning.Direct2D1.DrawGraphics
+		SccLocalPath2 = Learning.Direct2D1.DrawGraphics
+		SccProjectUniqueName3 = Learning.SharpDX.GettingStarted\\Learning.SharpDX.GettingStarted.csproj
+		SccProjectName3 = Learning.SharpDX.GettingStarted
+		SccLocalPath3 = Learning.SharpDX.GettingStarted
+		SccProjectUniqueName4 = Learning.SharpDX.ShowInD3DImage\\Learning.SharpDX.ShowInD3DImage.csproj
+		SccProjectName4 = Learning.SharpDX.ShowInD3DImage
+		SccLocalPath4 = Learning.SharpDX.ShowInD3DImage
+		SccProjectUniqueName5 = Learning.SharpDX.DrawBitmaps\\Learning.SharpDX.DrawBitmaps.csproj
+		SccProjectName5 = Learning.SharpDX.DrawBitmaps
+		SccLocalPath5 = Learning.SharpDX.DrawBitmaps
+		SccProjectUniqueName6 = Learning.SharpDX.DrawTexts\\Learning.SharpDX.DrawTexts.csproj
+		SccProjectName6 = Learning.SharpDX.DrawTexts
+		SccLocalPath6 = Learning.SharpDX.DrawTexts
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--主窗口shell样式-->
+    <Style x:Key="MainWindowStyle"
+           TargetType="Window">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="{DynamicResource MainPage_Background}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="WindowStyle"
+                Value="None" />
+        <Setter Property="Width"
+                Value="1280" />
+        <Setter Property="Height"
+                Value="720" />
+        <Setter Property="MinWidth"
+                Value="1280" />
+        <Setter Property="MinHeight"
+                Value="720" />
+        <Setter Property="ResizeMode"
+                Value="CanResize" />
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="2"
+                              CornerRadius="0"
+                              ResizeBorderThickness="4"
+                              GlassFrameThickness="0" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Window">
+                    <Border Background="{TemplateBinding Background}">
+                        <AdornerDecorator>
+                            <ContentPresenter />
+                        </AdornerDecorator>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

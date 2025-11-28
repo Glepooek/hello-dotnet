@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <SccProjectName>%24/WPFCodePlex/Learning.Prism/Learning.PrismDemo.Main</SccProjectName>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccAuxPath>https://dev.azure.com/ekplex</SccAuxPath>
+    <SccLocalPath>.</SccLocalPath>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
+    <AssemblyName>Learning.PrismDemo.Main</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Learning.PrismDemo.Main</RootNamespace>
+    <Nullable>enable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <AssemblyVersion>0.1.120.0</AssemblyVersion>
+    <FileVersion>0.1.120.0</FileVersion>
+    <Version>0.1.120</Version>
+    <ApplicationIcon>pctv.ico</ApplicationIcon>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>$(SolutionDir)\Output</OutputPath>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>$(SolutionDir)\Release</OutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Learning.PrismDemo.Controls.DialogServices\Learning.PrismDemo.Controls.DialogServices.csproj" />
+    <ProjectReference Include="..\Learning.PrismDemo.Controls\Learning.PrismDemo.Controls.csproj" />
+    <ProjectReference Include="..\Learning.PrismDemo.Logs\Learning.PrismDemo.Logs.csproj" />
+    <ProjectReference Include="..\Learning.PrismDemo.Messages\Learning.PrismDemo.Messages.csproj" />
+    <ProjectReference Include="..\Learning.PrismDemo.Models\Learning.PrismDemo.Models.csproj" />
+    <ProjectReference Include="..\Learning.PrismDemo.Services\Learning.PrismDemo.Services.csproj" />
+    <ProjectReference Include="..\Learning.PrismDemo.Utilities\Learning.PrismDemo.Utilities.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\Reference\Log4net\log4net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

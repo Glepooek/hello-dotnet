@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Setting.Views.VersionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <StackPanel Orientation="Vertical"
+                Margin="20,20,0,0">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="版本号: "
+                       Foreground="White"
+                       FontSize="20" />
+            <TextBlock Text="{Binding VisionNumber, StringFormat=v{0}}"
+                       Foreground="White"
+                       FontSize="16" />
+        </StackPanel>
+
+        <Button Content="检查更新"
+                Command="{Binding CheckUpdateCommand}"
+                HorizontalAlignment="Left"
+                Width="100"
+                Height="30" />
+    </StackPanel>
+
+</UserControl>

@@ -1,0 +1,53 @@
+﻿<UserControl
+    x:Class="Stylet.Samples.EventAggregator.Page1View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="https://github.com/canton7/Stylet">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Width="100"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="Name:" />
+            <TextBox Width="250" Text="{Binding Employee.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock
+                Width="100"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="Age:" />
+            <TextBox Width="250" Text="{Binding Employee.Age}" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock
+                Width="100"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Text="Sex:" />
+            <ComboBox
+                Width="250"
+                SelectedIndex="0"
+                Text="{Binding Employee.Sex, Mode=OneWayToSource}">
+                <ComboBoxItem Content="男" />
+                <ComboBoxItem Content="女" />
+            </ComboBox>
+        </StackPanel>
+
+        <Button
+            Grid.Row="3"
+            Width="100"
+            Margin="0,10"
+            Command="{s:Action Send}"
+            Content="Send" />
+    </Grid>
+</UserControl>

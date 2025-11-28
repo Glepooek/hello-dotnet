@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibVLCharpDemo", "LibVLCharpDemo\LibVLCharpDemo.csproj", "{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VLC.DotNetDemo", "VLC.DotNetDemo\VLC.DotNetDemo.csproj", "{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VLC.DotNetDemo1", "VLC.DotNetDemo1\VLC.DotNetDemo1.csproj", "{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VLC.DotNetDemo2", "VLC.DotNetDemo2\VLC.DotNetDemo2.csproj", "{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Debug|x64.ActiveCfg = Debug|x64
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Debug|x64.Build.0 = Debug|x64
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Debug|x86.ActiveCfg = Debug|x86
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Debug|x86.Build.0 = Debug|x86
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Release|x64.ActiveCfg = Release|x64
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Release|x64.Build.0 = Release|x64
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Release|x86.ActiveCfg = Release|x86
+		{9CD83F6D-6BE0-409B-A006-F6A1A79FC09C}.Release|x86.Build.0 = Release|x86
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Debug|x64.ActiveCfg = Debug|x64
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Debug|x64.Build.0 = Debug|x64
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Debug|x86.ActiveCfg = Debug|x86
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Debug|x86.Build.0 = Debug|x86
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Release|x64.ActiveCfg = Release|x64
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Release|x64.Build.0 = Release|x64
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Release|x86.ActiveCfg = Release|x86
+		{E8B4606C-E7F6-4A67-BD44-D74DB7CEC1FF}.Release|x86.Build.0 = Release|x86
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Debug|x64.ActiveCfg = Debug|x64
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Debug|x64.Build.0 = Debug|x64
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Debug|x86.ActiveCfg = Debug|x86
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Debug|x86.Build.0 = Debug|x86
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Release|x64.ActiveCfg = Release|x64
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Release|x64.Build.0 = Release|x64
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Release|x86.ActiveCfg = Release|x86
+		{1D3C2F09-60BB-4E8B-BD9B-C2D0EABB2DF0}.Release|x86.Build.0 = Release|x86
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Debug|x64.ActiveCfg = Debug|x64
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Debug|x64.Build.0 = Debug|x64
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Debug|x86.ActiveCfg = Debug|x86
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Debug|x86.Build.0 = Debug|x86
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Release|x64.ActiveCfg = Release|x64
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Release|x64.Build.0 = Release|x64
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Release|x86.ActiveCfg = Release|x86
+		{FECC6D1D-7D68-49FF-B4C2-0B04044F849C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C896A59-1D15-452C-B7C3-F3BD3931C7D2}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LibVLCharpDemo\\LibVLCharpDemo.csproj
+		SccProjectName1 = LibVLCharpDemo
+		SccLocalPath1 = LibVLCharpDemo
+		SccProjectUniqueName2 = VLC.DotNetDemo\\VLC.DotNetDemo.csproj
+		SccProjectName2 = VLC.DotNetDemo
+		SccLocalPath2 = VLC.DotNetDemo
+		SccProjectUniqueName3 = VLC.DotNetDemo1\\VLC.DotNetDemo1.csproj
+		SccProjectName3 = VLC.DotNetDemo1
+		SccLocalPath3 = VLC.DotNetDemo1
+		SccProjectUniqueName4 = VLC.DotNetDemo2\\VLC.DotNetDemo2.csproj
+		SccProjectName4 = VLC.DotNetDemo2
+		SccLocalPath4 = VLC.DotNetDemo2
+	EndGlobalSection
+EndGlobal

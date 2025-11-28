@@ -1,0 +1,35 @@
+﻿<Window x:Class="Stylet.Samples.Hello.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Stylet.Samples.Hello"
+        xmlns:s="https://github.com/canton7/Stylet"
+        Width="800"
+        Height="450">
+    <StackPanel>
+        <TextBox x:Name="txtName"
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Command="{s:Action BindedToCommandWithoutParams}"
+                Content="BindedToCommandNoParams" />
+        <Button Command="{s:Action BindedToCommandWithParams,
+                               NullTarget=Disable,
+                               ActionNotFound=Disable}"
+                CommandParameter="{Binding ElementName=txtName, Path=Text}"
+                Content="BindedToCommandWithParams" />
+
+        <!--  without gurd property  -->
+        <Button Click="{s:Action BindedToEventWithoutParams}"
+                Content="BindedToEventWithoutParams" />
+        <Button Click="{s:Action BindedToEventWithParams}"
+                Content="BindedToEventWithoutParams" />
+
+        <Button Margin="0,10,0,0"
+                s:View.ActionTarget="{Binding InnerViewModel}"
+                Command="{s:Action DoSomething}"
+                Content="InnerViewModel as ActionTarget" />
+
+        <Button Margin="0,10,0,0"
+                Command="{s:Action DoSomething,
+                               Target={x:Type local:StaticInnerViewModel}}"
+                Content="override the action's target using its Target property" />
+    </StackPanel>
+</Window>

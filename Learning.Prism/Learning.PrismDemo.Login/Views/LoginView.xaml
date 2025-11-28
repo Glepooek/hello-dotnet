@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Login.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:localconverters="clr-namespace:Learning.PrismDemo.Login.Converters"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <UserControl.Resources>
+        <localconverters:NetworkStateConvert x:Key="NetworkStateConvert" />
+    </UserControl.Resources>
+
+    <UserControl.Background>
+        <ImageBrush ImageSource="{DynamicResource Login_Background}" />
+    </UserControl.Background>
+
+    <Grid>
+        <Grid VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TextBox Text="{Binding UserInfo.UserName, UpdateSourceTrigger=PropertyChanged}"
+                     HorizontalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     ToolTip="用户名"
+                     FontSize="20"
+                     Width="300"
+                     Height="50" />
+
+            <TextBox Text="{Binding UserInfo.Password, UpdateSourceTrigger=PropertyChanged}"
+                     HorizontalAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Grid.Row="1"
+                     ToolTip="密码"
+                     Margin="0,20"
+                     FontSize="20"
+                     Width="300"
+                     Height="50">
+                <TextBox.CommandBindings>
+                    <CommandBinding Command="ApplicationCommands.Cut"
+                                    CanExecute="CommandCanExecute" />
+                    <CommandBinding Command="ApplicationCommands.Copy"
+                                    CanExecute="CommandCanExecute" />
+                    <CommandBinding Command="ApplicationCommands.Paste"
+                                    CanExecute="CommandCanExecute" />
+                </TextBox.CommandBindings>
+            </TextBox>
+
+            <Button Content="登录"
+                    Command="{Binding LoginCommand}"
+                    Grid.Row="2"
+                    FontSize="20"
+                    Width="300"
+                    Height="50"
+                    IsDefault="True" />
+        </Grid>
+
+        <StatusBar VerticalAlignment="Bottom">
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding IsNetworkAvailable ,Converter={StaticResource NetworkStateConvert}}" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+
+</UserControl>

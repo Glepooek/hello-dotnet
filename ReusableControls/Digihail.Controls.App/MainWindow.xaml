@@ -1,0 +1,96 @@
+﻿<Window x:Class="ReusableControls.Demos.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"      
+        xmlns:s="http://schemas.abtsoftware.co.uk/scichart" 
+        xmlns:fastLineChart="clr-namespace:ReusableControls.Library.FastLineChart;assembly=ReusableControls.Library"
+        xmlns:local="clr-namespace:Digihail.Controls;assembly=ReusableControls.Library"
+        WindowState="Maximized">
+
+    <Grid Background="Black">
+        <!--region FastLineChart And ChartOverviewWithScale结合使用-->
+        <!--<StackPanel>
+            <fastLineChart:FastLineChart x:Name="dataMonetorChart" 
+                                         Height="185" 
+                                         DatasColor="#3880C8" 
+                                         XAxisMajorGridLines="True" 
+                                         IsEnableLineAnnotation ="false" 
+                                         XAxisTextFormat="yyyy/M/d HH:mm" 
+                                         IsEnableRolloverModifier="True" 
+                                         DataSelectionLineVisibility="Visible" 
+                                         Style="{DynamicResource FastLineChartStyle}" 
+                                         Margin="0,2,0,-5">
+                <fastLineChart:FastLineChart.RolloverMarkerTemplate>
+                    <ControlTemplate>
+                        <Ellipse Stroke="#ff5c26" StrokeThickness="1.5" Height="7" Width="7" />
+                    </ControlTemplate>
+                </fastLineChart:FastLineChart.RolloverMarkerTemplate>
+            </fastLineChart:FastLineChart>
+            <chartOverviewWithScale:ChartOverviewWithScale Height="45" XAxisTextFormat="{}{0:yyyy/M/d HH:mm:ss}" OverviewSciChart="{Binding ElementName=dataMonetorChart, Path=ChartSurface}" Template="{StaticResource OverviewTemplate}">
+                <chartOverviewWithScale:ChartOverviewWithScale.OverviewTemplate>
+                    <ControlTemplate TargetType="s:SciChartOverview">
+                        <Grid Name="PART_Container">
+                            <s:SciChartSurface x:Name="PART_OverviewControl" BorderThickness="0" Background="{TemplateBinding Background}" FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}">
+                                <s:SciChartSurface.RenderableSeries>
+                                    <s:FastMountainRenderableSeries AreaBrush="#255BD2FF"  />
+                                </s:SciChartSurface.RenderableSeries>
+                                <s:SciChartSurface.YAxis>
+                                    <s:NumericAxis AutoRange="Always" DrawMajorGridLines="False" DrawMinorGridLines="False" TextFormatting="###E+0" GrowBy="0,0.2" Visibility="Collapsed" />
+                                </s:SciChartSurface.YAxis>
+                            </s:SciChartSurface>
+                            <StackPanel Name="PART_RangeSliderContainer" Orientation="Horizontal">
+                                <Border Style="{StaticResource OverviewRestStyle}" BorderThickness="1,1,0,1">
+                                    <Rectangle Name="PART_LeftEdge" Fill="Transparent" />
+                                </Border>
+                                <Border Style="{StaticResource OverviewRestThumb}">
+                                    <Grid>
+                                        <Thumb Name="PART_LeftThumb" Cursor="SizeWE" Opacity="0"/>
+                                        <Path Height="6" Width="3" Stretch="Fill" Data="M 3,0 C3,0 3,6 3,6 3,6 0,3 0,3 0,3 3,0 3,0 z" Fill="White" />
+                                    </Grid>
+                                </Border>
+                                <Border Style="{StaticResource OverviewRestStyle}" BorderThickness="0,1,0,1" Background="#403392D2">
+                                    <Thumb Name="PART_MiddleThumb" Cursor="Hand" Opacity="0" />
+                                </Border>
+                                <Border Style="{StaticResource OverviewRestThumb}">
+                                    <Grid>
+                                        <Thumb Name="PART_RightThumb" Cursor="SizeWE" Opacity="0" />
+                                        <Path Height="6" Width="3" Stretch="Fill" Opacity="1" Data="M 0,0 C0,0 0,6 0,6 0,6 3,3 3,3 3,3 0,0 0,0 z" Fill="White" />
+                                    </Grid>
+                                </Border>
+                                <Border Style="{StaticResource OverviewRestStyle}" BorderThickness="0,1,1,1">
+                                    <Rectangle Name="PART_RightEdge"  />
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </chartOverviewWithScale:ChartOverviewWithScale.OverviewTemplate>
+            </chartOverviewWithScale:ChartOverviewWithScale>
+        </StackPanel>-->
+        <!--endregion FastLineChart And ChartOverviewWithScale结合使用-->
+        
+        <!--region BindableSliderScale-->
+        <!--<local:BindableSliderScale x:Name="timeScaleControl" 
+                                   Minimum="0" 
+                                   AutoToolTipFormat="第{0}次统计，时间：{1}"  
+                                   VerticalAlignment="Bottom" 
+                                   TickPlacement="TopLeft" 
+                                   AutoToolTipPlacement="TopLeft"/>-->
+        <!--endregion BindableSliderScale-->
+
+        <!--region FastLineChart-->
+        <!--<fastLineChart:FastLineChart Margin="-2,2,10,-5"
+                                                YGrowByRange="0,0.1"
+                                                XAutoRange="Always"
+                                                XAxisTextFormat="HH:mm:ss"
+                                                DatasColor="#41C3E3"
+                                                SeriesThickness="2"
+                                                x:Name="dataMonetorChart">
+            <fastLineChart:FastLineChart.DatasPointMarker>
+                <s:EllipsePointMarker StrokeThickness="2"
+                                                  Stroke="#2B2B32"
+                                                  Height="7"
+                                                  Width="7" />
+            </fastLineChart:FastLineChart.DatasPointMarker>
+        </fastLineChart:FastLineChart>-->
+        <!--endregion FastLineChart-->
+    </Grid>
+</Window>

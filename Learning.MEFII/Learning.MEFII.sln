@@ -1,0 +1,122 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Learning.MEFI", "Learning.MEFI", "{2ED7632B-EBC1-4E20-A97C-7A5BC4582EBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedOperations", "ExtendedOperations\ExtendedOperations.csproj", "{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.MEFI", "Learning.MEF\Learning.MEFI.csproj", "{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-MEFIIPreview", "01-MEFIIPreview\01-MEFIIPreview.csproj", "{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-MultipleInterfaces", "02-MultipleInterfaces\02-MultipleInterfaces.csproj", "{5BCF0D86-40AF-491B-B056-2FD06D24D087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-Imports", "03-Imports\03-Imports.csproj", "{915695E4-6745-4C26-8BD7-B5F3DE9848BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-ObjLifetime", "04-ObjLifetime\04-ObjLifetime.csproj", "{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-SelectConstructor", "05-SelectConstructor\05-SelectConstructor.csproj", "{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Debug|x86.Build.0 = Debug|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Release|x86.ActiveCfg = Release|Any CPU
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E}.Release|x86.Build.0 = Release|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Debug|x86.Build.0 = Debug|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Release|x86.ActiveCfg = Release|Any CPU
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20}.Release|x86.Build.0 = Release|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Debug|x86.Build.0 = Debug|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Release|x86.ActiveCfg = Release|Any CPU
+		{B05664CF-F842-4C4F-BD0A-6CAE3B9B9B86}.Release|x86.Build.0 = Release|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Debug|x86.Build.0 = Debug|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Release|x86.ActiveCfg = Release|Any CPU
+		{5BCF0D86-40AF-491B-B056-2FD06D24D087}.Release|x86.Build.0 = Release|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Debug|x86.Build.0 = Debug|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Release|x86.ActiveCfg = Release|Any CPU
+		{915695E4-6745-4C26-8BD7-B5F3DE9848BE}.Release|x86.Build.0 = Release|Any CPU
+		{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}.Debug|x86.ActiveCfg = Debug|x86
+		{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}.Debug|x86.Build.0 = Debug|x86
+		{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}.Release|Any CPU.ActiveCfg = Release|x86
+		{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}.Release|x86.ActiveCfg = Release|x86
+		{3BB2FD7D-848E-4D2F-A204-C7D6DD0314CC}.Release|x86.Build.0 = Release|x86
+		{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}.Debug|x86.ActiveCfg = Debug|x86
+		{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}.Debug|x86.Build.0 = Debug|x86
+		{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}.Release|Any CPU.ActiveCfg = Release|x86
+		{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}.Release|x86.ActiveCfg = Release|x86
+		{C9F4CB49-A504-43FC-B4B6-8138BFD8788E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C936C7BD-FE7B-4AA3-A9F3-72BFE601D51E} = {2ED7632B-EBC1-4E20-A97C-7A5BC4582EBB}
+		{5CF7109D-3126-4945-BB08-ED4D6CDD0B20} = {2ED7632B-EBC1-4E20-A97C-7A5BC4582EBB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D842376D-A92D-429B-8716-9CF4B2EE8A67}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://ekplex.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ExtendedOperations\\ExtendedOperations.csproj
+		SccProjectTopLevelParentUniqueName1 = Learning.MEFII.sln
+		SccProjectName1 = ExtendedOperations
+		SccLocalPath1 = ExtendedOperations
+		SccProjectUniqueName2 = Learning.MEF\\Learning.MEFI.csproj
+		SccProjectTopLevelParentUniqueName2 = Learning.MEFII.sln
+		SccProjectName2 = Learning.MEF
+		SccLocalPath2 = Learning.MEF
+		SccProjectUniqueName3 = 01-MEFIIPreview\\01-MEFIIPreview.csproj
+		SccProjectName3 = 01-MEFIIPreview
+		SccLocalPath3 = 01-MEFIIPreview
+		SccProjectUniqueName4 = 02-MultipleInterfaces\\02-MultipleInterfaces.csproj
+		SccProjectName4 = 02-MultipleInterfaces
+		SccLocalPath4 = 02-MultipleInterfaces
+		SccProjectUniqueName5 = 03-Imports\\03-Imports.csproj
+		SccProjectName5 = 03-Imports
+		SccLocalPath5 = 03-Imports
+		SccProjectUniqueName6 = 04-ObjLifetime\\04-ObjLifetime.csproj
+		SccProjectName6 = 04-ObjLifetime
+		SccLocalPath6 = 04-ObjLifetime
+		SccProjectUniqueName7 = 05-SelectConstructor\\05-SelectConstructor.csproj
+		SccProjectName7 = 05-SelectConstructor
+		SccLocalPath7 = 05-SelectConstructor
+	EndGlobalSection
+EndGlobal

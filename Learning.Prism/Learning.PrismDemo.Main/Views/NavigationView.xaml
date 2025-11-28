@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Main.Views.NavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Learning.PrismDemo.Controls;assembly=Learning.PrismDemo.Controls"
+             xmlns:utils="clr-namespace:Learning.PrismDemo.Utilities;assembly=Learning.PrismDemo.Utilities"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             SizeChanged="OnSizeChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <controls:TimeControl  Grid.Row="1"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Margin="100,0,0,0" />
+
+        <ScrollViewer x:Name="sv_MenuPanel"
+                      Grid.Row="2"
+                      Margin="45,0"
+                      VerticalScrollBarVisibility="Auto"
+                      FocusVisualStyle="{x:Null}">
+            <ItemsControl prism:RegionManager.RegionName="{x:Static utils:RegionNameConstant.MENU_REGION_NAME}"
+                          VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

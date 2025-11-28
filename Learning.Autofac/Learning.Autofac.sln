@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01-StartingAutofac", "01-StartingAutofac\01-StartingAutofac.csproj", "{9DC8F788-10E3-4BD6-A4D5-F1173291187C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02-Registration", "02-Registration\02-Registration.csproj", "{46AFA56E-3212-433D-B9CE-1E854A580303}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{927A25CF-524A-4005-B7CF-C5C49B6FED96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03PassingParametersToRegister", "03PassingParametersToRegister\03PassingParametersToRegister.csproj", "{B0CEED49-D8F1-41CC-A6F7-BF8AF5503BB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DC8F788-10E3-4BD6-A4D5-F1173291187C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC8F788-10E3-4BD6-A4D5-F1173291187C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC8F788-10E3-4BD6-A4D5-F1173291187C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC8F788-10E3-4BD6-A4D5-F1173291187C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46AFA56E-3212-433D-B9CE-1E854A580303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46AFA56E-3212-433D-B9CE-1E854A580303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46AFA56E-3212-433D-B9CE-1E854A580303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46AFA56E-3212-433D-B9CE-1E854A580303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927A25CF-524A-4005-B7CF-C5C49B6FED96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927A25CF-524A-4005-B7CF-C5C49B6FED96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927A25CF-524A-4005-B7CF-C5C49B6FED96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927A25CF-524A-4005-B7CF-C5C49B6FED96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CEED49-D8F1-41CC-A6F7-BF8AF5503BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CEED49-D8F1-41CC-A6F7-BF8AF5503BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CEED49-D8F1-41CC-A6F7-BF8AF5503BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CEED49-D8F1-41CC-A6F7-BF8AF5503BB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C5C06E2-AB4A-4C2B-BD0C-AACD15C006F7}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = 01-StartingAutofac\\01-StartingAutofac.csproj
+		SccProjectName1 = 01-StartingAutofac
+		SccLocalPath1 = 01-StartingAutofac
+		SccProjectUniqueName2 = 02-Registration\\02-Registration.csproj
+		SccProjectName2 = 02-Registration
+		SccLocalPath2 = 02-Registration
+		SccProjectUniqueName3 = Shared\\Shared.csproj
+		SccProjectName3 = Shared
+		SccLocalPath3 = Shared
+		SccProjectUniqueName4 = 03PassingParametersToRegister\\03PassingParametersToRegister.csproj
+		SccProjectName4 = 03PassingParametersToRegister
+		SccLocalPath4 = 03PassingParametersToRegister
+	EndGlobalSection
+EndGlobal

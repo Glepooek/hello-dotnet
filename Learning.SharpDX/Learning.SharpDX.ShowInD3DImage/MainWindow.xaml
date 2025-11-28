@@ -1,0 +1,24 @@
+﻿<Window
+    x:Class="Learning.SharpDX.ShowInD3DImage.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Learning.SharpDX.ShowInD3DImage"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="root"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid Background="Goldenrod">
+        <Image x:Name="DcwtTmmwvcr">
+            <Image.Source>
+                <!--  自定义的D3DImage  -->
+                <local:SsgnnnaTkmlo
+                    x:Name="KsyosqStmckfy"
+                    Width="{Binding ActualWidth, ElementName=root}"
+                    Height="{Binding ActualHeight, ElementName=root}" />
+            </Image.Source>
+        </Image>
+    </Grid>
+</Window>

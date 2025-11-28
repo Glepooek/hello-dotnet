@@ -1,0 +1,142 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.Hello", "Stylet.Samples.Hello\Stylet.Samples.Hello.csproj", "{5C57D42A-8AD0-48AE-A8C5-6F470E6E6845}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.HelloDialog", "Stylet.Samples.HelloDialog\Stylet.Samples.HelloDialog.csproj", "{93FF1986-F6D0-41B3-9FCB-3614C84FD130}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.MasterDetail", "Stylet.Samples.MasterDetail\Stylet.Samples.MasterDetail.csproj", "{B83DE974-D74D-42E8-8A77-410C5E174A90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.ModelValidation", "Stylet.Samples.ModelValidation\Stylet.Samples.ModelValidation.csproj", "{01A006A5-BF4C-4F96-90B6-9E9633461BE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.TabNavigation", "Stylet.Samples.TabNavigation\Stylet.Samples.TabNavigation.csproj", "{8DCC03AB-7BDA-4A4B-8D1E-5B24A01C5586}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.NavigationController", "Stylet.Samples.NavigationController\Stylet.Samples.NavigationController.csproj", "{8B9E6FD8-0BDF-4714-8896-27A4FE2EE8E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.OverridingViewManager", "Stylet.Samples.OverridingViewManager\Stylet.Samples.OverridingViewManager.csproj", "{D5914FD2-A8D7-47D1-8FC3-C6AB9B2A2145}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.Logging", "Stylet.Samples.Logging\Stylet.Samples.Logging.csproj", "{4DBAC6AF-74BA-4EA0-A587-09ADE1F384C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.DesignMode", "Stylet.Samples.DesignMode\Stylet.Samples.DesignMode.csproj", "{D4E0EA04-CA6B-4395-99A0-7E8A55F5B9C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.RedditBrowser", "Stylet.Samples.RedditBrowser\Stylet.Samples.RedditBrowser.csproj", "{5B5E3051-2CB6-4AE5-ABCD-F38796B857D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.EventAggregator", "Stylet.Samples.EventAggregator\Stylet.Samples.EventAggregator.csproj", "{1705DEA3-3C5D-46E8-A165-DD5A9ABCFB46}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.Ioc", "Stylet.Samples.Ioc\Stylet.Samples.Ioc.csproj", "{732F5A85-EDDA-4E37-AAF9-40849816DC3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stylet.Samples.UsingLabelledValue", "Stylet.Samples.UsingLabelledValue\Stylet.Samples.UsingLabelledValue.csproj", "{DC458E15-21F8-4B1B-AA32-F2634F376E98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C57D42A-8AD0-48AE-A8C5-6F470E6E6845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C57D42A-8AD0-48AE-A8C5-6F470E6E6845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C57D42A-8AD0-48AE-A8C5-6F470E6E6845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C57D42A-8AD0-48AE-A8C5-6F470E6E6845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93FF1986-F6D0-41B3-9FCB-3614C84FD130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FF1986-F6D0-41B3-9FCB-3614C84FD130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FF1986-F6D0-41B3-9FCB-3614C84FD130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FF1986-F6D0-41B3-9FCB-3614C84FD130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83DE974-D74D-42E8-8A77-410C5E174A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83DE974-D74D-42E8-8A77-410C5E174A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83DE974-D74D-42E8-8A77-410C5E174A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83DE974-D74D-42E8-8A77-410C5E174A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A006A5-BF4C-4F96-90B6-9E9633461BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A006A5-BF4C-4F96-90B6-9E9633461BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A006A5-BF4C-4F96-90B6-9E9633461BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A006A5-BF4C-4F96-90B6-9E9633461BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DCC03AB-7BDA-4A4B-8D1E-5B24A01C5586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DCC03AB-7BDA-4A4B-8D1E-5B24A01C5586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DCC03AB-7BDA-4A4B-8D1E-5B24A01C5586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DCC03AB-7BDA-4A4B-8D1E-5B24A01C5586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B9E6FD8-0BDF-4714-8896-27A4FE2EE8E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B9E6FD8-0BDF-4714-8896-27A4FE2EE8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B9E6FD8-0BDF-4714-8896-27A4FE2EE8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B9E6FD8-0BDF-4714-8896-27A4FE2EE8E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5914FD2-A8D7-47D1-8FC3-C6AB9B2A2145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5914FD2-A8D7-47D1-8FC3-C6AB9B2A2145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5914FD2-A8D7-47D1-8FC3-C6AB9B2A2145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5914FD2-A8D7-47D1-8FC3-C6AB9B2A2145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBAC6AF-74BA-4EA0-A587-09ADE1F384C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBAC6AF-74BA-4EA0-A587-09ADE1F384C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBAC6AF-74BA-4EA0-A587-09ADE1F384C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBAC6AF-74BA-4EA0-A587-09ADE1F384C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E0EA04-CA6B-4395-99A0-7E8A55F5B9C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E0EA04-CA6B-4395-99A0-7E8A55F5B9C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E0EA04-CA6B-4395-99A0-7E8A55F5B9C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E0EA04-CA6B-4395-99A0-7E8A55F5B9C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5E3051-2CB6-4AE5-ABCD-F38796B857D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5E3051-2CB6-4AE5-ABCD-F38796B857D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5E3051-2CB6-4AE5-ABCD-F38796B857D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5E3051-2CB6-4AE5-ABCD-F38796B857D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1705DEA3-3C5D-46E8-A165-DD5A9ABCFB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1705DEA3-3C5D-46E8-A165-DD5A9ABCFB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1705DEA3-3C5D-46E8-A165-DD5A9ABCFB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1705DEA3-3C5D-46E8-A165-DD5A9ABCFB46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{732F5A85-EDDA-4E37-AAF9-40849816DC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{732F5A85-EDDA-4E37-AAF9-40849816DC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{732F5A85-EDDA-4E37-AAF9-40849816DC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{732F5A85-EDDA-4E37-AAF9-40849816DC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC458E15-21F8-4B1B-AA32-F2634F376E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC458E15-21F8-4B1B-AA32-F2634F376E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC458E15-21F8-4B1B-AA32-F2634F376E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC458E15-21F8-4B1B-AA32-F2634F376E98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC0E7A80-422D-4D4E-9172-8D72BD17EA5D}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Stylet.Samples.Hello\\Stylet.Samples.Hello.csproj
+		SccProjectName1 = Stylet.Samples.Hello
+		SccLocalPath1 = Stylet.Samples.Hello
+		SccProjectUniqueName2 = Stylet.Samples.HelloDialog\\Stylet.Samples.HelloDialog.csproj
+		SccProjectName2 = Stylet.Samples.HelloDialog
+		SccLocalPath2 = Stylet.Samples.HelloDialog
+		SccProjectUniqueName3 = Stylet.Samples.MasterDetail\\Stylet.Samples.MasterDetail.csproj
+		SccProjectName3 = Stylet.Samples.MasterDetail
+		SccLocalPath3 = Stylet.Samples.MasterDetail
+		SccProjectUniqueName4 = Stylet.Samples.ModelValidation\\Stylet.Samples.ModelValidation.csproj
+		SccProjectName4 = Stylet.Samples.ModelValidation
+		SccLocalPath4 = Stylet.Samples.ModelValidation
+		SccProjectUniqueName5 = Stylet.Samples.TabNavigation\\Stylet.Samples.TabNavigation.csproj
+		SccProjectName5 = Stylet.Samples.TabNavigation
+		SccLocalPath5 = Stylet.Samples.TabNavigation
+		SccProjectUniqueName6 = Stylet.Samples.NavigationController\\Stylet.Samples.NavigationController.csproj
+		SccProjectName6 = Stylet.Samples.NavigationController
+		SccLocalPath6 = Stylet.Samples.NavigationController
+		SccProjectUniqueName7 = Stylet.Samples.OverridingViewManager\\Stylet.Samples.OverridingViewManager.csproj
+		SccProjectName7 = Stylet.Samples.OverridingViewManager
+		SccLocalPath7 = Stylet.Samples.OverridingViewManager
+		SccProjectUniqueName8 = Stylet.Samples.Logging\\Stylet.Samples.Logging.csproj
+		SccProjectName8 = Stylet.Samples.Logging
+		SccLocalPath8 = Stylet.Samples.Logging
+		SccProjectUniqueName9 = Stylet.Samples.DesignMode\\Stylet.Samples.DesignMode.csproj
+		SccProjectName9 = Stylet.Samples.DesignMode
+		SccLocalPath9 = Stylet.Samples.DesignMode
+		SccProjectUniqueName10 = Stylet.Samples.RedditBrowser\\Stylet.Samples.RedditBrowser.csproj
+		SccProjectName10 = Stylet.Samples.RedditBrowser
+		SccLocalPath10 = Stylet.Samples.RedditBrowser
+		SccProjectUniqueName11 = Stylet.Samples.EventAggregator\\Stylet.Samples.EventAggregator.csproj
+		SccProjectName11 = Stylet.Samples.EventAggregator
+		SccLocalPath11 = Stylet.Samples.EventAggregator
+		SccProjectUniqueName12 = Stylet.Samples.Ioc\\Stylet.Samples.Ioc.csproj
+		SccProjectName12 = Stylet.Samples.Ioc
+		SccLocalPath12 = Stylet.Samples.Ioc
+		SccProjectUniqueName13 = Stylet.Samples.UsingLabelledValue\\Stylet.Samples.UsingLabelledValue.csproj
+		SccProjectName13 = Stylet.Samples.UsingLabelledValue
+		SccLocalPath13 = Stylet.Samples.UsingLabelledValue
+	EndGlobalSection
+EndGlobal

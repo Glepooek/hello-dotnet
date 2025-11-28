@@ -1,0 +1,15 @@
+﻿<Window x:Class="Stylet.Samples.TabNavigation.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top"
+                   Text="{Binding ActiveItem.DisplayName, StringFormat='Actice page is {0}'}" />
+        <TabControl Margin="0,10,0,0"
+                    Style="{StaticResource StyletConductorTabControl}" />
+    </DockPanel>
+</Window>

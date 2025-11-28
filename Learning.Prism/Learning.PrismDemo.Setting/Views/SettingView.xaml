@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Setting.Views.SettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Learning.PrismDemo.Controls;assembly=Learning.PrismDemo.Controls"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Focusable="True">
+
+    <UserControl.InputBindings>
+        <KeyBinding Key="Esc"
+                    Command="{Binding GoBackCommand}" />
+    </UserControl.InputBindings>
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <controls:ImageButton Content="GoBack"
+                              HorizontalAlignment="Left"
+                              Width="20"
+                              Height="30"
+                              ToolTip="回退"
+                              Style="{DynamicResource ImageButton_Style}"
+                              NormalImage="{DynamicResource Module_Goback}"
+                              Command="{Binding GoBackCommand}" />
+
+        <DockPanel Grid.Row="1"
+                   Margin="0,10,0,0">
+            <Border DockPanel.Dock="Left"
+                    CornerRadius="5"
+                    Background="{DynamicResource BorderBackground}"
+                    Width="300"
+                    Margin="0,0,10,0">
+                <ListBox x:Name="menuList"
+                         SelectedIndex="0"
+                         Style="{DynamicResource Common_ListBoxStyle}"
+                         ItemsSource="{Binding SettingMenuItems}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding MenuItemName}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+
+            <Border DockPanel.Dock="Right"
+                    CornerRadius="5"
+                    Background="{DynamicResource BorderBackground}">
+                <!--<ContentControl Content="{Binding ElementName=menuList, Path=SelectedItem.MenuItemContent}" />-->
+                <ContentPresenter Content="{Binding ElementName=menuList, Path=SelectedItem.MenuItemContent}" />
+            </Border>
+
+        </DockPanel>
+    </Grid>
+</UserControl>

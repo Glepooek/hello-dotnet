@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Controls.TimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="root">
+
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="{Binding ElementName=root, Path=CurrentTime, StringFormat={}{0:HH:mm:ss}}"
+                   Language="zh"
+                   Style="{DynamicResource MainPage_DateTime_Time}" />
+        <TextBlock Style="{DynamicResource MainPage_DateTime_Date}"
+                   Language="zh">
+            <Run Text="{Binding ElementName=root, Path=CurrentTime, StringFormat={}{0:dddd}}" />
+            <Run Text="{Binding ElementName=root, Path=CurrentTime, StringFormat={}{0:MM月dd日}}" />
+        </TextBlock>
+    </StackPanel>
+
+</UserControl>

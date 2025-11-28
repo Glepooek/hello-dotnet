@@ -1,0 +1,213 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackgroundWorkerSample", "BackgroundWorkerSample\BackgroundWorkerSample.csproj", "{0DD369D8-1DCA-42F1-AB3C-21F10DFADAD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WaitHandles", "WaitHandles", "{9F1005D4-49C5-4222-A14C-AE8A7857F184}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SemaphoreWaitHandle", "SemaphoreWaitHandle\SemaphoreWaitHandle.csproj", "{62EDA706-5FEE-4672-919E-B0C0935294CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AsyncMethods", "AsyncMethods", "{DE96F1A4-5F32-4653-A46C-B5A485B7D2D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Channels", "Channels", "{9CA8A467-57EE-4C47-B3A3-6BBCCDA064DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChannelFirstExample", "ChannelFirstExample\ChannelFirstExample.csproj", "{3C5B109E-3BDC-4C3B-801B-86E3D3CD5542}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MutexWaitHandle", "MutexWaitHandle\MutexWaitHandle.csproj", "{FB0CB675-D39B-44ED-A634-1DFFD735C79C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThreadPoolSamples", "ThreadPoolSamples", "{C535EEEC-C23F-4BD3-B5A6-C01A3F59C963}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManualAutoEventWaitHandle", "ManualAutoEventWaitHandle\ManualAutoEventWaitHandle.csproj", "{80790C05-5A8A-469F-956C-1E5A4DFEE514}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadPoolFirstExample", "ThreadPoolFirstExample\ThreadPoolFirstExample.csproj", "{CAEC74A6-087F-417B-B8F0-E6809A44DFD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncMethodDefinition", "AsyncMethodDefinition\AsyncMethodDefinition.csproj", "{26529D0B-75A8-4FA7-AED5-D79B1B8A35C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncMethodException", "AsyncMethodException\AsyncMethodException.csproj", "{50AB9BFD-B083-448A-B263-9DFAEE8C87BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tasks", "Tasks", "{73767982-A06C-4E17-8C21-77E912BC571F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_InstantiateTask", "01_InstantiateTask\01_InstantiateTask.csproj", "{0206ECBC-A04F-4A89-979E-B362BEA4AF88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02_TaskStatus", "02_TaskStatus\02_TaskStatus.csproj", "{15691E4A-B120-4750-B959-61F9C61788B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03_TaskControl", "03_TaskControl\03_TaskControl.csproj", "{02145436-77BC-4D32-A1EF-CB839A810DD7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_CancelTask", "04_CancelTask\04_CancelTask.csproj", "{4E13C814-06D4-4052-BE00-B3AF7BDC9F48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_ThreadSync", "05_ThreadSync\05_ThreadSync.csproj", "{5FA0F10E-1E3D-42F7-911F-09CDFFEA7459}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interlockeds", "Interlockeds", "{B0FE61DE-81F3-4FB2-B904-E1A3525E4D3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterlockedDemo1", "InterlockedDemo1\InterlockedDemo1.csproj", "{A53D9500-5E97-4F42-BE6C-CD2647B11A91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_ConfigureAwait", "06_ConfigureAwait\06_ConfigureAwait.csproj", "{B75EF6CB-E08E-438D-A7FD-F9D47CFE2902}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_ChangeToken", "07_ChangeToken\07_ChangeToken.csproj", "{A09923BC-3EB1-4B07-B86D-6A059A82D6B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DD369D8-1DCA-42F1-AB3C-21F10DFADAD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD369D8-1DCA-42F1-AB3C-21F10DFADAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD369D8-1DCA-42F1-AB3C-21F10DFADAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD369D8-1DCA-42F1-AB3C-21F10DFADAD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EDA706-5FEE-4672-919E-B0C0935294CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EDA706-5FEE-4672-919E-B0C0935294CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EDA706-5FEE-4672-919E-B0C0935294CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EDA706-5FEE-4672-919E-B0C0935294CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C5B109E-3BDC-4C3B-801B-86E3D3CD5542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5B109E-3BDC-4C3B-801B-86E3D3CD5542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5B109E-3BDC-4C3B-801B-86E3D3CD5542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5B109E-3BDC-4C3B-801B-86E3D3CD5542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0CB675-D39B-44ED-A634-1DFFD735C79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0CB675-D39B-44ED-A634-1DFFD735C79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0CB675-D39B-44ED-A634-1DFFD735C79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0CB675-D39B-44ED-A634-1DFFD735C79C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80790C05-5A8A-469F-956C-1E5A4DFEE514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80790C05-5A8A-469F-956C-1E5A4DFEE514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80790C05-5A8A-469F-956C-1E5A4DFEE514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80790C05-5A8A-469F-956C-1E5A4DFEE514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAEC74A6-087F-417B-B8F0-E6809A44DFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEC74A6-087F-417B-B8F0-E6809A44DFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAEC74A6-087F-417B-B8F0-E6809A44DFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAEC74A6-087F-417B-B8F0-E6809A44DFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26529D0B-75A8-4FA7-AED5-D79B1B8A35C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26529D0B-75A8-4FA7-AED5-D79B1B8A35C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26529D0B-75A8-4FA7-AED5-D79B1B8A35C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26529D0B-75A8-4FA7-AED5-D79B1B8A35C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50AB9BFD-B083-448A-B263-9DFAEE8C87BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AB9BFD-B083-448A-B263-9DFAEE8C87BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AB9BFD-B083-448A-B263-9DFAEE8C87BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AB9BFD-B083-448A-B263-9DFAEE8C87BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0206ECBC-A04F-4A89-979E-B362BEA4AF88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0206ECBC-A04F-4A89-979E-B362BEA4AF88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0206ECBC-A04F-4A89-979E-B362BEA4AF88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0206ECBC-A04F-4A89-979E-B362BEA4AF88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15691E4A-B120-4750-B959-61F9C61788B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15691E4A-B120-4750-B959-61F9C61788B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15691E4A-B120-4750-B959-61F9C61788B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15691E4A-B120-4750-B959-61F9C61788B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02145436-77BC-4D32-A1EF-CB839A810DD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02145436-77BC-4D32-A1EF-CB839A810DD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02145436-77BC-4D32-A1EF-CB839A810DD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02145436-77BC-4D32-A1EF-CB839A810DD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E13C814-06D4-4052-BE00-B3AF7BDC9F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E13C814-06D4-4052-BE00-B3AF7BDC9F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E13C814-06D4-4052-BE00-B3AF7BDC9F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E13C814-06D4-4052-BE00-B3AF7BDC9F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FA0F10E-1E3D-42F7-911F-09CDFFEA7459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA0F10E-1E3D-42F7-911F-09CDFFEA7459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA0F10E-1E3D-42F7-911F-09CDFFEA7459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA0F10E-1E3D-42F7-911F-09CDFFEA7459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53D9500-5E97-4F42-BE6C-CD2647B11A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53D9500-5E97-4F42-BE6C-CD2647B11A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53D9500-5E97-4F42-BE6C-CD2647B11A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53D9500-5E97-4F42-BE6C-CD2647B11A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B75EF6CB-E08E-438D-A7FD-F9D47CFE2902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75EF6CB-E08E-438D-A7FD-F9D47CFE2902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75EF6CB-E08E-438D-A7FD-F9D47CFE2902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75EF6CB-E08E-438D-A7FD-F9D47CFE2902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09923BC-3EB1-4B07-B86D-6A059A82D6B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09923BC-3EB1-4B07-B86D-6A059A82D6B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09923BC-3EB1-4B07-B86D-6A059A82D6B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09923BC-3EB1-4B07-B86D-6A059A82D6B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62EDA706-5FEE-4672-919E-B0C0935294CD} = {9F1005D4-49C5-4222-A14C-AE8A7857F184}
+		{3C5B109E-3BDC-4C3B-801B-86E3D3CD5542} = {9CA8A467-57EE-4C47-B3A3-6BBCCDA064DB}
+		{FB0CB675-D39B-44ED-A634-1DFFD735C79C} = {9F1005D4-49C5-4222-A14C-AE8A7857F184}
+		{80790C05-5A8A-469F-956C-1E5A4DFEE514} = {9F1005D4-49C5-4222-A14C-AE8A7857F184}
+		{CAEC74A6-087F-417B-B8F0-E6809A44DFD9} = {C535EEEC-C23F-4BD3-B5A6-C01A3F59C963}
+		{26529D0B-75A8-4FA7-AED5-D79B1B8A35C9} = {DE96F1A4-5F32-4653-A46C-B5A485B7D2D7}
+		{50AB9BFD-B083-448A-B263-9DFAEE8C87BA} = {DE96F1A4-5F32-4653-A46C-B5A485B7D2D7}
+		{0206ECBC-A04F-4A89-979E-B362BEA4AF88} = {73767982-A06C-4E17-8C21-77E912BC571F}
+		{15691E4A-B120-4750-B959-61F9C61788B8} = {73767982-A06C-4E17-8C21-77E912BC571F}
+		{02145436-77BC-4D32-A1EF-CB839A810DD7} = {73767982-A06C-4E17-8C21-77E912BC571F}
+		{4E13C814-06D4-4052-BE00-B3AF7BDC9F48} = {73767982-A06C-4E17-8C21-77E912BC571F}
+		{5FA0F10E-1E3D-42F7-911F-09CDFFEA7459} = {73767982-A06C-4E17-8C21-77E912BC571F}
+		{A53D9500-5E97-4F42-BE6C-CD2647B11A91} = {B0FE61DE-81F3-4FB2-B904-E1A3525E4D3D}
+		{B75EF6CB-E08E-438D-A7FD-F9D47CFE2902} = {73767982-A06C-4E17-8C21-77E912BC571F}
+		{A09923BC-3EB1-4B07-B86D-6A059A82D6B8} = {73767982-A06C-4E17-8C21-77E912BC571F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89A8C15D-9FBA-4535-BA35-BF9C2FF1CD3E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 17
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BackgroundWorkerSample\\BackgroundWorkerSample.csproj
+		SccProjectName1 = BackgroundWorkerSample
+		SccLocalPath1 = BackgroundWorkerSample
+		SccProjectUniqueName2 = SemaphoreWaitHandle\\SemaphoreWaitHandle.csproj
+		SccProjectTopLevelParentUniqueName2 = ParallelPrograming.sln
+		SccProjectName2 = SemaphoreWaitHandle
+		SccLocalPath2 = SemaphoreWaitHandle
+		SccProjectUniqueName3 = ChannelFirstExample\\ChannelFirstExample.csproj
+		SccProjectTopLevelParentUniqueName3 = ParallelPrograming.sln
+		SccProjectName3 = ChannelFirstExample
+		SccLocalPath3 = ChannelFirstExample
+		SccProjectUniqueName4 = MutexWaitHandle\\MutexWaitHandle.csproj
+		SccProjectTopLevelParentUniqueName4 = ParallelPrograming.sln
+		SccProjectName4 = MutexWaitHandle
+		SccLocalPath4 = MutexWaitHandle
+		SccProjectUniqueName5 = ManualAutoEventWaitHandle\\ManualAutoEventWaitHandle.csproj
+		SccProjectTopLevelParentUniqueName5 = ParallelPrograming.sln
+		SccProjectName5 = ManualAutoEventWaitHandle
+		SccLocalPath5 = ManualAutoEventWaitHandle
+		SccProjectUniqueName6 = ThreadPoolFirstExample\\ThreadPoolFirstExample.csproj
+		SccProjectTopLevelParentUniqueName6 = ParallelPrograming.sln
+		SccProjectName6 = ThreadPoolFirstExample
+		SccLocalPath6 = ThreadPoolFirstExample
+		SccProjectUniqueName7 = AsyncMethodDefinition\\AsyncMethodDefinition.csproj
+		SccProjectTopLevelParentUniqueName7 = ParallelPrograming.sln
+		SccProjectName7 = AsyncMethodDefinition
+		SccLocalPath7 = AsyncMethodDefinition
+		SccProjectUniqueName8 = AsyncMethodException\\AsyncMethodException.csproj
+		SccProjectTopLevelParentUniqueName8 = ParallelPrograming.sln
+		SccProjectName8 = AsyncMethodException
+		SccLocalPath8 = AsyncMethodException
+		SccProjectUniqueName9 = 01_InstantiateTask\\01_InstantiateTask.csproj
+		SccProjectTopLevelParentUniqueName9 = ParallelPrograming.sln
+		SccProjectName9 = 01_InstantiateTask
+		SccLocalPath9 = 01_InstantiateTask
+		SccProjectUniqueName10 = 02_TaskStatus\\02_TaskStatus.csproj
+		SccProjectTopLevelParentUniqueName10 = ParallelPrograming.sln
+		SccProjectName10 = 02_TaskStatus
+		SccLocalPath10 = 02_TaskStatus
+		SccProjectUniqueName11 = 03_TaskControl\\03_TaskControl.csproj
+		SccProjectTopLevelParentUniqueName11 = ParallelPrograming.sln
+		SccProjectName11 = 03_TaskControl
+		SccLocalPath11 = 03_TaskControl
+		SccProjectUniqueName12 = 04_CancelTask\\04_CancelTask.csproj
+		SccProjectTopLevelParentUniqueName12 = ParallelPrograming.sln
+		SccProjectName12 = 04_CancelTask
+		SccLocalPath12 = 04_CancelTask
+		SccProjectUniqueName13 = 05_ThreadSync\\05_ThreadSync.csproj
+		SccProjectTopLevelParentUniqueName13 = ParallelPrograming.sln
+		SccProjectName13 = 05_ThreadSync
+		SccLocalPath13 = 05_ThreadSync
+		SccProjectUniqueName14 = InterlockedDemo1\\InterlockedDemo1.csproj
+		SccProjectTopLevelParentUniqueName14 = ParallelPrograming.sln
+		SccProjectName14 = InterlockedDemo1
+		SccLocalPath14 = InterlockedDemo1
+		SccProjectUniqueName15 = 06_ConfigureAwait\\06_ConfigureAwait.csproj
+		SccProjectTopLevelParentUniqueName15 = ParallelPrograming.sln
+		SccProjectName15 = 06_ConfigureAwait
+		SccLocalPath15 = 06_ConfigureAwait
+		SccProjectUniqueName16 = 07_ChangeToken\\07_ChangeToken.csproj
+		SccProjectTopLevelParentUniqueName16 = ParallelPrograming.sln
+		SccProjectName16 = 07_ChangeToken
+		SccLocalPath16 = 07_ChangeToken
+	EndGlobalSection
+EndGlobal

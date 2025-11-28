@@ -1,0 +1,22 @@
+﻿<Window x:Class="Learning.PrismDemo.Main.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Learning.PrismDemo.Controls;assembly=Learning.PrismDemo.Controls"
+        xmlns:localconverter="clr-namespace:Learning.PrismDemo.Main.Converters"
+        xmlns:utils="clr-namespace:Learning.PrismDemo.Utilities;assembly=Learning.PrismDemo.Utilities"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Style="{DynamicResource MainWindowStyle}"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <localconverter:ViewStateConverter x:Key="ViewStateConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <ContentControl prism:RegionManager.RegionName="{x:Static utils:RegionNameConstant.CONTENT_REGION_NAME}" />
+        <controls:WindowTitlebarControl  VerticalAlignment="Top"
+                                         SettingButtonVisiblity="{Binding ViewState, Converter={StaticResource ViewStateConverter}, ConverterParameter=Navigation}"
+                                         IsAutomationMaxButton="{Binding IsAutomationMaxButton}" />
+    </Grid>
+</Window>

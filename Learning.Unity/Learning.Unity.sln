@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01-RegisterType", "01-RegisterType\01-RegisterType.csproj", "{4B72B280-7B7D-43EF-AD70-6A302E906B29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02-RegisterInstance", "02-RegisterInstance\02-RegisterInstance.csproj", "{109C82EB-3577-4754-9951-923DAD914542}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03-RegisterSingleton", "03-RegisterSingleton\03-RegisterSingleton.csproj", "{14DE3E63-6128-45EC-93CF-BC383E1AE848}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04-InjectionProperty", "04-InjectionProperty\04-InjectionProperty.csproj", "{6591E4B7-6827-438C-8BBB-82E077DE969E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05-InjectionMethod", "05-InjectionMethod\05-InjectionMethod.csproj", "{E5122185-BA07-4A45-8011-12703A56D352}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06-ParameterOverride", "06-ParameterOverride\06-ParameterOverride.csproj", "{6E64825E-5EEE-4B11-9C44-5402CF8AF9B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07-PropertyOverride", "07-PropertyOverride\07-PropertyOverride.csproj", "{DFF7EA1B-7D49-4873-88DB-53CBC0476289}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08-DependencyOverride", "08-DependencyOverride\08-DependencyOverride.csproj", "{16DBC8FF-CD6C-449A-A68D-476A63BB69F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B72B280-7B7D-43EF-AD70-6A302E906B29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B72B280-7B7D-43EF-AD70-6A302E906B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B72B280-7B7D-43EF-AD70-6A302E906B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B72B280-7B7D-43EF-AD70-6A302E906B29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{109C82EB-3577-4754-9951-923DAD914542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{109C82EB-3577-4754-9951-923DAD914542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{109C82EB-3577-4754-9951-923DAD914542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{109C82EB-3577-4754-9951-923DAD914542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14DE3E63-6128-45EC-93CF-BC383E1AE848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14DE3E63-6128-45EC-93CF-BC383E1AE848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14DE3E63-6128-45EC-93CF-BC383E1AE848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14DE3E63-6128-45EC-93CF-BC383E1AE848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6591E4B7-6827-438C-8BBB-82E077DE969E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6591E4B7-6827-438C-8BBB-82E077DE969E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6591E4B7-6827-438C-8BBB-82E077DE969E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6591E4B7-6827-438C-8BBB-82E077DE969E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5122185-BA07-4A45-8011-12703A56D352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5122185-BA07-4A45-8011-12703A56D352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5122185-BA07-4A45-8011-12703A56D352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5122185-BA07-4A45-8011-12703A56D352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E64825E-5EEE-4B11-9C44-5402CF8AF9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E64825E-5EEE-4B11-9C44-5402CF8AF9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E64825E-5EEE-4B11-9C44-5402CF8AF9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E64825E-5EEE-4B11-9C44-5402CF8AF9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF7EA1B-7D49-4873-88DB-53CBC0476289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF7EA1B-7D49-4873-88DB-53CBC0476289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF7EA1B-7D49-4873-88DB-53CBC0476289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF7EA1B-7D49-4873-88DB-53CBC0476289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DBC8FF-CD6C-449A-A68D-476A63BB69F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DBC8FF-CD6C-449A-A68D-476A63BB69F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DBC8FF-CD6C-449A-A68D-476A63BB69F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DBC8FF-CD6C-449A-A68D-476A63BB69F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE219196-480B-4B0F-83D6-31B7F363A204}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ekplex
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = 01-RegisterType\\01-RegisterType.csproj
+		SccProjectName1 = 01-RegisterType
+		SccLocalPath1 = 01-RegisterType
+		SccProjectUniqueName2 = 02-RegisterInstance\\02-RegisterInstance.csproj
+		SccProjectName2 = 02-RegisterInstance
+		SccLocalPath2 = 02-RegisterInstance
+		SccProjectUniqueName3 = 03-RegisterSingleton\\03-RegisterSingleton.csproj
+		SccProjectName3 = 03-RegisterSingleton
+		SccLocalPath3 = 03-RegisterSingleton
+		SccProjectUniqueName4 = 04-InjectionProperty\\04-InjectionProperty.csproj
+		SccProjectName4 = 04-InjectionProperty
+		SccLocalPath4 = 04-InjectionProperty
+		SccProjectUniqueName5 = 05-InjectionMethod\\05-InjectionMethod.csproj
+		SccProjectName5 = 05-InjectionMethod
+		SccLocalPath5 = 05-InjectionMethod
+		SccProjectUniqueName6 = 06-ParameterOverride\\06-ParameterOverride.csproj
+		SccProjectName6 = 06-ParameterOverride
+		SccLocalPath6 = 06-ParameterOverride
+		SccProjectUniqueName7 = 07-PropertyOverride\\07-PropertyOverride.csproj
+		SccProjectName7 = 07-PropertyOverride
+		SccLocalPath7 = 07-PropertyOverride
+		SccProjectUniqueName8 = 08-DependencyOverride\\08-DependencyOverride.csproj
+		SccProjectName8 = 08-DependencyOverride
+		SccLocalPath8 = 08-DependencyOverride
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Learning.PrismDemo.Live.Views.LiveMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Learning.PrismDemo.Controls;assembly=Learning.PrismDemo.Controls"
+             xmlns:utils="clr-namespace:Learning.PrismDemo.Utilities;assembly=Learning.PrismDemo.Utilities">
+
+    <controls:MainMenuItemControl Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl},AncestorLevel=2,Mode=FindAncestor}, Path=MenuItemWidth}"
+                                  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl},AncestorLevel=2,Mode=FindAncestor}, Path=MenuItemHeight}"
+                                  Margin="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl},AncestorLevel=2,Mode=FindAncestor}, Path=MenuItemMargin}"
+                                  x:Name="menuItem"
+                                  Content="{x:Static utils:ModuleNameConstant.LIVE_MODULE_NAME}"
+                                  Style="{DynamicResource MainMenu_ButtonStyle}"
+                                  BackgroundImage="{DynamicResource Live_MainMenu}"
+                                  Command="{Binding MenuSelectedCommand}"
+                                  CommandParameter="{Binding ElementName=menuItem, Path=Content}" />
+
+</UserControl>
