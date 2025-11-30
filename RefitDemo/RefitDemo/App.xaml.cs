@@ -17,7 +17,7 @@ namespace RefitDemo
         {
             base.OnStartup(e);
 
-            var serviceCollection = new ServiceCollection();
+            ServiceCollection serviceCollection = new ServiceCollection();
 
             // Initialize modules
             ModuleBase.InitializeModules(serviceCollection, new[] { typeof(ExampleMainModule) });

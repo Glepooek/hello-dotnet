@@ -12,11 +12,13 @@ namespace RefitDemo.Common.Services
     {
         public static T Create<T>(string baseUrl)
         {
-            var httpClient = new HttpClient(new HttpClientHandler()
+            HttpClientHandler httpClientHandler = new HttpClientHandler()
             {
                 // Uncomment the following line to disable proxy usage
                 // UseProxy = false
-            })
+            };
+
+            HttpClient httpClient = new HttpClient(httpClientHandler)
             {
                 BaseAddress = new Uri(baseUrl),
                 Timeout = TimeSpan.FromSeconds(30)

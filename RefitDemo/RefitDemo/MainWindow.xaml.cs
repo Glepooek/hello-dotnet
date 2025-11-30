@@ -24,9 +24,13 @@ namespace RefitDemo
     {
         private readonly MainWindowViewModel _viewModel;
 
-        public MainWindow(MainWindowViewModel viewModel)
+        public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(MainWindowViewModel viewModel) : this()
+        {
             _viewModel = viewModel;
             this.DataContext = _viewModel;
             this.Loaded += MainWindow_Loaded;

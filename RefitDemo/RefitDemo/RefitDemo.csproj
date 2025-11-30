@@ -1,15 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RefitDemo.Common\RefitDemo.Common.csproj" />
+    <None Remove="MainWindow.xaml~RF36b344ea.TMP" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <PackageReference Include="Refit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RefitDemo.Common\RefitDemo.Common.csproj" />
   </ItemGroup>
 </Project>
