@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using RefitDemo.Common.Models;
 using RefitDemo.Common.Services;
 
@@ -22,17 +23,11 @@ namespace RefitDemo
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MainWindowViewModel _viewModel;
-
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        public MainWindow(MainWindowViewModel viewModel) : this()
-        {
-            _viewModel = viewModel;
-            this.DataContext = _viewModel;
+            this.DataContext = Ioc.Default.GetRequiredService<MainWindowViewModel>();
             this.Loaded += MainWindow_Loaded;
         }
 

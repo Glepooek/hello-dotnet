@@ -1,6 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using RefitDemo.Common.Modules;
-using RefitDemo.Modules;
+﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
 
@@ -18,20 +17,10 @@ namespace RefitDemo
             base.OnStartup(e);
 
             ServiceCollection serviceCollection = new ServiceCollection();
-
-            // Initialize modules
-            ModuleBase.InitializeModules(serviceCollection, new[] { typeof(ExampleMainModule) });
-
-            // 注册 MainWindowViewModel
             serviceCollection.AddSingleton<MainWindowViewModel>();
-            // 注册 MainWindow
-            serviceCollection.AddSingleton<MainWindow>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
-
-            // 启动主窗口并注入依赖
-            var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+            Ioc.Default.ConfigureServices(_serviceProvider);
         }
     }
 }

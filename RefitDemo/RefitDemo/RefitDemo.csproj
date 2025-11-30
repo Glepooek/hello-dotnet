@@ -9,6 +9,7 @@
     <None Remove="MainWindow.xaml~RF36b344ea.TMP" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
     <PackageReference Include="Refit" />
   </ItemGroup>
   <ItemGroup>
