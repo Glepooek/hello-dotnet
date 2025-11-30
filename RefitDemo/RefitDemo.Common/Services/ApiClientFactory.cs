@@ -12,12 +12,25 @@ namespace RefitDemo.Common.Services
     {
         public static T Create<T>(string baseUrl)
         {
-            HttpClientHandler httpClientHandler = new HttpClientHandler()
+            HttpClient httpClient = new HttpClient()
             {
-                // Uncomment the following line to disable proxy usage
-                // UseProxy = false
+                BaseAddress = new Uri(baseUrl),
+                Timeout = TimeSpan.FromSeconds(30)
             };
 
+            // 添加默认请求头
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            return RestService.For<T>(httpClient, new RefitSettings()
+            { 
+                CollectionFormat = CollectionFormat.Csv,
+                UrlParameterFormatter = new CustomDateUrlParameterFormatter()
+            });
+        }
+
+        public static T Create<T>(string baseUrl, HttpClientHandler httpClientHandler)
+        {
             HttpClient httpClient = new HttpClient(httpClientHandler)
             {
                 BaseAddress = new Uri(baseUrl),

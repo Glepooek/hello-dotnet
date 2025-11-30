@@ -4,12 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RefitDemo"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         Title="MainWindow"
         Width="800"
         Height="450"
         mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadPostsCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid>
-        <ListBox x:Name="postList">
+        <ListBox x:Name="postList" ItemsSource="{Binding Posts}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

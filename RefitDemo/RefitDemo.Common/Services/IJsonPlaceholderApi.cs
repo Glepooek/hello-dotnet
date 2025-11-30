@@ -12,7 +12,10 @@ namespace RefitDemo.Common.Services
         /// </summary>
         /// <returns></returns>
         [Get("/posts")]
-        Task<List<Post>> GetPostsAsync();
+        Task<IEnumerable<Post>> GetPostsAsync();
+
+        [Get("/posts")]
+        Task<IEnumerable<Post>> GetPostsAsync([Query(CollectionFormat.Csv)] int[] ids);
 
         /// <summary>
         /// 获取单个帖子

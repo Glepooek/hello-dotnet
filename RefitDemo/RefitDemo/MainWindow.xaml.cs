@@ -28,7 +28,7 @@ namespace RefitDemo
             InitializeComponent();
 
             this.DataContext = Ioc.Default.GetRequiredService<MainWindowViewModel>();
-            this.Loaded += MainWindow_Loaded;
+            //this.Loaded += MainWindow_Loaded;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace RefitDemo
             try
             {
                 var posts = await api.GetPostsAsync();
-                Console.WriteLine($"获取到 {posts.Count} 个帖子\n");
+                Console.WriteLine($"获取到 {posts.ToList().Count} 个帖子\n");
                 postList.ItemsSource = posts;
             }
             catch (Exception ex)

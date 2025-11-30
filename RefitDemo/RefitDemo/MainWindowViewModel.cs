@@ -1,19 +1,49 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using RefitDemo.Common.Models;
+using RefitDemo.Common.Services;
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Windows.Media;
 
 namespace RefitDemo
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : ObservableObject
     {
-        public MainWindowViewModel()
+        private IJsonPlaceholderApi _jsonPlaceholderApi;
+        public MainWindowViewModel(IJsonPlaceholderApi placeholderApi)
         {
-
+            _jsonPlaceholderApi = placeholderApi;
         }
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        #endregion
+        private ObservableCollection<Post> posts;
+        public ObservableCollection<Post> Posts
+        {
+            get => posts;
+            set => SetProperty(ref posts, value, nameof(Posts));
+        }
+
+        private RelayCommand loadPostsCommand;
+        public RelayCommand LoadPostsCommand
+            => loadPostsCommand ??= new RelayCommand(LoadPosts);
+
+        private async void LoadPosts()
+        {
+            try
+            {
+                IEnumerable<Post> posts = await _jsonPlaceholderApi.GetPostsAsync();
+                Trace.WriteLine($"获取到 {posts.ToList().Count} 个帖子\n");
+                Posts = new ObservableCollection<Post>(posts);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+            }
+        }
     }
 }
