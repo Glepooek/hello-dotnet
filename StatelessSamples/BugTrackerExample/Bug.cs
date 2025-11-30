@@ -6,9 +6,20 @@ namespace BugTrackerExample
 {
     public class Bug
     {
-        private enum State { Open, Assigned, Deferred, Closed }
+        private enum State
+        {
+            Open,
+            Assigned,
+            Deferred,
+            Closed
+        }
 
-        private enum Trigger { Assign, Defer, Close }
+        private enum Trigger 
+        { 
+            Assign, 
+            Defer, 
+            Close 
+        }
 
         private readonly StateMachine<State, Trigger> _machine;
         // The TriggerWithParameters object is used when a trigger requires a payload.

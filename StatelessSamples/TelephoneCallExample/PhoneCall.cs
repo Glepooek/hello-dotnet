@@ -1,6 +1,6 @@
-using System;
 using Stateless;
 using Stateless.Graph;
+using System;
 
 namespace TelephoneCallExample
 {
@@ -8,35 +8,88 @@ namespace TelephoneCallExample
     {
         enum Trigger
         {
+            /// <summary>
+            /// 拨打电话
+            /// </summary>
             CallDialed,
+            /// <summary>
+            /// 电话接通
+            /// </summary>
             CallConnected,
+            /// <summary>
+            /// 留言
+            /// </summary>
             LeftMessage,
+            /// <summary>
+            /// 电话置于保持状态
+            /// </summary>
             PlacedOnHold,
+            /// <summary>
+            /// 电话从保持状态恢复
+            /// </summary>
             TakenOffHold,
+            /// <summary>
+            /// 电话被摔坏
+            /// </summary>
             PhoneHurledAgainstWall,
+            /// <summary>
+            /// 静音麦克风
+            /// </summary>
             MuteMicrophone,
+            /// <summary>
+            /// 取消静音麦克风
+            /// </summary>
             UnmuteMicrophone,
+            /// <summary>
+            /// 设置音量
+            /// </summary>
             SetVolume
         }
 
         enum State
         {
+            /// <summary>
+            /// 挂断状态
+            /// </summary>
             OffHook,
+            /// <summary>
+            /// 响铃状态
+            /// </summary>
             Ringing,
+            /// <summary>
+            /// 已接通状态
+            /// </summary>
             Connected,
+            /// <summary>
+            /// 保持状态
+            /// </summary>
             OnHold,
+            /// <summary>
+            /// 电话损坏状态
+            /// </summary>
             PhoneDestroyed
         }
 
         State _state = State.OffHook;
         
         StateMachine<State, Trigger> _machine;
-        StateMachine<State, Trigger>.TriggerWithParameters<int> _setVolumeTrigger;
 
+        /// <summary>
+        /// 设置音量触发器
+        /// </summary>
+        StateMachine<State, Trigger>.TriggerWithParameters<int> _setVolumeTrigger;
+        /// <summary>
+        /// 设置被呼叫方触发器
+        /// </summary>
         StateMachine<State, Trigger>.TriggerWithParameters<string> _setCalleeTrigger;
 
+        /// <summary>
+        /// 呼叫方
+        /// </summary>
         string _caller;
-
+        /// <summary>
+        /// 被呼叫方
+        /// </summary>
         string _callee;
 
         public PhoneCall(string caller)
@@ -69,6 +122,7 @@ namespace TelephoneCallExample
                 .Permit(Trigger.PhoneHurledAgainstWall, State.PhoneDestroyed);
 
             _machine.OnTransitioned(t => Console.WriteLine($"OnTransitioned: {t.Source} -> {t.Destination} via {t.Trigger}({string.Join(", ",  t.Parameters)})"));
+            _machine.OnTransitionCompleted(t => Console.WriteLine($"OnTransitionCompleted: {t.Source} -> {t.Destination} via {t.Trigger}({string.Join(", ", t.Parameters)})"));
         }
 
         void OnSetVolume(int volume)
@@ -122,6 +176,10 @@ namespace TelephoneCallExample
             Console.WriteLine("[{1}] placed call and [Status:] {0}", _machine.State, _caller);
         }
 
+        /// <summary>
+        /// 拨号
+        /// </summary>
+        /// <param name="callee">被呼叫方</param>
         public void Dialed(string callee)
         {           
             _machine.Fire(_setCalleeTrigger, callee);

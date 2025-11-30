@@ -23,6 +23,12 @@ namespace AlarmExample
     /// </summary>
     public partial class Alarm
     {
+        private StateMachine<AlarmState, AlarmCommand> _machine;
+        private System.Timers.Timer? preArmTimer;
+        private System.Timers.Timer? pauseTimer;
+        private System.Timers.Timer? triggerDelayTimer;
+        private System.Timers.Timer? triggerTimeOutTimer;
+
         /// <summary>
         /// Moves the Alarm into the provided <see cref="AlarmState" /> via the defined <see cref="AlarmCommand" />.
         /// </summary>
@@ -63,9 +69,9 @@ namespace AlarmExample
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        public bool CanFireCommand(AlarmCommand command) 
-        { 
-            return _machine.CanFire(command); 
+        public bool CanFireCommand(AlarmCommand command)
+        {
+            return _machine.CanFire(command);
         }
 
         /// <summary>
@@ -87,7 +93,7 @@ namespace AlarmExample
         {
             _machine = new StateMachine<AlarmState, AlarmCommand>(AlarmState.Undefined);
 
-            preArmTimer = new System.Timers .Timer(armDelay * 1000) { AutoReset = false, Enabled = false };
+            preArmTimer = new System.Timers.Timer(armDelay * 1000) { AutoReset = false, Enabled = false };
             preArmTimer.Elapsed += TimeoutTimerElapsed;
             pauseTimer = new System.Timers.Timer(pauseDelay * 1000) { AutoReset = false, Enabled = false };
             pauseTimer.Elapsed += TimeoutTimerElapsed;
@@ -147,29 +153,26 @@ namespace AlarmExample
 
         private void ConfigureTimer(bool active, System.Timers.Timer timer, string timerName)
         {
-            if (timer != null)
-                if (active)
-                {
-                    timer.Start();
-                    Trace.WriteLine($"{timerName} started.");
-                }
-                else
-                {
-                    timer.Stop();
-                    Trace.WriteLine($"{timerName} cancelled.");
-                }
+            if (timer == null)
+            {
+                return;
+            }
+
+            if (active)
+            {
+                timer.Start();
+                Trace.WriteLine($"{timerName} started.");
+            }
+            else
+            {
+                timer.Stop();
+                Trace.WriteLine($"{timerName} cancelled.");
+            }
         }
 
         private void OnTransition(StateMachine<AlarmState, AlarmCommand>.Transition transition)
         {
-            Trace.WriteLine($"Transitioned from {transition.Source} to " +
-                $"{transition.Destination} via {transition.Trigger}.");
+            Trace.WriteLine($"Transitioned from {transition.Source} to {transition.Destination} via {transition.Trigger}.");
         }
-        
-        private StateMachine<AlarmState, AlarmCommand> _machine;
-        private System.Timers.Timer? preArmTimer;
-        private System.Timers.Timer? pauseTimer;
-        private System.Timers.Timer? triggerDelayTimer;
-        private System.Timers.Timer? triggerTimeOutTimer;
     }
 }

@@ -8,19 +8,42 @@ namespace JsonExample
     {
         private enum MemberTriggers
         {
+            /// <summary>
+            /// 暂停
+            /// </summary>
             Suspend,
+            /// <summary>
+            /// 中断
+            /// </summary>
             Terminate,
+            /// <summary>
+            /// 重新激活
+            /// </summary>
             Reactivate
         }
+
+        /// <summary>
+        /// 会员状态
+        /// </summary>
         public enum MembershipState
         {
+            /// <summary>
+            /// 未激活
+            /// </summary>
             Inactive,
+            /// <summary>
+            /// 激活
+            /// </summary>
             Active,
+            /// <summary>
+            /// 中断
+            /// </summary>
             Terminated
         }
-        public MembershipState State => _stateMachine.State;
+
         public string Name { get; }
         private readonly StateMachine<MembershipState, MemberTriggers> _stateMachine;
+        public MembershipState State => _stateMachine.State;
 
         public Member(string name)
         {
@@ -33,7 +56,7 @@ namespace JsonExample
         [JsonConstructor]
         private Member(string state, string name)
         {
-            var memberState = (MembershipState) Enum.Parse(typeof(MembershipState), state);
+            MembershipState memberState = Enum.Parse<MembershipState>(state);
             _stateMachine = new StateMachine<MembershipState, MemberTriggers>(memberState);
             Name = name;
 
@@ -52,6 +75,11 @@ namespace JsonExample
 
             _stateMachine.Configure(MembershipState.Terminated)
                 .Permit(MemberTriggers.Reactivate, MembershipState.Active);
+
+            _stateMachine.OnTransitioned(t =>
+            {
+                Console.WriteLine($"Member {Name} transitioned from {t.Source} to {t.Destination} via {t.Trigger}");
+            });
         }
 
         public void Terminate()
@@ -84,8 +112,4 @@ namespace JsonExample
             return State == anotherMember.State && Name == anotherMember.Name;
         }
     }
-
-
-    
-
 }

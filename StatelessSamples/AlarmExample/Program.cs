@@ -93,8 +93,7 @@
                 {
                     if (Enum.TryParse(input.Split(" ")[1], out AlarmCommand command))
                     {
-                        if (_alarm != null)
-                            _alarm.ExecuteTransition(command);
+                        _alarm?.ExecuteTransition(command);
                     }
                     else
                     {
