@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
+using System.Threading.Tasks;
 
 namespace RefitDemo
 {
@@ -30,9 +31,27 @@ namespace RefitDemo
 
         private RelayCommand loadPostsCommand;
         public RelayCommand LoadPostsCommand
-            => loadPostsCommand ??= new RelayCommand(LoadPosts);
+            => loadPostsCommand ??= new RelayCommand(async () => await LoadPosts());
 
-        private async void LoadPosts()
+        private RelayCommand<int> deletePostCommand;
+        public RelayCommand<int> DeletePostCommand
+            => deletePostCommand ??= new RelayCommand<int>(async (postId) => await DeletePost(postId));
+
+        private async Task DeletePost(int postId)
+        {
+            try
+            {
+                await _jsonPlaceholderApi.DeletePostAsync(postId);
+                Console.WriteLine($"postId：{postId} 删除成功!");
+                Posts.Remove(Posts.FirstOrDefault(p => p.Id == postId));
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+            }
+        }
+
+        private async Task LoadPosts()
         {
             try
             {
