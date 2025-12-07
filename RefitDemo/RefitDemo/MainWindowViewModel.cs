@@ -12,6 +12,9 @@ using System.Runtime.CompilerServices;
 using System.Windows.Media;
 using System.Threading.Tasks;
 
+// refit接口代码如何生成实例
+// https://www.cnblogs.com/mudtools/p/19300833
+
 namespace RefitDemo
 {
     public class MainWindowViewModel : ObservableObject
