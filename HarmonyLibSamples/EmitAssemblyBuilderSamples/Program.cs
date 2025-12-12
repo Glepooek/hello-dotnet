@@ -4,16 +4,20 @@ using System.Reflection.Emit;
 
 // 创建动态程序集
 AssemblyName assemblyName = new AssemblyName("DynamicAssembly");
-AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
-    assemblyName, 
-    AssemblyBuilderAccess.RunAndCollect);
+//AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(
+//    assemblyName,
+//    AssemblyBuilderAccess.RunAndCollect);
+
+PersistedAssemblyBuilder assemblyBuilder = new PersistedAssemblyBuilder(
+    assemblyName,
+    typeof(object).Assembly);
 
 // 创建动态模块
 ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("DynamicModule");
 
 // 创建动态类。可以指定继承的父类、接口等
 TypeBuilder typeBuilder = moduleBuilder.DefineType(
-    "DynamicCalculator", 
+    "DynamicCalculator",
     TypeAttributes.Public);
 
 // 创建Add方法
@@ -22,6 +26,9 @@ MethodBuilder addMethod = typeBuilder.DefineMethod(
     MethodAttributes.Public | MethodAttributes.Static,
     typeof(int),
     new Type[] { typeof(int), typeof(int) });
+
+addMethod.DefineParameter(1, ParameterAttributes.None, "arg1");
+addMethod.DefineParameter(2, ParameterAttributes.None, "arg2");
 
 // 生成Add方法的IL代码
 ILGenerator ilGenerator = addMethod.GetILGenerator();
@@ -33,17 +40,26 @@ ilGenerator.Emit(OpCodes.Ret);      // 返回结果
 // 完成类型创建
 Type dynamicType = typeBuilder.CreateType();
 
-// 调用动态生成的方法
-object? result = dynamicType.InvokeMember(
-    "Add",
-    BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static,
-    null,
-    null,
-    new object[] { 10, 20 });
+string assemblyPath = $"{AppDomain.CurrentDomain.BaseDirectory}{assemblyName.Name}.dll";
+assemblyBuilder.Save(assemblyPath);
+
+//// 调用动态生成的方法
+//object? result = dynamicType.InvokeMember(
+//    "Add",
+//    BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static,
+//    null,
+//    null,
+//    new object[] { 10, 20 });
+
+// 从文件加载程序集
+var assembly = Assembly.LoadFrom(assemblyPath);
+var type = assembly.GetType("DynamicCalculator");
+var method = type.GetMethod("Add");
+var result = method.Invoke(null, new object[] { 10, 20 });
 
 Console.WriteLine($"10 + 20 = {result}");  // 输出: 10 + 20 = 30
 
 // ++++++++++++++Roslyn方式生成代码并保存到本地DLL文件++++++++++++++
-RoslynCodeGenerator.Main();
+//RoslynCodeGenerator.Main();
 
 Console.ReadLine();
