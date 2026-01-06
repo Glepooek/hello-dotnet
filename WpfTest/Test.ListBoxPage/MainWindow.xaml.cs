@@ -7,16 +7,11 @@ namespace Test.ListBoxPage
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
         public MainWindow()
         {
             InitializeComponent();
             GalaSoft.MvvmLight.Threading.DispatcherHelper.Initialize();
             this.DataContext = new MainWindowVM();
         }
-
     }
-
-
 }
