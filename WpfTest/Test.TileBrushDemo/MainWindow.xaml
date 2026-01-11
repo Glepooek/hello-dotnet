@@ -11,6 +11,8 @@
         WindowState="Maximized">
     
     <Grid>
-        <local:BookListView DataContext="{Binding}" />
+        <!--<local:BookListView DataContext="{Binding}" />-->
+
+        <local:DrawingBrushView />
     </Grid>
 </Window>
