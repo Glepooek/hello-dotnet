@@ -13,6 +13,8 @@
     <Grid>
         <!--<local:BookListView DataContext="{Binding}" />-->
 
-        <local:DrawingBrushView />
+        <!--<local:DrawingBrushView />-->
+
+        <local:VisualBrushView />
     </Grid>
 </Window>
