@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Test.TileBrushDemo
+namespace Test.BrushDemo.Views
 {
     /// <summary>
-    /// Interaction logic for BookListView.xaml
+    /// Interaction logic for VisualBrushView.xaml
     /// </summary>
-    public partial class BookListView : UserControl
+    public partial class VisualBrushView : UserControl
     {
-        public BookListView()
+        public VisualBrushView()
         {
             InitializeComponent();
         }

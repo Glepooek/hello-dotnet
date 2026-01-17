@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace Test.TileBrushDemo
+namespace Test.BrushDemo.Converters
 {
     public class ContentHeightForBookrackConverter : IValueConverter
     {
