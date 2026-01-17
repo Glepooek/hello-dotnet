@@ -1,0 +1,40 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/MultiLang/">
+    <Project Path="MultiLang/ChangeLanguage/ChangeLanguage.csproj">
+      <Platform Project="x86" />
+    </Project>
+    <Project Path="MultiLang/LanguageResource/LanguageResource.csproj" />
+    <Project Path="MultiLang/Test.ChangeLang/Test.ChangeLang.csproj" />
+    <Project Path="MultiLang/Test.Multilanguage/Test.Multilanguage.csproj" />
+  </Folder>
+  <Folder Name="/WindowsMesage/">
+    <Project Path="WindowsMesage/Test.MainWpfApp/Test.MainWpfApp.csproj" />
+    <Project Path="WindowsMesage/Test.Shared/Test.Shared.csproj" />
+    <Project Path="WindowsMesage/Test.SubWpfApp/Test.SubWpfApp.csproj" />
+  </Folder>
+  <Project Path="Test.AttachedProperties/Test.AttachedProperties.csproj" />
+  <Project Path="Test.BrushDemo/Test.BrushDemo.csproj" />
+  <Project Path="Test.ComboboxDemo/Test.ComboboxDemo.csproj" />
+  <Project Path="Test.ControlAutoHide/Test.ControlAutoHide.csproj" />
+  <Project Path="Test.CountDown/Test.CountDown.csproj" />
+  <Project Path="Test.CovariantAndContravariant/Test.CovariantAndContravariant.csproj" />
+  <Project Path="Test.DataGridDemo/Test.DataGridDemo.csproj" />
+  <Project Path="Test.DocumentViewer/Test.DocumentViewer.csproj" />
+  <Project Path="Test.DragBehaviorDemo/Test.DragBehaviorDemo.csproj" />
+  <Project Path="Test.DragControl/Test.DragControl.csproj" />
+  <Project Path="Test.HardwareInfoDemo/Test.HardwareInfoDemo.csproj" />
+  <Project Path="Test.IconFonts/Test.IconFonts.csproj" />
+  <Project Path="Test.InkCanvasDemo/Test.InkCanvasDemo.csproj" />
+  <Project Path="Test.ListBoxPage/Test.ListBoxPage.csproj" />
+  <Project Path="Test.ListViewDemo/Test.ListViewDemo.csproj" />
+  <Project Path="Test.Moonpdf/Test.Moonpdf.csproj" />
+  <Project Path="Test.MultiTouch/Test.MultiTouch.csproj" />
+  <Project Path="Test.Screenshot/Test.Screenshot.csproj" />
+  <Project Path="Test.SqliteEFDemo/Test.SqliteEFDemo.csproj" />
+  <Project Path="Test.SqliteNetDemo/Test.SqliteNetDemo.csproj" />
+  <Project Path="Test.TransformDemo/Test.TransformDemo.csproj" />
+</Solution>
