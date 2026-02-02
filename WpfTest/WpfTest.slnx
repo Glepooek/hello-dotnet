@@ -1,12 +1,6 @@
 <Solution>
-  <Configurations>
-    <Platform Name="Any CPU" />
-    <Platform Name="x86" />
-  </Configurations>
   <Folder Name="/MultiLang/">
-    <Project Path="MultiLang/ChangeLanguage/ChangeLanguage.csproj">
-      <Platform Project="x86" />
-    </Project>
+    <Project Path="MultiLang/ChangeLanguage/ChangeLanguage.csproj" />
     <Project Path="MultiLang/LanguageResource/LanguageResource.csproj" />
     <Project Path="MultiLang/Test.ChangeLang/Test.ChangeLang.csproj" />
     <Project Path="MultiLang/Test.Multilanguage/Test.Multilanguage.csproj" />
@@ -27,6 +21,7 @@
   <Project Path="Test.DragBehaviorDemo/Test.DragBehaviorDemo.csproj" />
   <Project Path="Test.DragControl/Test.DragControl.csproj" />
   <Project Path="Test.HardwareInfoDemo/Test.HardwareInfoDemo.csproj" />
+  <Project Path="Test.HwndHostDemo/Test.HwndHostDemo.csproj" Id="f5781a77-1817-4bbc-a16c-11db4408b76d" />
   <Project Path="Test.IconFonts/Test.IconFonts.csproj" />
   <Project Path="Test.InkCanvasDemo/Test.InkCanvasDemo.csproj" />
   <Project Path="Test.ListBoxPage/Test.ListBoxPage.csproj" />
