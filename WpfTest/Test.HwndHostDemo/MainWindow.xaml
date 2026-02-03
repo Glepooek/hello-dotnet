@@ -4,9 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Test.HwndHostDemo"
+        xmlns:vlc="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <local:HwndHostControl />
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid RowDefinitions="*,auto">
+        <!--<local:HwndHostControl />-->
+        <!--<vlc:VideoView x:Name="VideoPlayer" />-->
+        <!-- VLC 视频渲染容器 -->
+        <local:VlcVideoHwndHost x:Name="VideoHost" />
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="10"
+                    HorizontalAlignment="Center">
+            <Button Content="播放"
+                    Click="PlayButton_Click"
+                    Width="80"
+                    Margin="5" />
+            <Button x:Name="pauseBtn"
+                    Content="暂停"
+                    Click="PauseButton_Click"
+                    Width="80"
+                    Margin="5" />
+            <Button Content="停止"
+                    Click="StopButton_Click"
+                    Width="80"
+                    Margin="5" />
+        </StackPanel>
     </Grid>
 </Window>

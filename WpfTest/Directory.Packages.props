@@ -13,6 +13,8 @@
     <PackageVersion Include="Hardware.Info" Version="101.0.1.1" />
     <PackageVersion Include="JsonSubTypes" Version="1.8.0" />
     <PackageVersion Include="K4os.Compression.LZ4.Streams" Version="1.2.15" />
+    <PackageVersion Include="LibVLCSharp" Version="3.9.5" />
+    <PackageVersion Include="LibVLCSharp.WPF" Version="3.9.5" />
     <PackageVersion Include="log4net" Version="3.0.3" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
@@ -38,5 +40,6 @@
     <PackageVersion Include="System.Speech" Version="5.0.0" />
     <PackageVersion Include="System.ValueTuple" Version="4.5.0" />
     <PackageVersion Include="TencentCloudSDK" Version="3.0.384" />
+    <PackageVersion Include="VideoLAN.LibVLC.Windows" Version="3.0.23" />
   </ItemGroup>
 </Project>

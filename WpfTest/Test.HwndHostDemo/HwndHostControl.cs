@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace Test.HwndHostDemo;
 
@@ -26,7 +22,7 @@ internal class HwndHostControl : HwndHost
         var noteProcess = Process.GetProcessesByName("有道云笔记").FirstOrDefault();
         if (noteProcess == null)
         {
-            Debug.WriteLine("Notepad process not found. Please start Notepad before using this control.");
+            Trace.WriteLine("Notepad process not found. Please start Notepad before using this control.");
             return new HandleRef(null, _parentHwnd);
         }
 

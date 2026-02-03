@@ -12,7 +12,6 @@ namespace Test.BrushDemo.Views
         public OpacityMaskView()
         {
             InitializeComponent();
-            WindowsFormsHost
         }
     }
 }
