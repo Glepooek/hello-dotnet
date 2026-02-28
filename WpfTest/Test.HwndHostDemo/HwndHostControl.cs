@@ -8,36 +8,47 @@ namespace Test.HwndHostDemo;
 internal class HwndHostControl : HwndHost
 {
     /// <summary>
-    /// Win32窗口句柄
+    /// 扩展样式：鼠标事件穿透，不拦截输入
     /// </summary>
-    private IntPtr _parentHwnd;
+    private const uint WS_EX_TRANSPARENT = 0x00000020u;
+    /// <summary>
+    /// 窗口样式：子窗口，依附于父窗口
+    /// </summary>
+    private const uint WS_CHILD = 0x40000000u;
+    /// <summary>
+    /// 窗口样式：创建后立即可见
+    /// </summary>
+    private const uint WS_VISIBLE = 0x10000000u;
+
+    public string TargetProcessName { get; set; } = "有道云笔记";
+
     private IntPtr _childHwnd;
 
     protected override HandleRef BuildWindowCore(HandleRef hwndParent)
     {
         // 创建Win32静态文本窗口（类名"STATIC"是系统预定义的）
-        _parentHwnd = CreateWindowExW(0x00000020u, "static", null, 0x40000000u | 0x10000000u, 0, 0, 0, 0, hwndParent.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+        var parentHwnd = CreateWindowExW(WS_EX_TRANSPARENT, "static", null, WS_CHILD | WS_VISIBLE, 0, 0, 0, 0, hwndParent.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
 
-        // 检查是否存在 有道云笔记 进程
-        var noteProcess = Process.GetProcessesByName("有道云笔记").FirstOrDefault();
+        // 检查是否存在目标进程
+        var noteProcess = Process.GetProcessesByName(TargetProcessName).FirstOrDefault();
         if (noteProcess == null)
         {
-            Trace.WriteLine("Notepad process not found. Please start Notepad before using this control.");
-            return new HandleRef(null, _parentHwnd);
+            Debug.WriteLine($"Process '{TargetProcessName}' not found.");
+            return new HandleRef(null, parentHwnd);
         }
 
-        // 获取 有道云笔记 的主窗口句柄
+        // 获取目标进程的主窗口句柄
         _childHwnd = noteProcess.MainWindowHandle;
         if (_childHwnd == IntPtr.Zero)
         {
-            Debug.WriteLine("Failed to get Notepad main window handle.");
-            return new HandleRef(null, _parentHwnd);
+            Debug.WriteLine($"Failed to get main window handle for '{TargetProcessName}'.");
+            return new HandleRef(null, parentHwnd);
         }
 
-        // 设置 有道云笔记 窗口为子窗口
-        SetParent(_childHwnd, _parentHwnd);
+        // 设置目标窗口为子窗口
+        SetParent(_childHwnd, parentHwnd);
 
-        return new HandleRef(null, _parentHwnd);
+        return new HandleRef(null, parentHwnd);
     }
 
     protected override void DestroyWindowCore(HandleRef hwnd)
@@ -59,7 +70,7 @@ internal class HwndHostControl : HwndHost
     protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
     {
         base.OnRenderSizeChanged(sizeInfo);
-        if (_parentHwnd != IntPtr.Zero && _childHwnd != IntPtr.Zero)
+        if (Handle != IntPtr.Zero && _childHwnd != IntPtr.Zero)
         {
             // 更新子窗口的尺寸和位置
             MoveWindow(_childHwnd, 0, 0, (int)ActualWidth, (int)ActualHeight, true);
@@ -67,12 +78,6 @@ internal class HwndHostControl : HwndHost
     }
 
     #region Win32 API
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    private static extern IntPtr CreateWindowEx(
-        int exStyle, string className, string windowName,
-        int style, int x, int y, int width, int height,
-        IntPtr parent, IntPtr menu, IntPtr hInstance, IntPtr lpParam);
 
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern IntPtr CreateWindowExW(
@@ -107,9 +112,6 @@ internal class HwndHostControl : HwndHost
     /// </summary>
     [DllImport("user32.dll", SetLastError = true)]
     private static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
-
-    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
-    private static extern bool SetWindowText(IntPtr hWnd, string text);
 
     #endregion
 }
