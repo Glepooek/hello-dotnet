@@ -7,7 +7,7 @@ namespace Test.MapperlyDemo.Mappers;
 [Mapper]
 public partial class OrderMapper
 {
-    public OrderDto ToDto(Order order)
+    public static OrderDto ToDto(Order order)
     {
         var dto = ToOrderDto(order);
         // 手动处理计算属性
@@ -28,11 +28,10 @@ public partial class OrderMapper
     [MapProperty(nameof(Order.Customer) + "." + nameof(Models.Customer.Email), nameof(OrderDto.CustomerEmail))]
     [MapProperty(nameof(Order.Customer) + "." + nameof(Models.Customer.ShippingAddress), nameof(OrderDto.ShippingAddress))]
     [MapProperty(nameof(Order.CreatedAt), nameof(OrderDto.CreatedAt), StringFormat = "yyyy-MM-dd HH:mm:ss")]
-    private partial OrderDto ToOrderDto(Order order);
+    private static partial OrderDto ToOrderDto(Order order);
 
     // 以下两个方法由 Mapperly 在编译时自动生成实现，供集合映射和嵌套对象映射内部调用
-    private partial OrderItemDto ToItemDto(OrderItem item);
-    private partial AddressDto ToAddressDto(Address address);
-
-    private string MapStatus(OrderStatus status) => status.ToString();
+    private static partial OrderItemDto ToItemDto(OrderItem item);
+    private static partial AddressDto ToAddressDto(Address address);
+    private static string MapStatus(OrderStatus status) => status.ToString();
 }

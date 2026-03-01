@@ -41,8 +41,8 @@ public partial class MainWindow : Window
             ]
         };
 
-        var mapper = new OrderMapper();
-        var dto = mapper.ToDto(order);
+        //var mapper = new OrderMapper();
+        var dto = OrderMapper.ToDto(order);
 
         TxtOrderInfo.Text = $"""
             订单号：{dto.OrderNo}
