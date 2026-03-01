@@ -28,9 +28,12 @@ public partial class OrderMapper
     [MapProperty(nameof(Order.Customer) + "." + nameof(Models.Customer.Email), nameof(OrderDto.CustomerEmail))]
     [MapProperty(nameof(Order.Customer) + "." + nameof(Models.Customer.ShippingAddress), nameof(OrderDto.ShippingAddress))]
     [MapProperty(nameof(Order.CreatedAt), nameof(OrderDto.CreatedAt), StringFormat = "yyyy-MM-dd HH:mm:ss")]
+    [MapperIgnoreTarget(nameof(OrderDto.CustomerName))]
+    [MapperIgnoreTarget(nameof(OrderDto.TotalAmount))]
     private static partial OrderDto ToOrderDto(Order order);
 
     // 以下两个方法由 Mapperly 在编译时自动生成实现，供集合映射和嵌套对象映射内部调用
+    [MapperIgnoreTarget(nameof(OrderItemDto.SubTotal))]
     private static partial OrderItemDto ToItemDto(OrderItem item);
     private static partial AddressDto ToAddressDto(Address address);
     private static string MapStatus(OrderStatus status) => status.ToString();

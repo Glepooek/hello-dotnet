@@ -41,7 +41,6 @@ public partial class MainWindow : Window
             ]
         };
 
-        //var mapper = new OrderMapper();
         var dto = OrderMapper.ToDto(order);
 
         TxtOrderInfo.Text = $"""
