@@ -31,5 +31,6 @@
   <Project Path="Test.Screenshot/Test.Screenshot.csproj" />
   <Project Path="Test.SqliteEFDemo/Test.SqliteEFDemo.csproj" />
   <Project Path="Test.SqliteNetDemo/Test.SqliteNetDemo.csproj" />
+  <Project Path="Test.MapperlyDemo/Test.MapperlyDemo.csproj" />
   <Project Path="Test.TransformDemo/Test.TransformDemo.csproj" />
 </Solution>
