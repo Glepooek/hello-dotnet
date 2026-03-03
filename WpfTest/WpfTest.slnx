@@ -26,11 +26,11 @@
   <Project Path="Test.InkCanvasDemo/Test.InkCanvasDemo.csproj" />
   <Project Path="Test.ListBoxPage/Test.ListBoxPage.csproj" />
   <Project Path="Test.ListViewDemo/Test.ListViewDemo.csproj" />
+  <Project Path="Test.MapperDemo/Test.MapperDemo.csproj" />
   <Project Path="Test.Moonpdf/Test.Moonpdf.csproj" />
   <Project Path="Test.MultiTouch/Test.MultiTouch.csproj" />
   <Project Path="Test.Screenshot/Test.Screenshot.csproj" />
   <Project Path="Test.SqliteEFDemo/Test.SqliteEFDemo.csproj" />
   <Project Path="Test.SqliteNetDemo/Test.SqliteNetDemo.csproj" />
-  <Project Path="Test.MapperlyDemo/Test.MapperlyDemo.csproj" />
   <Project Path="Test.TransformDemo/Test.TransformDemo.csproj" />
 </Solution>

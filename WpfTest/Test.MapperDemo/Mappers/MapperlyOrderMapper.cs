@@ -4,13 +4,15 @@ using Test.MapperlyDemo.Models;
 
 namespace Test.MapperlyDemo.Mappers;
 
+/// <summary>
+/// Mapperly 实现：编译时源生成，零反射
+/// </summary>
 [Mapper]
-public partial class OrderMapper
+public partial class MapperlyOrderMapper : IOrderMapper
 {
-    public static OrderDto ToDto(Order order)
+    public OrderDto ToDto(Order order)
     {
         var dto = ToOrderDto(order);
-        // 手动处理计算属性
         dto.CustomerName = $"{order.Customer.FirstName} {order.Customer.LastName}";
         dto.TotalAmount = order.Items.Sum(i => i.Quantity * i.UnitPrice);
         foreach (var (item, itemDto) in order.Items.Zip(dto.Items))
@@ -30,11 +32,11 @@ public partial class OrderMapper
     [MapProperty(nameof(Order.CreatedAt), nameof(OrderDto.CreatedAt), StringFormat = "yyyy-MM-dd HH:mm:ss")]
     [MapperIgnoreTarget(nameof(OrderDto.CustomerName))]
     [MapperIgnoreTarget(nameof(OrderDto.TotalAmount))]
-    private static partial OrderDto ToOrderDto(Order order);
+    private partial OrderDto ToOrderDto(Order order);
 
     // 以下两个方法由 Mapperly 在编译时自动生成实现，供集合映射和嵌套对象映射内部调用
     [MapperIgnoreTarget(nameof(OrderItemDto.SubTotal))]
-    private static partial OrderItemDto ToItemDto(OrderItem item);
-    private static partial AddressDto ToAddressDto(Address address);
-    private static string MapStatus(OrderStatus status) => status.ToString();
+    private partial OrderItemDto ToItemDto(OrderItem item);
+    private partial AddressDto ToAddressDto(Address address);
+    private string MapStatus(OrderStatus status) => status.ToString();
 }

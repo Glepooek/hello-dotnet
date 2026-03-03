@@ -1,16 +1,32 @@
 <Window x:Class="Test.MapperlyDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Mapperly Demo"
-        Height="600"
+        Title="Mapperly vs AutoMapper Demo"
+        Height="640"
         Width="800">
+    
     <Grid Margin="16">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,8">
+            <TextBlock VerticalAlignment="Center"
+                       Margin="0,0,12,0"
+                       FontWeight="Bold"
+                       Text="映射实现：" />
+            <RadioButton x:Name="RbMapperly"
+                         Content="Mapperly（编译时源生成）"
+                         Margin="0,0,16,0" />
+            <RadioButton x:Name="RbAutoMapper"
+                         Content="AutoMapper（运行时反射）" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
                     Margin="0,0,0,12">
             <TextBlock Text="Order → OrderDto 映射结果"
                        FontSize="18"
@@ -20,7 +36,7 @@
                        FontSize="14" />
         </StackPanel>
 
-        <DataGrid Grid.Row="1"
+        <DataGrid Grid.Row="2"
                   x:Name="GridItems"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
