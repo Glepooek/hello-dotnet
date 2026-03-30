@@ -4,13 +4,13 @@
 
 ## 仓库概述
 
-这是一个**中英文双语 .NET 学习仓库**，包含 89+ 个独立示例项目，演示各种 .NET 技术，主要聚焦于 WPF 应用程序。
+这是一个 **.NET 学习仓库**，包含 200+ 个独立示例项目，演示各种 .NET 技术，主要聚焦于 WPF 应用程序。
 
 **关键特征：**
 - 大多数示例是独立项目，没有交叉依赖
 - 项目跨越 .NET Framework 4.6.2 到 .NET 10.0
-- 中文和英文注释都是标准且可接受的
-- 主 `WpfTest/` 解决方案包含 27+ 个相互关联的 WPF 演示
+- 中文和英文注释都是标准且可接受的（旧代码）；新代码注释一律用英文
+- 主 `WpfTest/` 解决方案包含 30+ 个相互关联的 WPF 演示
 
 ## 快速入门命令
 
@@ -33,6 +33,8 @@ dotnet run --project <项目路径>.csproj
 ```
 大多数项目是 WPF 应用程序，运行时会显示窗口。
 
+**注意：** 此仓库无自动化测试套件。`Test.*` 命名的项目是 GUI 演示应用，不是单元测试项目。
+
 ### 关键文件位置
 - **解决方案文件**：`WpfTest/WpfTest.slnx`（新的 .slnx 格式）
 - **集中式包管理**：`WpfTest/Directory.Packages.props`
@@ -45,13 +47,13 @@ dotnet run --project <项目路径>.csproj
 
 ### 项目类别
 - **`Learning.*` 文件夹** - 框架特定演示（Prism、Unity、MEF、Autofac 等）
-- **`WpfTest/*` 文件夹** - 27+ 个 WPF 特性演示
+- **`WpfTest/*` 文件夹** - 30+ 个 WPF 特性演示
 - **`*Samples` 文件夹** - 各种技术示例集合
 
 ### WpfTest 解决方案结构
 主 WpfTest 解决方案组织为解决方案文件夹：
 - **MultiLang/** - 4 个演示多语言/国际化模式的项目
-- **WindowsMessage/** - 3 个展示进程间通信的项目
+- **WindowsMesage/** - 3 个展示进程间通信的项目
 - **单独的演示** - Test.MapperlyDemo、Test.DragControl、Test.SqliteEFDemo 等
 
 **功能最完整的示例**：`Test.DragControl` 演示了包含所有层的完整 MVVM 架构。
@@ -87,8 +89,8 @@ Test.XxxDemo/
 
 匹配你正在处理的项目所使用的 MVVM 方法。
 
-#### 3. Mapperly 对象映射（近期重点）
-代码库最近采用了 **Riok.Mapperly** 进行编译时对象映射：
+#### 3. Mapperly 对象映射
+代码库采用 **Riok.Mapperly** 进行编译时对象映射：
 
 ```csharp
 [Mapper]
@@ -116,7 +118,7 @@ public partial class OrderMapper
 - 私有分部方法用于自动实现
 - 公共包装器方法手动处理计算属性
 - 使用 `[MapProperty]` 和 `nameof` 链进行扁平化/重命名
-- 最近的提交显示重构为静态方法和正确的属性忽略处理
+- 映射器应使用静态方法；忽略属性需显式标注以避免编译警告
 
 #### 4. IValueConverter 模式
 ```csharp
@@ -164,10 +166,9 @@ MultiLang 项目演示国际化：
 
 ## 开发注意事项
 
-### 双语注释
-- 整个代码库中中文和英文注释都是标准的
-- **不要**删除或翻译现有的中文注释
-- 添加新注释时，匹配周围文件的风格
+### 注释语言
+- **新增代码注释一律用英文**
+- 不要修改现有中文注释（保持旧代码原样）
 
 ### XAML 格式化
 由 XamlStyler 扩展强制执行（配置：`Settings.XamlStyler`）：
@@ -175,9 +176,45 @@ MultiLang 项目演示国际化：
 - 每行最多 1 个属性（容差为 2）
 - 闭合斜杠前有空格
 
-### 最近开发重点
-基于最近的提交：
-- Mapperly 对象映射改进
-- 将映射器重构为使用静态方法
-- 正确处理忽略的属性以避免警告
-- 改进映射器代码组织
+## 常见问题和陷阱
+
+### 问题 1: 构建失败 - "无法找到类型或命名空间"
+**原因**: 使用了集中式包管理，但 Directory.Packages.props 未包含该包版本
+**解决**: 先在 `WpfTest/Directory.Packages.props` 添加版本，再在项目中引用
+
+### 问题 2: XAML 格式不一致
+**原因**: XamlStyler 配置未应用
+**解决**: 确保 `Settings.XamlStyler` 在项目根目录，使用 Format Document (Ctrl+K, Ctrl+D)
+
+### 问题 3: 旧项目使用 MvvmLight 但已过时
+**原因**: 历史遗留，保留用于学习对比
+**决策**: 新项目使用 CommunityToolkit.Mvvm，旧项目保持不变
+
+## 不要做什么 ❌
+
+### 代码风格
+- ❌ 不要修改旧代码的中文注释（保持历史记录）
+- ❌ 不要在演示项目中添加单元测试（这些是 GUI 演示）
+- ❌ 不要将 `Test.*` 项目误认为测试项目（它们是演示应用）
+
+### 架构
+- ❌ 不要在独立示例项目间创建依赖关系（保持独立性）
+- ❌ 不要在旧项目中强制升级 MVVM 框架（它们用于对比学习）
+- ❌ 不要统一所有项目的目标框架（多版本共存是有意为之）
+
+### 包管理
+- ❌ 不要绕过 Directory.Packages.props 直接在 csproj 中指定版本
+- ❌ 不要删除看似未使用的包（可能被其他示例项目引用）
+
+## 最佳参考项目
+
+- **完整架构示例**: `WpfTest/Test.DragControl` - 演示完整的 MVVM 分层架构
+- **现代 MVVM**: `WpfTest/Test.CommunityToolkitDemo` - 使用源生成器的最佳实践
+- **对象映射**: `WpfTest/Test.MapperlyDemo` - Mapperly 编译时映射
+- **多语言**: `WpfTest/MultiLang/Test.MultiLang1` - 国际化最佳实践
+
+## 相关文档
+
+- 项目地图和学习路径: `.claude/PROJECT-MAP.md`
+- 架构决策记录: `.claude/ADR-*.md`
+- CLAUDE.md 补充内容: `.claude/suggested-additions-for-claude-md.md`
