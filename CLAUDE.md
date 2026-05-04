@@ -72,83 +72,36 @@ Test.XxxDemo/
 
 ## 关键开发模式
 
-### 基本模式总结
-
-#### 1. 命名约定
-- **私有字段**：`_camelCase` 前缀（例如：`_key`、`_execute`、`_canExecute`）
-  - 一些旧代码使用 `m_` 前缀
+### 命名约定
+- **私有字段**：`_camelCase` 前缀（旧代码可能用 `m_`）
 - **接口**：`I` 前缀（例如：`IAnimal`、`IFrameNavigationService`）
 - **项目命名**：演示项目使用 `Test.XxxDemo`
 
-#### 2. MVVM 框架多样性
-此代码库展示了多种 MVVM 方法：
-- **较新项目**：使用源生成器的 `CommunityToolkit.Mvvm`（`[ObservableProperty]`、`[RelayCommand]`）
-- **旧版项目**：带有 `ViewModelLocator` 和 `SimpleIoc` 的 `MvvmLight`
-- **某些项目**：带有 IoC 引导程序的 `Stylet` 框架
-- **更早项目**：实现 `INotifyPropertyChanged` 的自定义 `ViewModelBase`
+### MVVM 框架多样性
+- **推荐**：`CommunityToolkit.Mvvm` - `[ObservableProperty]`, `[RelayCommand]`
+- **旧版**：`MvvmLight` (ViewModelLocator), `Stylet` (IoC), 手写 `ViewModelBase`
+- **原则**：匹配项目现有框架，不要强制统一（用于对比学习）
 
-匹配你正在处理的项目所使用的 MVVM 方法。
+### Mapperly 对象映射
+- 使用 `[Mapper]` 特性 + 静态分部方法
+- `[MapProperty]` 配合 `nameof` 链进行扁平化/重命名
+- 显式标注 `[MapperIgnoreSource]` 避免编译警告
+- **参考**：`WpfTest/Test.MapperlyDemo/Mappers/`
 
-#### 3. Mapperly 对象映射
-代码库采用 **Riok.Mapperly** 进行编译时对象映射：
+### IValueConverter 模式
+- 参数转小写：`parameter?.ToString()?.ToLower()`
+- `ConvertBack` 返回 `Binding.DoNothing` 或抛出异常
+- **参考**：`WpfTest/Test.DragControl/Converters/`
 
-```csharp
-[Mapper]
-public partial class OrderMapper
-{
-    // 公共包装器处理计算属性
-    public OrderDto ToDto(Order order)
-    {
-        var dto = ToOrderDto(order);
-        dto.TotalAmount = order.Items.Sum(i => i.Quantity * i.UnitPrice);
-        return dto;
-    }
+### 集中式包管理
+- 版本统一在 `WpfTest/Directory.Packages.props` 声明
+- 项目 `<PackageReference>` **不带** `Version` 属性
+- 添加包流程：先更新 props，再在项目引用
 
-    // 私有分部方法 - Mapperly 自动实现
-    [MapProperty(nameof(Order.Customer) + "." + nameof(Customer.Email),
-                 nameof(OrderDto.CustomerEmail))]
-    [MapProperty(nameof(Order.CreatedAt), nameof(OrderDto.CreatedAt),
-                 StringFormat = "yyyy-MM-dd HH:mm:ss")]
-    private partial OrderDto ToOrderDto(Order order);
-}
-```
-
-**要点：**
-- 在分部类上使用 `[Mapper]` 特性
-- 私有分部方法用于自动实现
-- 公共包装器方法手动处理计算属性
-- 使用 `[MapProperty]` 和 `nameof` 链进行扁平化/重命名
-- 映射器应使用静态方法；忽略属性需显式标注以避免编译警告
-
-#### 4. IValueConverter 模式
-```csharp
-public class BoolToVisibilityConverter : IValueConverter
-{
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        // 始终在比较前将参数转为小写
-        var param = parameter?.ToString()?.ToLower() ?? string.Empty;
-        // ... 转换逻辑
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        // 要么抛出 NotImplementedException，要么返回 Binding.DoNothing
-        throw new NotImplementedException();
-    }
-}
-```
-
-#### 5. 集中式包管理
-- 所有 NuGet 版本在 `WpfTest/Directory.Packages.props` 中声明
-- 单个项目使用 `<PackageReference>` **不带** `Version` 属性
-- 添加包时，首先更新 `Directory.Packages.props`
-
-#### 6. 多语言模式
-MultiLang 项目演示国际化：
-- 每种文化的 RESX 文件：`Resources.zh.resx`、`Resources.en.resx`
-- XAML 标记扩展：`<TextBlock Text="{local:Translate Key=HelloWorld}" />`
-- 使用 WeakEventManager 模式防止语言更改事件的内存泄漏
+### 多语言模式
+- RESX 文件 + XAML 标记扩展：`{local:Translate Key=HelloWorld}`
+- `WeakEventManager` 模式防止内存泄漏
+- **参考**：`WpfTest/MultiLang/`
 
 ## 关键技术
 
@@ -190,6 +143,10 @@ MultiLang 项目演示国际化：
 **原因**: 历史遗留，保留用于学习对比
 **决策**: 新项目使用 CommunityToolkit.Mvvm，旧项目保持不变
 
+### 问题 4: 某些示例项目无法独立运行
+**原因**: 依赖 WpfTest 解决方案中的共享配置
+**解决**: 在 WpfTest 解决方案上下文中构建和运行
+
 ## 不要做什么 ❌
 
 ### 代码风格
@@ -205,6 +162,24 @@ MultiLang 项目演示国际化：
 ### 包管理
 - ❌ 不要绕过 Directory.Packages.props 直接在 csproj 中指定版本
 - ❌ 不要删除看似未使用的包（可能被其他示例项目引用）
+
+## 快速操作
+
+### 添加新的 WPF 示例项目
+1. 在 `WpfTest/` 下创建 `Test.XxxDemo/` 文件夹，使用标准布局
+2. 使用 CommunityToolkit.Mvvm 框架 + `_camelCase` 私有字段
+3. 新注释用英文，添加到 `WpfTest.slnx`
+
+### 升级 NuGet 包
+1. 编辑 `WpfTest/Directory.Packages.props` 修改版本号
+2. 运行 `dotnet restore WpfTest/WpfTest.slnx`
+3. 测试受影响的项目
+
+### 添加 Mapperly 映射器
+参考 `Test.MapperlyDemo/Mappers/` - 使用 `[Mapper]` 特性 + 静态分部类
+
+### 添加 IValueConverter
+参考 `Test.DragControl/Converters/` - 参数转小写模式
 
 ## 最佳参考项目
 
