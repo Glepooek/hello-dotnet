@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Refit;
 using RefitDemo.Common.Services;
 using System;
@@ -12,20 +13,23 @@ namespace RefitDemo
     /// </summary>
     public partial class App : Application
     {
-        private const string ApiBaseAddress = "https://jsonplaceholder.typicode.com";
+        
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
             ServiceCollection serviceCollection = new ServiceCollection();
+            serviceCollection.AddOptions<RefitOptions>();
+            serviceCollection.ConfigureOptions<RefitConfigureOptions>();
+
             serviceCollection.AddSingleton<MainWindowViewModel>();
             serviceCollection.AddRefitClient<IJsonPlaceholderApi>()
-                .ConfigureHttpClient(c =>
+                .ConfigureHttpClient((sp, c) =>
                 {
-                    c.BaseAddress = new Uri(ApiBaseAddress);
-                    c.Timeout = TimeSpan.FromSeconds(20);
-                    c.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var refitOptions = sp.GetRequiredService<IOptions<RefitOptions>>().Value;
+                    c.BaseAddress = refitOptions.BaseUri;
+                    c.Timeout = TimeSpan.FromSeconds(refitOptions.TimeoutSeconds);
                 });
 
             IServiceProvider _serviceProvider = serviceCollection.BuildServiceProvider();
