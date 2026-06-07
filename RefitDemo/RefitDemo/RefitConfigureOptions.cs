@@ -4,7 +4,7 @@ using System;
 
 namespace RefitDemo
 {
-    internal class RefitConfigureOptions : IConfigureOptions<RefitOptions>
+    internal sealed class RefitConfigureOptions : IConfigureOptions<RefitOptions>
     {
         private readonly IConfiguration _configuration;
 

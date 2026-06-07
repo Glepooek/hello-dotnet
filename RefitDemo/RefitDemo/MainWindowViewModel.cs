@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RefitDemo
 {
-    public class MainWindowViewModel : ObservableObject
+    public sealed class MainWindowViewModel : ObservableObject
     {
         private readonly IPostService _postService;
 

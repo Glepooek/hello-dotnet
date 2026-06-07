@@ -8,7 +8,7 @@ namespace RefitDemo.Common.Services
     /// Replace with a real implementation (e.g., reading from secure storage)
     /// when authentication is needed.
     /// </summary>
-    public class NoOpTokenStore : IAuthTokenStore
+    public sealed class NoOpTokenStore : IAuthTokenStore
     {
         public Task<string> GetTokenAsync(CancellationToken cancellationToken = default)
         {

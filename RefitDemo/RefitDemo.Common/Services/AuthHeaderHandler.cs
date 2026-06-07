@@ -11,7 +11,7 @@ namespace RefitDemo.Common.Services
     ///
     /// Register via: .AddHttpMessageHandler&lt;AuthHeaderHandler&gt;()
     /// </summary>
-    public class AuthHeaderHandler : DelegatingHandler
+    public sealed class AuthHeaderHandler : DelegatingHandler
     {
         private readonly IAuthTokenStore _tokenStore;
 

@@ -11,15 +11,13 @@ namespace RefitDemo.Common.Services
     ///
     /// Register via: .AddHttpMessageHandler&lt;LoggingHandler&gt;()
     /// </summary>
-    public class LoggingHandler : DelegatingHandler
+    public sealed class LoggingHandler : DelegatingHandler
     {
         protected override async Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request, CancellationToken cancellationToken)
         {
             Debug.WriteLine($"[HTTP] {request.Method} {request.RequestUri}");
-
             var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
-
             Debug.WriteLine($"[HTTP] {(int)response.StatusCode} {response.StatusCode}");
             return response;
         }

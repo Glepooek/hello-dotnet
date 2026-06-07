@@ -38,6 +38,14 @@ namespace RefitDemo
                     services.AddTransient<LoggingHandler>();
                     services.AddTransient<AuthHeaderHandler>();
 
+                    // Named HttpClient for ApiClientFactory usage (non-DI scenarios)
+                    services.AddHttpClient(ApiClientFactory.NamedClientName, (sp, c) =>
+                    {
+                        var refitOptions = sp.GetRequiredService<IOptions<RefitOptions>>().Value;
+                        c.BaseAddress = refitOptions.BaseUri;
+                        c.Timeout = TimeSpan.FromSeconds(refitOptions.TimeoutSeconds);
+                    });
+
                     // Refit client with handler chain
                     services.AddRefitClient<IJsonPlaceholderApi>()
                         .AddHttpMessageHandler<LoggingHandler>()

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RefitDemo
 {
-    internal class RefitOptions
+    internal sealed class RefitOptions
     {
         public string BaseUrl { get; set; }
         public Uri BaseUri { get; set; }

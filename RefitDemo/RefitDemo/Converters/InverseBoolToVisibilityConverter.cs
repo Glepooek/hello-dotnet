@@ -10,7 +10,7 @@ namespace RefitDemo.Converters
     /// Useful for hiding elements when a busy/loading flag is set.
     /// </summary>
     [ValueConversion(typeof(bool), typeof(Visibility))]
-    public class InverseBoolToVisibilityConverter : IValueConverter
+    public sealed class InverseBoolToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

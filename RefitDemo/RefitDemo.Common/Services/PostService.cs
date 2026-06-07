@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RefitDemo.Common.Services
 {
-    public class PostService : IPostService
+    public sealed class PostService : IPostService
     {
         private readonly IJsonPlaceholderApi _api;
 
@@ -35,7 +35,7 @@ namespace RefitDemo.Common.Services
         {
             try
             {
-                var post = await _api.GetPostAsync(id);
+                var post = await _api.GetPostAsync(id, cancellationToken);
                 return OperationResult<Post>.Success(post);
             }
             catch (ApiException ex)
@@ -50,7 +50,7 @@ namespace RefitDemo.Common.Services
         {
             try
             {
-                var created = await _api.CreatePostAsync(post);
+                var created = await _api.CreatePostAsync(post, cancellationToken);
                 return OperationResult<Post>.Success(created);
             }
             catch (ApiException ex)
@@ -65,7 +65,7 @@ namespace RefitDemo.Common.Services
         {
             try
             {
-                var updated = await _api.UpdatePostAsync(id, post);
+                var updated = await _api.UpdatePostAsync(id, post, cancellationToken);
                 return OperationResult<Post>.Success(updated);
             }
             catch (ApiException ex)

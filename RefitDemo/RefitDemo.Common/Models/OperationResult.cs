@@ -6,7 +6,7 @@ namespace RefitDemo.Common.Models
     /// Wraps an API operation outcome with success/failure state,
     /// error message, and HTTP status code.
     /// </summary>
-    public class OperationResult<T>
+    public sealed class OperationResult<T>
     {
         public bool IsSuccess { get; init; }
         public T Data { get; init; }
