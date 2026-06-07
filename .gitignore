@@ -421,4 +421,5 @@ FodyWeavers.xsd
 .claude/*.local.*
 .claude/**/*.local.*
 .claude/memory/
-.claude/plans/
+.codegraph/
+.remember/
