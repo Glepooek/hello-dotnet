@@ -1,6 +1,7 @@
-﻿using Refit;
+using Refit;
 using RefitDemo.Common.Models;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RefitDemo.Common.Services
@@ -8,61 +9,48 @@ namespace RefitDemo.Common.Services
     public interface IJsonPlaceholderApi
     {
         /// <summary>
-        /// 获取所有帖子
+        /// Get all posts
         /// </summary>
-        /// <returns></returns>
         [Get("/posts")]
-        Task<IEnumerable<Post>> GetPostsAsync();
+        Task<IEnumerable<Post>> GetPostsAsync(CancellationToken cancellationToken = default);
 
         [Get("/posts")]
-        Task<IEnumerable<Post>> GetPostsAsync([Query(CollectionFormat.Csv)] int[] ids);
+        Task<IEnumerable<Post>> GetPostsAsync([Query(CollectionFormat.Csv)] int[] ids, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 获取单个帖子
+        /// Get a single post by ID
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [Get("/posts/{id}")]
-        Task<Post> GetPostAsync(int id);
+        Task<Post> GetPostAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 创建新帖子
+        /// Create a new post
         /// </summary>
-        /// <param name="post"></param>
-        /// <returns></returns>
         [Post("/posts")]
-        Task<Post> CreatePostAsync([Body] Post post);
+        Task<Post> CreatePostAsync([Body] Post post, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 更新帖子
+        /// Update an existing post
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="post"></param>
-        /// <returns></returns>
         [Put("/posts/{id}")]
-        Task<Post> UpdatePostAsync(int id, [Body] Post post);
+        Task<Post> UpdatePostAsync(int id, [Body] Post post, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 删除帖子
+        /// Delete a post
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [Delete("/posts/{id}")]
-        Task DeletePostAsync(int id);
+        Task DeletePostAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 获取用户信息
+        /// Get all users
         /// </summary>
-        /// <returns></returns>
         [Get("/users")]
-        Task<List<User>> GetUsersAsync();
+        Task<List<User>> GetUsersAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 获取特定用户信息
+        /// Get a single user by ID
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [Get("/users/{id}")]
-        Task<User> GetUserAsync(int id);
+        Task<User> GetUserAsync(int id, CancellationToken cancellationToken = default);
     }
 }

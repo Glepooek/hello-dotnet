@@ -1,19 +1,26 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RefitDemo
 {
     internal class RefitConfigureOptions : IConfigureOptions<RefitOptions>
     {
-        private const string ApiBaseUrl = "https://jsonplaceholder.typicode.com";
+        private readonly IConfiguration _configuration;
+
+        public RefitConfigureOptions(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public void Configure(RefitOptions options)
         {
-            options.BaseUrl = ApiBaseUrl;
-            options.BaseUri = new Uri(ApiBaseUrl);
+            var section = _configuration.GetSection("Refit");
+            var baseUrl = section["BaseUrl"] ?? "https://jsonplaceholder.typicode.com";
+
+            options.BaseUrl = baseUrl;
+            options.BaseUri = new Uri(baseUrl);
+            options.TimeoutSeconds = section.GetValue<long>("TimeoutSeconds", 20);
         }
     }
 }

@@ -1,70 +1,95 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using RefitDemo.Common.Models;
 using RefitDemo.Common.Services;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Windows.Media;
+using System.Linq;
 using System.Threading.Tasks;
-
-// refit接口代码如何生成实例
-// https://www.cnblogs.com/mudtools/p/19300833
 
 namespace RefitDemo
 {
     public class MainWindowViewModel : ObservableObject
     {
-        private IJsonPlaceholderApi _jsonPlaceholderApi;
-        public MainWindowViewModel(IJsonPlaceholderApi placeholderApi)
+        private readonly IPostService _postService;
+
+        public MainWindowViewModel(IPostService postService)
         {
-            _jsonPlaceholderApi = placeholderApi;
+            _postService = postService;
         }
 
-        private ObservableCollection<Post> posts;
+        private ObservableCollection<Post> _posts;
         public ObservableCollection<Post> Posts
         {
-            get => posts;
-            set => SetProperty(ref posts, value, nameof(Posts));
+            get => _posts;
+            set => SetProperty(ref _posts, value);
         }
 
-        private RelayCommand loadPostsCommand;
-        public RelayCommand LoadPostsCommand
-            => loadPostsCommand ??= new RelayCommand(async () => await LoadPosts());
-
-        private RelayCommand<int> deletePostCommand;
-        public RelayCommand<int> DeletePostCommand
-            => deletePostCommand ??= new RelayCommand<int>(async (postId) => await DeletePost(postId));
-
-        private async Task DeletePost(int postId)
+        private bool _isLoading;
+        public bool IsLoading
         {
-            try
-            {
-                await _jsonPlaceholderApi.DeletePostAsync(postId);
-                Console.WriteLine($"postId：{postId} 删除成功!");
-                Posts.Remove(Posts.FirstOrDefault(p => p.Id == postId));
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine(ex.Message);
-            }
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
         }
 
-        private async Task LoadPosts()
+        private string _errorMessage;
+        public string ErrorMessage
         {
-            try
+            get => _errorMessage;
+            set => SetProperty(ref _errorMessage, value);
+        }
+
+        private bool _hasError;
+        public bool HasError
+        {
+            get => _hasError;
+            set => SetProperty(ref _hasError, value);
+        }
+
+        private AsyncRelayCommand _loadPostsCommand;
+        public AsyncRelayCommand LoadPostsCommand
+            => _loadPostsCommand ??= new AsyncRelayCommand(LoadPostsAsync);
+
+        private AsyncRelayCommand<int> _deletePostCommand;
+        public AsyncRelayCommand<int> DeletePostCommand
+            => _deletePostCommand ??= new AsyncRelayCommand<int>(DeletePostAsync);
+
+        private async Task LoadPostsAsync()
+        {
+            IsLoading = true;
+            HasError = false;
+            ErrorMessage = null;
+
+            var result = await _postService.GetPostsAsync();
+
+            if (result.IsSuccess)
             {
-                IEnumerable<Post> posts = await _jsonPlaceholderApi.GetPostsAsync();
-                Trace.WriteLine($"获取到 {posts.ToList().Count} 个帖子\n");
-                Posts = new ObservableCollection<Post>(posts);
+                Posts = new ObservableCollection<Post>(result.Data);
             }
-            catch (Exception ex)
+            else
             {
-                Trace.WriteLine(ex.Message);
+                HasError = true;
+                ErrorMessage = result.ErrorMessage;
+            }
+
+            IsLoading = false;
+        }
+
+        private async Task DeletePostAsync(int postId)
+        {
+            var result = await _postService.DeletePostAsync(postId);
+
+            if (result.IsSuccess)
+            {
+                var post = Posts.FirstOrDefault(p => p.Id == postId);
+                if (post != null)
+                {
+                    Posts.Remove(post);
+                }
+            }
+            else
+            {
+                HasError = true;
+                ErrorMessage = result.ErrorMessage;
             }
         }
     }
