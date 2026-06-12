@@ -3,9 +3,10 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <!-- C# 14 is the default for net10.0, no LangVersion override needed -->
+    <ImplicitUsings>disable</ImplicitUsings>
+    <!-- Nullable=enable is C# 8+; not used in 6.0 -->
+    <!-- enforce C# 6.0 language boundary on net10.0 runtime -->
+    <LangVersion>6</LangVersion>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 

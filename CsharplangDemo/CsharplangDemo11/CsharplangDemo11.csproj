@@ -7,7 +7,6 @@
     <Nullable>enable</Nullable>
     <!-- enforce C# 11 language boundary on net10.0 runtime -->
     <LangVersion>11</LangVersion>
-    <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 

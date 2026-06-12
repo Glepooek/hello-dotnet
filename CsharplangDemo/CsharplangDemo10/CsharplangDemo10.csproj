@@ -5,7 +5,8 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishAot>true</PublishAot>
+    <!-- enforce C# 10 language boundary on net10.0 runtime -->
+    <LangVersion>10</LangVersion>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 

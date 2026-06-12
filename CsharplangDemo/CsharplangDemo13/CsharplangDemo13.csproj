@@ -7,7 +7,6 @@
     <Nullable>enable</Nullable>
     <!-- preview: enables C# 13 "field" keyword (preview in C#13, stable in C#14) -->
     <LangVersion>preview</LangVersion>
-    <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
