@@ -87,7 +87,8 @@ namespace CsharplangDemo60.Demos
     // 扩展方法必须在顶级静态类中（不能是嵌套类）
     static class StringExtensions
     {
-        public static bool IsNullOrEmpty(this string s) => string.IsNullOrEmpty(s);
+        public static bool IsNullOrEmpty(this string s) 
+            => string.IsNullOrEmpty(s);
         public static string OrDefault(this string s, string def)
             => string.IsNullOrEmpty(s) ? def : s;
         public static int WordCount(this string s)

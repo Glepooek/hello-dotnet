@@ -27,8 +27,6 @@ public partial class EventBus
 {
     // 声明声明: 类字段事件形式
     public partial event EventHandler<string>? MessageReceived;
-
-    public void Publish(string message) => MessageReceived?.Invoke(this, message);
 }
 
 public partial class EventBus
@@ -50,6 +48,9 @@ public partial class EventBus
             _messageReceived -= value;
         }
     }
+
+    // Publish uses the backing field directly — required when event has custom add/remove
+    public void Publish(string message) => _messageReceived?.Invoke(this, message);
 }
 
 public static class PartialCtorEventDemo

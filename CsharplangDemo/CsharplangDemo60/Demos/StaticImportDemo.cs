@@ -3,6 +3,8 @@ using System;
 using static System.Math;          // 导入 Math 的所有静态成员
 using static System.Console;       // 导入 Console 的所有静态成员
 using static System.StringComparison;  // 导入枚举值
+using static System.String;        // 导入 String 的静态成员（如 IsNullOrEmpty）
+using static System.Linq.Enumerable;    // 导入 LINQ 的静态方法（如 Range、Select）
 
 namespace CsharplangDemo60.Demos
 {
@@ -23,8 +25,8 @@ namespace CsharplangDemo60.Demos
             WriteLine("  圆面积(r=5): " + circle.ToString("F2"));
             WriteLine("  Abs(-42) = " + Abs(-42));
             WriteLine("  Max(3,7) = " + Max(3, 7));
-            WriteLine("  Floor(3.7) = " + Floor(3.7));
-            WriteLine("  Ceiling(3.2) = " + Ceiling(3.2));
+            WriteLine("  Floor(3.7) = " + Floor(3.7));// 向下取整
+            WriteLine("  Ceiling(3.2) = " + Ceiling(3.2)); // 向上取整
 
             // using static enum 值: 直接写枚举成员名
             string a = "Hello", b = "hello";

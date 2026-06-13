@@ -1,66 +1,61 @@
 namespace CsharplangDemo14.Demos;
 
-// 自定义向量类型，演示用户定义复合赋值运算符
-public struct Vector2D(double x, double y)
+// C# 14: 用户定义复合赋值运算符
+// 语法: 实例方法，无 static，void 返回类型
+//   public void operator +=(T other) { ... }
+// 该方法就地修改实例，避免对象分配。
+// 主要适用于引用类型 (class)：默认行为
+//   x += y  ⟹  x = x + y  每次都会分配新实例。
+public class BigCounter
 {
-    public double X { get; set; } = x;
-    public double Y { get; set; } = y;
+    public long Value { get; private set; }
 
-    // 基础 + 运算符 (C# 一直支持)
-    public static Vector2D operator +(Vector2D a, Vector2D b) =>
-        new(a.X + b.X, a.Y + b.Y);
+    public BigCounter(long value) => Value = value;
 
-    public static Vector2D operator -(Vector2D a, Vector2D b) =>
-        new(a.X - b.X, a.Y - b.Y);
+    public static BigCounter operator +(BigCounter a, long b) =>
+        new(a.Value + b);  // 旧路径: 分配新实例
 
-    public static Vector2D operator *(Vector2D v, double scalar) =>
-        new(v.X * scalar, v.Y * scalar);
-
-    // C# 14 新增: 用户定义复合赋值运算符
-    // 直接定义 += 避免 a = a + b 的中间对象（对可变引用类型尤为重要）
-    public static Vector2D operator +=(Vector2D a, Vector2D b)
+    // C# 14: 就地复合赋值 — 无分配
+    public void operator +=(long b)
     {
-        Console.Write($"  [自定义 +=] ");
-        return new(a.X + b.X, a.Y + b.Y);
+        Console.Write("  [就地 +=, 无分配] ");
+        Value += b;
     }
 
-    public static Vector2D operator -=(Vector2D a, Vector2D b)
+    public void operator -=(long b)
     {
-        Console.Write($"  [自定义 -=] ");
-        return new(a.X - b.X, a.Y - b.Y);
+        Console.Write("  [就地 -=, 无分配] ");
+        Value -= b;
     }
 
-    public static Vector2D operator *=(Vector2D v, double scalar)
+    public void operator *=(long b)
     {
-        Console.Write($"  [自定义 *=] ");
-        return new(v.X * scalar, v.Y * scalar);
+        Console.Write("  [就地 *=, 无分配] ");
+        Value *= b;
     }
 
-    public override string ToString() => $"({X:F1}, {Y:F1})";
+    public override string ToString() => $"BigCounter({Value})";
 }
 
 public static class UserDefinedCompoundAssignDemo
 {
     public static void Run()
     {
-        var v = new Vector2D(1, 2);
-        var delta = new Vector2D(3, 4);
+        var c = new BigCounter(10);
+        Console.WriteLine($"  初始:  {c}");
 
-        Console.WriteLine($"  初始:   v = {v}");
+        c += 5;
+        Console.WriteLine($"c += 5  → {c}");
 
-        // 直接调用自定义的 operator +=, 不再是 v = v + delta
-        v += delta;
-        Console.WriteLine($"  v += {delta} → {v}");
+        c -= 3;
+        Console.WriteLine($"c -= 3  → {c}");
 
-        v -= new Vector2D(1, 1);
-        Console.WriteLine($"  v -= (1,1)  → {v}");
-
-        v *= 2.0;
-        Console.WriteLine($"  v *= 2.0    → {v}");
+        c *= 4;
+        Console.WriteLine($"c *= 4  → {c}");
 
         Console.WriteLine();
-        Console.WriteLine("  对比: C# 14 前 v += delta 等价于 v = v + delta");
-        Console.WriteLine("        C# 14 起 v += delta 直接调用 operator +=");
-        Console.WriteLine("        对可变引用类型可避免创建中间对象");
+        Console.WriteLine("  规则: 实例方法, void 返回, 无 static");
+        Console.WriteLine("  优势: 就地修改, 引用类型可避免分配新实例");
+        Console.WriteLine("  对比: c += 5 若无 operator+=, 等价于 c = c + 5 (调用 operator+, 分配新对象)");
     }
 }
