@@ -20,14 +20,19 @@ namespace CsharplangDemo70.Demos
             int MultiplyBy(int n) => n * multiplier;  // 捕获 multiplier
             Console.WriteLine("  MultiplyBy(7) = " + MultiplyBy(7));
 
-            // 3. 递归本地函数
+            // 3. 递归本地函数（阶乘）
             long Factorial(int n) => n <= 1 ? 1 : n * Factorial(n - 1);
             Console.WriteLine("  Factorial(10) = " + Factorial(10));
 
             // 4. 带 out 参数的本地函数
             bool TryDivide(int a, int b, out double result)
             {
-                if (b == 0) { result = 0; return false; }
+                if (b == 0)
+                {
+                    result = 0;
+                    return false;
+                }
+
                 result = (double)a / b;
                 return true;
             }
@@ -38,7 +43,10 @@ namespace CsharplangDemo70.Demos
             T[] Repeat<T>(T value, int count)
             {
                 T[] arr = new T[count];
-                for (int i = 0; i < count; i++) arr[i] = value;
+                for (int i = 0; i < count; i++)
+                {
+                    arr[i] = value;
+                }
                 return arr;
             }
             Console.WriteLine("  Repeat<int>(7, 4): [" + string.Join(", ", Repeat(7, 4)) + "]");

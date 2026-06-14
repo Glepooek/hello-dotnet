@@ -7,8 +7,15 @@ namespace CsharplangDemo70.Demos
         static (int X, int Y, int Z) GetCoordinates() => (1, 2, 3);
         static bool TryProcess(string input, out int result, out string error)
         {
-            if (int.TryParse(input, out result)) { error = null; return true; }
-            result = 0; error = "无效输入: " + input; return false;
+            if (int.TryParse(input, out result))
+            {
+                error = null; 
+                return true;
+            }
+
+            result = 0; 
+            error = "无效输入: " + input; 
+            return false;
         }
 
         public static void Run()
@@ -39,7 +46,7 @@ namespace CsharplangDemo70.Demos
                 case 200: Console.WriteLine("  200 OK"); break;
                 case 404: Console.WriteLine("  404 Not Found"); break;
                 default:
-                    _ = code;  // 明确忽略，也可用于消除"未使用变量"警告
+                    _ = code;  // 将值赋给弃元，明确表示此处有意忽略该值
                     Console.WriteLine("  其他状态码");
                     break;
             }

@@ -7,10 +7,28 @@ namespace CsharplangDemo70.Demos
         // ── C# 7.0: is 类型模式和 switch 模式匹配 ───────────────────────
 
         // 形状类层次
-        abstract class Shape { public abstract double Area(); }
-        class Circle   : Shape { public double Radius; public Circle(double r) { Radius = r; } public override double Area() => Math.PI * Radius * Radius; }
-        class Rectangle: Shape { public double W, H; public Rectangle(double w, double h) { W = w; H = h; } public override double Area() => W * H; }
-        class Triangle : Shape { public double B, H; public Triangle(double b, double h) { B = b; H = h; } public override double Area() => B * H / 2; }
+        abstract class Shape
+        {
+            public abstract double Area();
+        }
+        class Circle : Shape
+        {
+            public double Radius;
+            public Circle(double r) { Radius = r; }
+            public override double Area() => Math.PI * Radius * Radius;
+        }
+        class Rectangle : Shape
+        {
+            public double W, H;
+            public Rectangle(double w, double h) { W = w; H = h; }
+            public override double Area() => W * H;
+        }
+        class Triangle : Shape
+        {
+            public double B, H;
+            public Triangle(double b, double h) { B = b; H = h; }
+            public override double Area() => B * H / 2;
+        }
 
         // ── is 类型模式 ───────────────────────────────────────────────────
         static string DescribeShape(object shape)
@@ -49,10 +67,10 @@ namespace CsharplangDemo70.Demos
         // ── is 常量模式 ───────────────────────────────────────────────────
         static string CheckValue(object obj)
         {
-            if (obj is null)     return "null";
-            if (obj is 0)        return "零";
-            if (obj is true)     return "真";
-            if (obj is "hello")  return "hello";
+            if (obj is null) return "null";
+            if (obj is 0) return "零";
+            if (obj is true) return "真";
+            if (obj is "hello") return "hello";
             return "其他: " + obj;
         }
 
@@ -60,7 +78,12 @@ namespace CsharplangDemo70.Demos
         {
             // is 类型模式
             Console.WriteLine("  is 类型模式:");
-            object[] shapes = { new Circle(5), new Rectangle(4, 3), new Triangle(6, 4), null };
+            object[] shapes =
+            {
+                new Circle(5),
+                new Rectangle(4, 3),
+                new Triangle(6, 4), null
+            };
             foreach (var s in shapes)
                 Console.WriteLine("    " + DescribeShape(s));
 
@@ -68,8 +91,10 @@ namespace CsharplangDemo70.Demos
             Console.WriteLine("  switch 模式:");
             Shape[] shapeArr =
             {
-                new Circle(15), new Circle(3),
-                new Rectangle(5, 5), new Rectangle(4, 6)
+                new Circle(15), 
+                new Circle(3),
+                new Rectangle(5, 5), 
+                new Rectangle(4, 6)
             };
             foreach (var s in shapeArr)
                 Console.WriteLine("    " + ClassifyShape(s));

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CsharplangDemo70.Demos
 {
@@ -12,7 +13,12 @@ namespace CsharplangDemo70.Demos
         {
             int min = data[0], max = data[0];
             double sum = 0;
-            foreach (int n in data) { sum += n; if (n < min) min = n; if (n > max) max = n; }
+            foreach (int n in data)
+            {
+                sum += n;
+                if (n < min) min = n;
+                if (n > max) max = n;
+            }
             return (min, max, sum / data.Length);
         }
 
@@ -70,7 +76,7 @@ namespace CsharplangDemo70.Demos
             Console.WriteLine("  Point 解构: x=" + px + ", y=" + py);
 
             // ── 元组作为字典键 ─────────────────────────────────────────────
-            var cache = new System.Collections.Generic.Dictionary<(int, int), int>();
+            var cache = new Dictionary<(int, int), int>();
             cache[(1, 2)] = 3;
             cache[(3, 4)] = 7;
             Console.WriteLine("  元组键: (1,2)=" + cache[(1, 2)] + ", (3,4)=" + cache[(3, 4)]);

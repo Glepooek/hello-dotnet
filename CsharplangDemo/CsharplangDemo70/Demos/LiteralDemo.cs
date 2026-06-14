@@ -40,7 +40,7 @@ namespace CsharplangDemo70.Demos
 
             Console.WriteLine();
             Console.WriteLine("  _ 分隔符规则: 只能在数字之间，不能在首尾或前缀之后");
-            Console.WriteLine("  (前缀后 _ 是 C# 7.3 的前导下划线特性)");
+            Console.WriteLine("  (前缀后紧接 _ 如 0b_1010 是 C# 7.2 新增的前导下划线特性)");
         }
     }
 }

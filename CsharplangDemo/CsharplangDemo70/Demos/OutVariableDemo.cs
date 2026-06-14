@@ -31,7 +31,8 @@ namespace CsharplangDemo70.Demos
             // ── 配合 Dictionary.TryGetValue ──────────────────────────────
             var dict = new Dictionary<string, int>
             {
-                { "x", 10 }, { "y", 20 }
+                { "x", 10 }, 
+                { "y", 20 }
             };
 
             if (dict.TryGetValue("x", out int xVal))
