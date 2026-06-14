@@ -14,8 +14,7 @@ namespace CsharplangDemo60.Demos
         static void ValidateAge(int age)
         {
             if (age < 0 || age > 150)
-                throw new ArgumentOutOfRangeException(nameof(age),
-                    nameof(age) + " 必须在 0-150 之间");
+                throw new ArgumentOutOfRangeException(nameof(age), nameof(age) + " 必须在 0-150 之间");
         }
 
         static string GetDisplay(string name, int age)
@@ -41,8 +40,8 @@ namespace CsharplangDemo60.Demos
                 set
                 {
                     _title = value;
-                    // C# 6.0 前: PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Title"));
-                    // C# 6.0 起: nameof(Title) — 重命名属性时编译器提示
+                    // C# 6.0 前: if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("Title"));
+                    // C# 6.0 起: ?. + nameof — ?. 保证线程安全，nameof 保证重命名时编译器检查
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
                 }
             }

@@ -41,7 +41,7 @@ namespace CsharplangDemo60.Demos
             Console.WriteLine($"  方法: {name.ToUpper()}");
             Console.WriteLine($"  长度: {name.Length}");
 
-            // ── 多行（C# 6.0 不支持换行，用 + 拼接）────────────────────
+            // ── 多行（C# 6.0 表达式内不能含换行符；C# 11 起才允许，这里用 + 拼接）────────────────────
             var product = new Product
             {
                 Name = "MacBook Pro",
@@ -65,7 +65,8 @@ namespace CsharplangDemo60.Demos
             Console.WriteLine($"  路径: {path}");
 
             Console.WriteLine();
-            Console.WriteLine("  $\"\" 本质是编译器糖衣，底层调用 string.Format 或 interpolation handler");
+            Console.WriteLine("  $\"\" 在 C# 6.0 编译为 string.Format 调用");
+            Console.WriteLine("  C# 10 起编译器改用 DefaultInterpolatedStringHandler 减少内存分配");
         }
     }
 }

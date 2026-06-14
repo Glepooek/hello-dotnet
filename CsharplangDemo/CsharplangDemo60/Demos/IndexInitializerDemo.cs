@@ -23,8 +23,8 @@ namespace CsharplangDemo60.Demos
             // ── C# 6.0 起: 索引初始化器写法 ──────────────────────────────
             var newDict = new Dictionary<string, int>
             {
-                ["one"]   = 1,
-                ["two"]   = 2,
+                ["one"] = 1,
+                ["two"] = 2,
                 ["three"] = 3
             };
             Console.WriteLine("  新写法: two=" + newDict["two"]);
@@ -74,7 +74,10 @@ namespace CsharplangDemo60.Demos
                     string result;
                     return _cells.TryGetValue(key, out result) ? result : ".";
                 }
-                set { _cells[row + "," + col] = value; }
+                set
+                {
+                    _cells[row + "," + col] = value;
+                }
             }
         }
     }

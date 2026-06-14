@@ -3,8 +3,6 @@ using System;
 using static System.Math;          // 导入 Math 的所有静态成员
 using static System.Console;       // 导入 Console 的所有静态成员
 using static System.StringComparison;  // 导入枚举值
-using static System.String;        // 导入 String 的静态成员（如 IsNullOrEmpty）
-using static System.Linq.Enumerable;    // 导入 LINQ 的静态方法（如 Range、Select）
 
 namespace CsharplangDemo60.Demos
 {

@@ -66,6 +66,7 @@ namespace CsharplangDemo60.Demos
         {
             // await in catch: 失败时切换备用源
             Console.WriteLine("  await in catch (主源失败 → 备用源):");
+            // GetAwaiter().GetResult() 仅用于同步 Main 入口调用异步方法，生产代码应 await 到顶层
             string result = LoadWithFallbackAsync("bad", "backup").GetAwaiter().GetResult();
             Console.WriteLine("  结果: " + result);
 
