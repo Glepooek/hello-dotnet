@@ -17,17 +17,19 @@ namespace CsharplangDemo71
     class Program
     {
         // ── C# 7.1 新增: async Main ──────────────────────────────────
-        // C# 7.0 前: 必须用 .GetAwaiter().GetResult() 阻塞调用
+        // C# 7.1 之前: 必须用 .GetAwaiter().GetResult() 阻塞调用
         // C# 7.1 起: 入口点可以是 async Task Main 或 async Task<int> Main
         static async Task Main(string[] args)
         {
             Run("1. async Main（当前方法就是演示）",     AsyncMainDemo.Run);
-            Run("2. default 字面量",                    DefaultLiteralDemo.Run);
-            Run("3. 推断元组元素名称",                   InferredTupleNamesDemo.Run);
-            Run("4. 泛型类型参数的模式匹配",              GenericPatternMatchDemo.Run);
+            Run("2. default 字面量",                   DefaultLiteralDemo.Run);
+            Run("3. 推断元组元素名称",                  InferredTupleNamesDemo.Run);
+            Run("4. 泛型类型参数的模式匹配",             GenericPatternMatchDemo.Run);
 
             // async Main 的直接体现: 可以直接 await
             await AsyncMainDemo.RunAsync();
+
+            Console.ReadLine();
         }
 
         static void Run(string title, Action action)

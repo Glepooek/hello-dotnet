@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace CsharplangDemo71.Demos
 {
@@ -15,20 +16,28 @@ namespace CsharplangDemo71.Demos
             public string City { get; }
 
             public Person(string name, int age, string city)
-            { Name = name; Age = age; City = city; }
+            {
+                Name = name;
+                Age = age;
+                City = city;
+            }
         }
 
         static (string Name, int Count, double Avg) ComputeStats(int[] data)
         {
             double sum = 0;
-            foreach (int n in data) sum += n;
+            foreach (int n in data)
+            {
+                sum += n;
+            }
+
             return ("数组", data.Length, sum / data.Length);
         }
 
         public static void Run()
         {
             string name = "Alice";
-            int    age  = 30;
+            int age = 30;
             double score = 95.5;
 
             // ── C# 7.0 写法: 必须显式命名 ────────────────────────────
@@ -59,13 +68,12 @@ namespace CsharplangDemo71.Demos
             Console.WriteLine("  Equals: " + t1.Equals(t2));  // C# 7.1 兼容写法
 
             // ── 在 LINQ 投影中的应用 ──────────────────────────────────
+            // Select 投影成元组: n 推断为元素名，Length 显式命名
             string[] names = { "Alice", "Bob", "Carol" };
+            var projected = names.Select(n => (n, Length: n.Length));
             Console.Write("  长度投影: ");
-            foreach (string n in names)
-            {
-                var item = (n, Length: n.Length);  // n 推断为 n，Length 显式
+            foreach (var item in projected)
                 Console.Write(item.n + "=" + item.Length + " ");
-            }
             Console.WriteLine();
 
             // ── ComputeStats 演示 ─────────────────────────────────────

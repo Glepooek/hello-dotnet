@@ -6,7 +6,7 @@ namespace CsharplangDemo71.Demos
     public static class GenericPatternMatchDemo
     {
         // ── C# 7.1: 泛型类型参数的模式匹配 ──────────────────────────────
-        // C# 7.0 前: is/switch 模式匹配不能直接作用于泛型类型参数 T
+        // C# 7.1 之前: is/switch 模式匹配不能直接作用于泛型类型参数 T
         // C# 7.1 起: 可以对 T 使用 is 类型模式和常量模式
 
         // 判断泛型值是否为某种具体类型

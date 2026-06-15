@@ -7,7 +7,7 @@ namespace CsharplangDemo71.Demos
     public static class DefaultLiteralDemo
     {
         // ── C# 7.1: default 字面量（无需重复类型名）──────────────────────
-        // C# 7.0 前: default(T) 需要写出类型名
+        // C# 7.1 之前: default(T) 需要写出类型名
         // C# 7.1 起: default 可由编译器从上下文推断类型，省略括号和类型名
 
         // 方法参数默认值

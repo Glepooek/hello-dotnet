@@ -1,5 +1,4 @@
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CsharplangDemo71.Demos
@@ -44,7 +43,7 @@ namespace CsharplangDemo71.Demos
             Console.WriteLine("    static async Task<int> Main(string[] args) ← 有退出码");
             Console.WriteLine("    static async Task<int> Main()");
             Console.WriteLine();
-            Console.WriteLine("  C# 7.0 前: 必须 FetchDataAsync().GetAwaiter().GetResult()");
+            Console.WriteLine("  C# 7.1 之前: 必须 FetchDataAsync().GetAwaiter().GetResult()");
             Console.WriteLine("  C# 7.1 起: 直接在 Main 中 await（见下方 RunAsync）");
 
             // 旧方式演示
