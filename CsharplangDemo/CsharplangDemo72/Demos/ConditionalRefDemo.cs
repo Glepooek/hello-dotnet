@@ -7,7 +7,7 @@ namespace CsharplangDemo72.Demos
         public static void Run()
         {
             // ── C# 7.2: 条件表达式 ?: 可以返回 ref ───────────────────────
-            // C# 7.1 前: ?:  只能返回值，不能返回引用
+            // C# 7.2 之前: ?: 只能返回值，不能返回引用
             // C# 7.2 起: ref (cond ? ref a : ref b) 可以返回其中一个引用
 
             int x = 10, y = 20;

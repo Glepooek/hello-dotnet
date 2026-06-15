@@ -18,7 +18,7 @@ namespace CsharplangDemo72.Demos
 
         public static void Run()
         {
-            // ── C# 7.1 前: 命名参数之后不能再有位置参数 ─────────────────
+            // ── C# 7.2 之前: 命名参数之后不能再有位置参数 ───────────────
             // 所有参数要么全位置，要么命名参数必须在最后
             Configure("localhost", 8080, false, 30, "http");  // 全位置参数
 

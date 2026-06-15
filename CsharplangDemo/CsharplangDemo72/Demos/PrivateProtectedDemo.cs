@@ -54,7 +54,7 @@ namespace CsharplangDemo72.Demos
     }
 
     // 同程序集的非派生类: 不能访问 private protected
-    class SampeAssemblyNonDerived
+    class SameAssemblyNonDerived
     {
         void Method(BaseComponent b)
         {
