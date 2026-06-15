@@ -56,7 +56,7 @@ namespace CsharplangDemo73.Demos
             Console.WriteLine("  嵌套元组 nested1==nested3: " + (nested1 == nested3));
 
             Console.WriteLine();
-            Console.WriteLine("  C# 7.2 前: 元组没有 == 运算符，需用 t1.Equals(t2)");
+            Console.WriteLine("  C# 7.3 之前: 元组没有 == 运算符，需用 t1.Equals(t2)");
             Console.WriteLine("  C# 7.3 起: == 和 != 按元素逐一比较");
         }
     }

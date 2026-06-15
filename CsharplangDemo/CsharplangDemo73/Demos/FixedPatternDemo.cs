@@ -3,7 +3,7 @@ using System;
 namespace CsharplangDemo73.Demos
 {
     // ── C# 7.3: fixed 支持任意实现了 GetPinnableReference() 的类型 ──────
-    // C# 7.2 前: fixed 只能用于内置支持的类型（数组、字符串等）
+    // C# 7.3 之前: fixed 只能用于内置支持的类型（数组、字符串等）
     // C# 7.3 起: 任意类型只要有 GetPinnableReference() 方法即可
 
     // 自定义缓冲区类型

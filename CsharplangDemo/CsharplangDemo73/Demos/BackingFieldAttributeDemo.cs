@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace CsharplangDemo73.Demos
 {
     // ── C# 7.3: [field: 特性] 直接标注自动属性的后备字段 ─────────────────
-    // C# 7.2 前: 若需标注后备字段，必须手动展开为字段 + 属性
+    // C# 7.3 之前: 若需标注后备字段，必须手动展开为字段 + 属性
     // C# 7.3 起: 可以直接在自动属性上用 [field: 特性名] 标注后备字段
 
     [DataContract]
@@ -110,7 +110,7 @@ namespace CsharplangDemo73.Demos
             Console.WriteLine("  Order: " + order.OrderId + ", " + order.Amount);
 
             Console.WriteLine();
-            Console.WriteLine("  C# 7.2 前: 需手动展开为字段 + 属性才能标注字段特性");
+            Console.WriteLine("  C# 7.3 之前: 需手动展开为字段 + 属性才能标注字段特性");
             Console.WriteLine("  C# 7.3 起: [field: 特性] 直接标注自动属性的后备字段");
         }
     }

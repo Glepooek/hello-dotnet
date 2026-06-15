@@ -55,8 +55,8 @@ namespace CsharplangDemo73.Demos
         {
             int val = 42;
 
-            // C# 7.3 改进: 有具名变量时，编译器优先选择 in 版本
-            Console.WriteLine(Print(val));         // 选择 in 版本（传变量）
+            // C# 7.3 改进: 同时存在值传递和 in 重载时不再因歧义报错
+            Console.WriteLine(Print(val));         // 选择值传递版本（省略 in 时默认值传递）
             Console.WriteLine(Print(in val));      // 显式选择 in 版本
             Console.WriteLine(Print(100));         // 选择值传递（字面量不能传 in）
 

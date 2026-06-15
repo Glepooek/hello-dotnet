@@ -6,7 +6,7 @@ namespace CsharplangDemo73.Demos
     {
         public static void Run()
         {
-            // ── C# 7.3 前: stackalloc 不支持初始化器，必须逐个赋值 ────
+            // ── C# 7.3 之前: stackalloc 不支持初始化器，必须逐个赋值 ───
             unsafe
             {
                 int* old = stackalloc int[3];
