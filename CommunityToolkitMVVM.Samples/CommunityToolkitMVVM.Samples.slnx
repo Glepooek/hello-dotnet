@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="AsyncRequestMessagerSamples/AsyncRequestMessagerSamples.csproj" />
+  <Project Path="CollectionRequestMessagerSamples/CollectionRequestMessagerSamples.csproj" />
+  <Project Path="IocSamples/IocSamples.csproj" />
+  <Project Path="ObservableRecipientSamples/ObservableRecipientSamples.csproj" />
+  <Project Path="RelayCommandSamples/RelayCommandSamples.csproj" />
+  <Project Path="RequestMessagerSamples/RequestMessagerSamples.csproj" />
+  <Project Path="ValueChangedMessagerSamples/ValueChangedMessagerSamples.csproj" />
+</Solution>
