@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace ConfigurationJsonDemo;
 
-namespace ConfigurationJsonDemo
+public class AppSettings
 {
-    public class AppSettings
-    {
-        public LoggingSettings Logging { get; set; }
-        public ApplicationSettings Application { get; set; }
-    }
-    public class LoggingSettings
-    {
-        public LogLevel LogLevel { get; set; }
-    }
-    public class LogLevel
-    {
-        public string Default { get; set; }
-    }
-    public class ApplicationSettings
-    {
-        public string AppName { get; set; }
-        public string Version { get; set; }
-    }
+    public LoggingSettings Logging { get; set; } = new();
+    public ApplicationSettings Application { get; set; } = new();
+}
+
+public class LoggingSettings
+{
+    public LogLevelSettings LogLevel { get; set; } = new();
+}
+
+public class LogLevelSettings
+{
+    public string Default { get; set; } = string.Empty;
+}
+
+public class ApplicationSettings
+{
+    public string AppName { get; set; } = string.Empty;
+    public string Version { get; set; } = string.Empty;
 }

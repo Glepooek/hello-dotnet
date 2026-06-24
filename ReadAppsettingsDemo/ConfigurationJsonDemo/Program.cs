@@ -1,4 +1,4 @@
-﻿using ConfigurationJsonDemo;
+using ConfigurationJsonDemo;
 using Microsoft.Extensions.Configuration;
 
 IConfigurationRoot? config = new ConfigurationBuilder()
@@ -8,19 +8,17 @@ IConfigurationRoot? config = new ConfigurationBuilder()
 
 string? version = config["Version"];
 string? connectionString = config.GetConnectionString("ConnectionString");
-
 string? appName = config["ApplicationSettings:AppName"];
 
 Console.WriteLine(version);
 Console.WriteLine(connectionString);
 Console.WriteLine(appName);
 
-
-// 绑定配置到对象
-AppSettings appSettings = new AppSettings
+// Bind configuration to strongly-typed objects
+AppSettings appSettings = new()
 {
-    Logging = new LoggingSettings(),
-    Application = new ApplicationSettings()
+    Logging = new(),
+    Application = new()
 };
 config.GetSection("Logging").Bind(appSettings.Logging);
 config.GetSection("ApplicationSettings").Bind(appSettings.Application);
