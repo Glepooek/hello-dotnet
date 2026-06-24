@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ConfigurationJsonDemo/ConfigurationJsonDemo.csproj" />
+  <Project Path="Demo01.BasicReading/Demo01.BasicReading.csproj" />
+  <Project Path="Demo02.StrongTypedBinding/Demo02.StrongTypedBinding.csproj" />
+  <Project Path="Demo03.ConfigSources/Demo03.ConfigSources.csproj" />
+  <Project Path="Demo04.MultiEnvironment/Demo04.MultiEnvironment.csproj" />
+  <Project Path="Demo05.HotReload/Demo05.HotReload.csproj" />
+  <Project Path="Demo06.UserSecrets/Demo06.UserSecrets.csproj" />
+  <Project Path="Demo07.CustomProvider/Demo07.CustomProvider.csproj" />
+  <Project Path="Demo08.OptionsPattern/Demo08.OptionsPattern.csproj" />
+  <Project Path="Demo09.OptionsConfiguration/Demo09.OptionsConfiguration.csproj" />
+  <Project Path="Demo10.OptionsValidation/Demo10.OptionsValidation.csproj" />
+</Solution>
