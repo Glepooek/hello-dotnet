@@ -1,0 +1,8 @@
+<AppConfiguration>
+  <AppName>CustomProviderDemo</AppName>
+  <Version>7.0</Version>
+  <Database>
+    <Host>xml-db.example.com</Host>
+    <Port>1433</Port>
+  </Database>
+</AppConfiguration>
