@@ -4,6 +4,10 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Docs/">
+    <File Path="convert-to-cpm.md" />
+    <File Path="IConfiguration-Architecture.md" />
+  </Folder>
   <Project Path="ConfigurationJsonDemo/ConfigurationJsonDemo.csproj" />
   <Project Path="Demo01.BasicReading/Demo01.BasicReading.csproj" />
   <Project Path="Demo02.StrongTypedBinding/Demo02.StrongTypedBinding.csproj" />
