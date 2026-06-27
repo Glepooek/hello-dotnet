@@ -14,7 +14,7 @@ Console.WriteLine("=== 1. InMemory only ===");
 IConfiguration inMemory = new ConfigurationBuilder()
     .AddInMemoryCollection(new Dictionary<string, string?>
     {
-        ["Source"]  = "InMemory",
+        ["Source"] = "InMemory",
         ["AppName"] = "FromMemory",
         ["Timeout"] = "5"
     })
@@ -28,7 +28,7 @@ Console.WriteLine("=== 2. InMemory + JSON (JSON overrides InMemory) ===");
 IConfiguration withJson = new ConfigurationBuilder()
     .AddInMemoryCollection(new Dictionary<string, string?>
     {
-        ["Source"]  = "InMemory",
+        ["Source"] = "InMemory",
         ["AppName"] = "FromMemory",
         ["Timeout"] = "5"
     })
@@ -49,7 +49,7 @@ Environment.SetEnvironmentVariable("Timeout", "60");
 IConfiguration withEnv = new ConfigurationBuilder()
     .AddInMemoryCollection(new Dictionary<string, string?>
     {
-        ["Source"]  = "InMemory",
+        ["Source"] = "InMemory",
         ["AppName"] = "FromMemory"
     })
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -68,7 +68,7 @@ string[] simulatedArgs = ["AppName=FromCli", "Timeout=999"];
 IConfiguration withCli = new ConfigurationBuilder()
     .AddInMemoryCollection(new Dictionary<string, string?>
     {
-        ["Source"]  = "InMemory",
+        ["Source"] = "InMemory",
         ["AppName"] = "FromMemory"
     })
     .SetBasePath(Directory.GetCurrentDirectory())

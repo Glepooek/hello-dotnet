@@ -75,7 +75,7 @@ public interface IConfigurationSource
 
 | 实现类 | 所在包 | 注册方式 | 说明 |
 |--------|--------|----------|------|
-| `JsonConfigurationSource` | `Microsoft.Extensions.Configuration.Json` | `.AddJsonFile(path)` | 描述 JSON 文件路径、是否可选、是否热重载。创建 `JsonConfigurationProvider` |
+| `JsonConfigurationSource` | `Microsoft.Extensions.Configuration.Json` | `.AddJsonFile(path)` | 描述 JSON 文件路径、是否可选、是否热重载。创建 `JsonConfigurationProvider`。`optional: false` → 文件缺失时抛异常；`optional: true` → 静默跳过（适合 `appsettings.Development.json` 等环境覆盖文件）。`reloadOnChange` 控制是否启动文件监视器，见 2.3 |
 | `MemoryConfigurationSource` | `Microsoft.Extensions.Configuration` | `.AddInMemoryCollection(dict)` | 持有一个 `IEnumerable<KeyValuePair<string,string?>>` 初始数据集。创建 `MemoryConfigurationProvider`。Demo03 用于设置基础默认值 |
 | `EnvironmentVariablesConfigurationSource` | `Microsoft.Extensions.Configuration.EnvironmentVariables` | `.AddEnvironmentVariables()` | 可指定 `Prefix` 过滤前缀（如只读 `MYAPP_` 开头的变量）。Demo03 演示其覆盖 JSON 的优先级 |
 | `CommandLineConfigurationSource` | `Microsoft.Extensions.Configuration.CommandLine` | `.AddCommandLine(args)` | 接受 `string[] args`，支持 `key=value`、`--key value`、`/key value` 三种格式。Demo03 中优先级最高 |
@@ -110,7 +110,7 @@ public interface IConfigurationProvider
 | 基类 | 说明 |
 |------|------|
 | `ConfigurationProvider`（抽象类） | 所在包 `Microsoft.Extensions.Configuration`。提供 `Data`（`Dictionary<string,string?>`）字段及 `TryGet`/`Set`/`GetChildKeys` 的标准实现。自定义 Provider 只需继承此类并覆写 `Load()`，如 Demo07 的 `XmlConfigurationProvider` |
-| `FileConfigurationProvider`（抽象类） | 继承 `ConfigurationProvider`，额外封装文件监视（`PhysicalFileProvider`）和热重载逻辑。所有基于文件的 Provider（JSON、INI 等）均继承此类 |
+| `FileConfigurationProvider`（抽象类） | 继承 `ConfigurationProvider`，额外封装文件监视（`PhysicalFileProvider`）和热重载逻辑。所有基于文件的 Provider（JSON、INI 等）均继承此类。仅当对应 Source 的 `reloadOnChange: true` 时才启动后台文件监视器；文件变更时自动重新调用 `Load()` 并触发 `IChangeToken` |
 
 **具体实现类：**
 
@@ -162,6 +162,15 @@ public interface IConfiguration
 }
 ```
 
+> **注意**：索引器参数虽然命名为 `key`，实际上传入的是从根出发的完整 **Path**（冒号分隔路径，如 `"Database:Host"`）。`IConfigurationSection.Key` 与此无关——前者是节点自身的名称片段，后者是查询坐标。
+
+除索引器外，常用的扩展方法：
+
+| 方法 | 说明 |
+|------|------|
+| `GetValue<T>(key, defaultValue)` | 类型转换 + 默认值，键缺失时返回 `defaultValue` 而非 `null`。由 `ConfigurationBinder` 提供 |
+| `GetConnectionString(name)` | 等价于 `config["ConnectionStrings:{name}"]`，专为数据库连接串设计的语法糖 |
+
 **实现类：**
 
 | 实现类 | 说明 |
@@ -178,17 +187,31 @@ public interface IConfiguration
 ```csharp
 public interface IConfigurationSection : IConfiguration
 {
-    string Key { get; }    // 此节点自身的名称，如 "Database"
-    string Path { get; }   // 从根到此节点的完整路径，如 "Database"
+    string Key { get; }    // 此节点自身的名称片段，如 "Host"（不含父路径）
+    string Path { get; }   // 从根到此节点的完整路径，如 "Database:Host"
     string? Value { get; set; } // 叶子节点的值；非叶子节点为 null
 }
 ```
 
 ```csharp
-// 两种等价写法
-string? host1 = config["Database:Host"];
-string? host2 = config.GetSection("Database")["Host"];
+// 三种等价写法，查询的是同一条扁平记录 Data["Database:Host"]
+string? host1 = config["Database:Host"];                    // 索引器传完整 Path
+string? host2 = config.GetSection("Database")["Host"];      // Section 内用相对 Key
+string? host3 = config.GetSection("Database:Host").Value;   // 直接取叶节点的 Value
 ```
+
+**`Key` 与 `Path` 的区别（以 `Database.Host` 为例）：**
+
+| 属性 | 值 | 说明 |
+|------|----|------|
+| `Key` | `"Host"` | 节点自身的名称片段，不含父路径 |
+| `Path` | `"Database:Host"` | 从根出发的完整坐标，用于查扁平字典 |
+
+**`GetSection()` 的行为特性：**
+- 不触发任何 I/O，只创建一个持有 `Path` 前缀的 `ConfigurationSection` 对象
+- 其索引器自动将传入的相对 Key 拼接为完整 Path：`this.Path + ":" + key`
+- **永远不返回 `null`**，即使 key 不存在也返回对象；通过 `.Value == null` 或 `.Exists()` 扩展方法判断节点是否真实存在
+- 非叶节点（对象节点）的 `.Value` 为 `null`，叶节点（标量）的 `.Value` 为字符串值
 
 **实现类：**
 

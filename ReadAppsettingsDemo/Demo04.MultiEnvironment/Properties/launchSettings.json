@@ -1,0 +1,18 @@
+{
+    "profiles": {
+        "Development": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "DOTNET_ENVIRONMENT": "Development",
+                "LogLevel": "Verbose"
+            }
+        },
+        "Staging": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "DOTNET_ENVIRONMENT": "Staging",
+                "LogLevel": "Information"
+            }
+        }
+    }
+}
