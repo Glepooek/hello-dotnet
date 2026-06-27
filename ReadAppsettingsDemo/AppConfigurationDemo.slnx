@@ -8,7 +8,6 @@
     <File Path="convert-to-cpm.md" />
     <File Path="IConfiguration-Architecture.md" />
   </Folder>
-  <Project Path="ConfigurationJsonDemo/ConfigurationJsonDemo.csproj" />
   <Project Path="Demo01.BasicReading/Demo01.BasicReading.csproj" />
   <Project Path="Demo02.StrongTypedBinding/Demo02.StrongTypedBinding.csproj" />
   <Project Path="Demo03.ConfigSources/Demo03.ConfigSources.csproj" />
