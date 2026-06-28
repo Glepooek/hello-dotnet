@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Demo00.Shared/Demo00.Shared.csproj" />
+  <Project Path="Demo01.BasicSerialization/Demo01.BasicSerialization.csproj" />
+  <Project Path="Demo02.JsonAttributes/Demo02.JsonAttributes.csproj" />
+  <Project Path="Demo03.JsonSettings/Demo03.JsonSettings.csproj" />
+  <Project Path="Demo04.EnumSerialization/Demo04.EnumSerialization.csproj" />
+  <Project Path="Demo05.LinqToJson/Demo05.LinqToJson.csproj" />
+  <Project Path="Demo06.JsonPath/Demo06.JsonPath.csproj" />
+  <Project Path="Demo07.DynamicDeserialization/Demo07.DynamicDeserialization.csproj" />
+  <Project Path="Demo08.NamingStrategy/Demo08.NamingStrategy.csproj" />
+  <Project Path="Demo09.CustomConverter/Demo09.CustomConverter.csproj" />
+  <Project Path="Demo10.SerializationCallbacks/Demo10.SerializationCallbacks.csproj" />
+  <Project Path="Demo11.PolyByTypeAnnotation/Demo11.PolyByTypeAnnotation.csproj" />
+  <Project Path="Demo12.PolyByCustomConverter/Demo12.PolyByCustomConverter.csproj" />
+  <Project Path="Demo13.PolyByGenericConverter/Demo13.PolyByGenericConverter.csproj" />
+  <Project Path="Demo14.TypeNameHandling/Demo14.TypeNameHandling.csproj" />
+  <Project Path="Demo15.CircularReference/Demo15.CircularReference.csproj" />
+  <Project Path="Demo16.ContractResolver/Demo16.ContractResolver.csproj" />
+  <Project Path="Demo17.StreamingApi/Demo17.StreamingApi.csproj" />
+  <Project Path="Demo18.JObjectMerge/Demo18.JObjectMerge.csproj" />
+  <Project Path="Demo19.ErrorHandling/Demo19.ErrorHandling.csproj" />
+</Solution>
