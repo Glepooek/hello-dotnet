@@ -1,4 +1,4 @@
-﻿// =============================================================================
+// =============================================================================
 // Demo12.PolyByCustomConverter — Polymorphic deserialization using custom converter
 //
 // Demonstrates:
@@ -27,3 +27,5 @@ namespace JsonSubtypesDemo2
         }
     }
 }
+
+Console.ReadLine();

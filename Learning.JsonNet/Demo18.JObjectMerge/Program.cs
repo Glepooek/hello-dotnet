@@ -56,3 +56,5 @@ foreach (var p in nullProps) p.Remove();
 
 Console.WriteLine("\n=== After null-patch (darkMode removed) ===");
 Console.WriteLine(baseConfig.ToString());
+
+Console.ReadLine();

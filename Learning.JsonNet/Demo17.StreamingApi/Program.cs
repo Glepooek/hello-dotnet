@@ -41,3 +41,5 @@ while (reader.Read())
         Console.WriteLine($"  name = {reader.Value}");
     }
 }
+
+Console.ReadLine();

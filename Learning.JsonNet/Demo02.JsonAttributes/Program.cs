@@ -11,9 +11,9 @@ using Newtonsoft.Json;
 
 var user = new User
 {
-    UserName    = "alice_dev",
-    Password    = "secret123",
-    Email       = "alice@example.com",
+    UserName = "alice_dev",
+    Password = "secret123",
+    Email = "alice@example.com",
     DisplayName = "Alice"
 };
 
@@ -38,6 +38,8 @@ catch (JsonSerializationException ex)
 {
     Console.WriteLine($"Caught: {ex.Message}");
 }
+
+Console.ReadLine();
 
 class User
 {

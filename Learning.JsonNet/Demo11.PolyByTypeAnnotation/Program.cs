@@ -1,4 +1,4 @@
-﻿// =============================================================================
+// =============================================================================
 // Demo11.PolyByTypeAnnotation — Polymorphic deserialization using JsonSubtypes
 //
 // Demonstrates:
@@ -25,3 +25,5 @@ namespace JsonSubtypesDemo
         }
     }
 }
+
+Console.ReadLine();

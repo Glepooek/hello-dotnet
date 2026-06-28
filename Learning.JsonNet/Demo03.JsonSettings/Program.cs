@@ -7,8 +7,8 @@
 //   - DateFormatString for custom date format patterns
 // =============================================================================
 
-using System;
 using Newtonsoft.Json;
+using System;
 
 // 1. NullValueHandling.Ignore — null properties omitted from output
 var nullSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
@@ -47,3 +47,5 @@ class Event
     public string Title { get; set; } = "";
     public DateTime Date { get; set; }
 }
+
+Console.ReadLine();

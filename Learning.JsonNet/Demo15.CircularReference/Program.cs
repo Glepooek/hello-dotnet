@@ -59,3 +59,5 @@ class Employee
     public Department? Department { get; set; }
     public Employee? Manager { get; set; }
 }
+
+Console.ReadLine();

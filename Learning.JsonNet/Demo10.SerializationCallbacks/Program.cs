@@ -60,3 +60,5 @@ class Order
         Console.WriteLine($"  [OnDeserialized] ItemCount={ItemCount}");
     }
 }
+
+Console.ReadLine();

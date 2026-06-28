@@ -8,9 +8,9 @@
 //   - Compact output without indentation
 // =============================================================================
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 // Serialize a single object with indentation
 var person = new Person { Name = "Alice", Age = 30, City = "Beijing" };
@@ -35,6 +35,8 @@ Console.WriteLine(JsonConvert.SerializeObject(people, Formatting.Indented));
 // Compact (no indentation) output
 Console.WriteLine("\n=== Compact output ===");
 Console.WriteLine(JsonConvert.SerializeObject(person));
+
+Console.ReadLine();
 
 class Person
 {

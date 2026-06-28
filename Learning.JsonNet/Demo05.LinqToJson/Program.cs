@@ -46,3 +46,5 @@ Console.WriteLine($"\n=== LINQ select ids ===\n{string.Join(", ", ids)}");
 // Filter with LINQ where
 var filtered = posts.Where(p => p["id"]!.Value<int>() > 1).Select(p => p["title"]).ToList();
 Console.WriteLine($"\n=== LINQ filter id > 1 ===\n{string.Join(", ", filtered)}");
+
+Console.ReadLine();

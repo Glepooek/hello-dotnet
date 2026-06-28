@@ -53,3 +53,5 @@ class Rectangle : Shape
     public double Height { get; set; }
     public override double Area() => Width * Height;
 }
+
+Console.ReadLine();

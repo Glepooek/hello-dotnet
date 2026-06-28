@@ -59,3 +59,5 @@ readonly struct Color(int r, int g, int b)
     public int G { get; } = g;
     public int B { get; } = b;
 }
+
+Console.ReadLine();

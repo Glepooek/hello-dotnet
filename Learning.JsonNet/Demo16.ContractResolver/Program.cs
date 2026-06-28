@@ -73,3 +73,5 @@ class User
     public int    Age        { get; set; }
     public int    InternalId { get; set; }
 }
+
+Console.ReadLine();
