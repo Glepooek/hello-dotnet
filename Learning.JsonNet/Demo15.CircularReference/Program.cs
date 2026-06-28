@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo15.CircularReference — Handling object graphs with circular references
+//
+// Demonstrates:
+//   - ReferenceLoopHandling.Ignore silently stops recursion at the loop
+//   - PreserveReferencesHandling.Objects preserves the full graph using $id/$ref
+//   - Default behavior throws JsonSerializationException on circular reference
+// =============================================================================
+
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;

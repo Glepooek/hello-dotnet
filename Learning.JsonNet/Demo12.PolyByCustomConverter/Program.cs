@@ -1,4 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿// =============================================================================
+// Demo12.PolyByCustomConverter — Polymorphic deserialization using custom converter
+//
+// Demonstrates:
+//   - Custom JsonConverter inspects a discriminator field to pick the concrete type
+//   - Enum-based type discrimination (VehicleType field)
+//   - Explicit ReadJson implementation without third-party packages
+// =============================================================================
+
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace JsonSubtypesDemo2

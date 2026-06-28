@@ -1,4 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿// =============================================================================
+// Demo11.PolyByTypeAnnotation — Polymorphic deserialization using JsonSubtypes
+//
+// Demonstrates:
+//   - [JsonSubtypes] attribute to declare discriminator field and subtype mappings
+//   - Deserializing a JSON array into a List<Person> with mixed concrete types
+//   - Attribute-based approach requires no custom converter code
+// =============================================================================
+
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace JsonSubtypesDemo

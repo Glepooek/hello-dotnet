@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo14.TypeNameHandling — Built-in polymorphism via $type metadata
+//
+// Demonstrates:
+//   - TypeNameHandling.Auto emits $type only when declared type differs from actual type
+//   - $type field drives concrete type selection on deserialization
+//   - Compare with attribute-based (Demo11-13) and custom-converter approaches
+// =============================================================================
+
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;

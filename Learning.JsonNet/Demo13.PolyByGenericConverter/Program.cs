@@ -1,4 +1,13 @@
-﻿// 参考https://www.cnblogs.com/qixue/p/5292374.html
+﻿// =============================================================================
+// Demo13.PolyByGenericConverter — Polymorphic deserialization using generic converter
+//
+// Demonstrates:
+//   - Reusable generic converter that reads a string discriminator field
+//   - Maps discriminator values to concrete subtypes at runtime
+//   - Separation of converter logic from domain model
+// =============================================================================
+//
+// Reference: https://www.cnblogs.com/qixue/p/5292374.html
 
 using JsonSubTypesDemo3;
 using JsonSubTypesDemo3.Utils;

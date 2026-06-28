@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo19.ErrorHandling — Fault-tolerant batch deserialization using the Error event handler
+//
+// Demonstrates:
+//   - JsonSerializerSettings.Error delegate intercepts per-field conversion failures
+//   - ErrorContext.Handled = true continues deserialization (bad fields get defaults, not skipped)
+//   - Collecting all error paths and messages for post-processing
+// =============================================================================
+
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;

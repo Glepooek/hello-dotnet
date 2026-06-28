@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo16.ContractResolver — Dynamic serialization control with custom ContractResolver
+//
+// Demonstrates:
+//   - CamelCasePropertyNamesContractResolver for global camelCase renaming
+//   - Custom resolver suppressing InternalId via ShouldSerialize
+//   - Conditional serialization with ShouldSerialize delegate based on runtime value
+// =============================================================================
+
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;

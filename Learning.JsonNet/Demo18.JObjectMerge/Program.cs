@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo18.JObjectMerge — Deep-merging JSON objects and applying null-patch removal
+//
+// Demonstrates:
+//   - JObject.Merge for deep config override (nested objects merged, not replaced)
+//   - MergeNullValueHandling.Ignore to skip null values in the override
+//   - Null-patch pattern: set a key to null then strip all null properties to simulate deletion
+// =============================================================================
+
 using Newtonsoft.Json.Linq;
 using System.Linq;
 

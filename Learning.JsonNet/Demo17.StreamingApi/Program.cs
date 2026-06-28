@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo17.StreamingApi — Low-memory streaming read/write with JsonTextWriter and JsonTextReader
+//
+// Demonstrates:
+//   - JsonTextWriter writes JSON token-by-token without building an object graph
+//   - JsonTextReader reads JSON token-by-token to extract specific values
+//   - Streaming approach keeps memory usage constant regardless of document size
+// =============================================================================
+
 using Newtonsoft.Json;
 
 // JsonTextWriter: stream-write large JSON without building the full object graph in memory
