@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -85,7 +84,7 @@ public static class HappyEyeballsHttp
             TimeSpan.FromMilliseconds(ConnectionAttemptDelay),
             cancellationToken);
 
-       Debug.WriteLine("Successfully connected {0} to address: {1}", endPoint, ips[index]);
+        Debug.WriteLine("Successfully connected {0} to address: {1}", endPoint, ips[index]);
 
         return new NetworkStream(socket, ownsSocket: true);
     }
