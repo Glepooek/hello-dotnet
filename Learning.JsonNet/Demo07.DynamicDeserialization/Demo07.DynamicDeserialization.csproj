@@ -8,7 +8,4 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Demo00.Shared\Demo00.Shared.csproj" />
-  </ItemGroup>
 </Project>

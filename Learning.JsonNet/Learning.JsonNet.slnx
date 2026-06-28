@@ -2,8 +2,7 @@
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>
-  <Project Path="Demo00.Shared/Demo00.Shared.csproj" />
-  <Project Path="Demo01.BasicSerialization/Demo01.BasicSerialization.csproj" />
+<Project Path="Demo01.BasicSerialization/Demo01.BasicSerialization.csproj" />
   <Project Path="Demo02.JsonAttributes/Demo02.JsonAttributes.csproj" />
   <Project Path="Demo03.JsonSettings/Demo03.JsonSettings.csproj" />
   <Project Path="Demo04.EnumSerialization/Demo04.EnumSerialization.csproj" />
