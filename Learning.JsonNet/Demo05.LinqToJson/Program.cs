@@ -1,3 +1,13 @@
+// =============================================================================
+// Demo05.LinqToJson — Building and querying JSON with LINQ to JSON
+//
+// Demonstrates:
+//   - Constructing JObject with initializer syntax for dynamic JSON
+//   - Adding JArray properties dynamically to JObject instances
+//   - Typed value extraction using Value<T>() on JSON tokens
+//   - LINQ queries (Select, Where) over JArray collections
+// =============================================================================
+
 using System;
 using System.Linq;
 using Newtonsoft.Json.Linq;

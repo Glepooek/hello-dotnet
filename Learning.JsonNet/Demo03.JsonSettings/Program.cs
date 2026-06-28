@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo03.JsonSettings — Fine-tuning behavior with JsonSerializerSettings
+//
+// Demonstrates:
+//   - NullValueHandling.Ignore to omit null properties from JSON
+//   - DefaultValueHandling.Ignore to exclude zero/false/empty defaults
+//   - DateFormatString for custom date format patterns
+// =============================================================================
+
 using System;
 using Newtonsoft.Json;
 

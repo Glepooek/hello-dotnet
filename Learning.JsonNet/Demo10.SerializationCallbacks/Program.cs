@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo10.SerializationCallbacks — Hooking into the serialization lifecycle with callback attributes
+//
+// Demonstrates:
+//   - [OnSerializing] / [OnSerialized] fired during serialization
+//   - [OnDeserializing] / [OnDeserialized] fired during deserialization
+//   - Rebuilding computed properties (ItemCount, Summary) in OnDeserialized
+// =============================================================================
+
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

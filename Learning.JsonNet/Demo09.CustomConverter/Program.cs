@@ -1,7 +1,14 @@
+// =============================================================================
+// Demo09.CustomConverter — Writing a custom JsonConverter<T> for non-standard types
+//
+// Demonstrates:
+//   - WriteJson to serialize Color struct as "#RRGGBB" hex string
+//   - ReadJson to parse hex string back to Color struct
+//   - [JsonConverter] attribute to attach converter to specific properties
+// =============================================================================
+
 using System;
 using Newtonsoft.Json;
-
-// ColorConverter serializes Color as "#RRGGBB" hex string instead of an object
 var palette = new Palette
 {
     Name       = "Sunset",

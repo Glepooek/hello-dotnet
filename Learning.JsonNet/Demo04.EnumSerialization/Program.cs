@@ -1,3 +1,13 @@
+// =============================================================================
+// Demo04.EnumSerialization — Serializing enums as strings instead of integers
+//
+// Demonstrates:
+//   - Default integer enum serialization behavior
+//   - StringEnumConverter via JsonSerializerSettings for string representation
+//   - [JsonConverter] attribute to apply converters directly on enum types
+//   - Round-trip deserialization from string enum values
+// =============================================================================
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

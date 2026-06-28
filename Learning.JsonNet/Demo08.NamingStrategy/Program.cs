@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo08.NamingStrategy — Automatic property name conversion with NamingStrategy
+//
+// Demonstrates:
+//   - CamelCaseNamingStrategy (FirstName → firstName)
+//   - SnakeCaseNamingStrategy (FirstName → first_name)
+//   - Round-trip deserialization from snake_case JSON back to PascalCase model
+// =============================================================================
+
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;

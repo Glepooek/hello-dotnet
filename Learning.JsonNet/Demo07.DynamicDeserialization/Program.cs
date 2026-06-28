@@ -1,7 +1,15 @@
+// =============================================================================
+// Demo07.DynamicDeserialization — Four approaches to deserializing JSON without a full model
+//
+// Demonstrates:
+//   - dynamic keyword for schema-free access
+//   - JObject.Parse for strongly-typed token navigation
+//   - Dictionary<string,object> for flat key-value access
+//   - Typed deserialization with a concrete model class
+// =============================================================================
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
-// Three ways to deserialize JSON without a concrete model
 
 const string json =
     @"{ 'Name': 'Alice', 'Address': { 'City': 'Beijing', 'Province': 'Beijing' }, 'Age': 30 }";

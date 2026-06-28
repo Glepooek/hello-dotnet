@@ -1,3 +1,14 @@
+// =============================================================================
+// Demo06.JsonPath — Querying JSON documents with JSONPath expressions
+//
+// Demonstrates:
+//   - SelectToken for single value lookup
+//   - SelectTokens with [*] wildcard for all matches
+//   - Filter expressions [?(@.price < 13)]
+//   - Recursive descent (..) to traverse nested objects
+//   - Array index access [n]
+// =============================================================================
+
 using System;
 using Newtonsoft.Json.Linq;
 

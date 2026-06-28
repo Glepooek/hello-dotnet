@@ -1,3 +1,13 @@
+// =============================================================================
+// Demo01.BasicSerialization — Basic JSON serialization and deserialization
+//
+// Demonstrates:
+//   - SerializeObject with Formatting.Indented for readable output
+//   - DeserializeObject<T> to restore typed objects from JSON strings
+//   - List<T> serialization to JSON arrays
+//   - Compact output without indentation
+// =============================================================================
+
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;

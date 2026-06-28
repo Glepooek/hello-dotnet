@@ -1,3 +1,12 @@
+// =============================================================================
+// Demo02.JsonAttributes — Controlling serialization with JSON attributes
+//
+// Demonstrates:
+//   - [JsonProperty] to rename fields in JSON output
+//   - [JsonIgnore] to exclude sensitive fields from serialization
+//   - [JsonRequired] to enforce mandatory fields on deserialization
+// =============================================================================
+
 using Newtonsoft.Json;
 
 var user = new User
