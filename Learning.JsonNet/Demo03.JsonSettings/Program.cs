@@ -28,6 +28,8 @@ var ev = new Event { Title = "Conference", Date = new DateTime(2026, 6, 28) };
 Console.WriteLine("\n=== DateFormatString yyyy-MM-dd ===");
 Console.WriteLine(JsonConvert.SerializeObject(ev, Formatting.Indented, dateSettings));
 
+Console.ReadLine();
+
 class Product
 {
     public string Name { get; set; } = "";
@@ -47,5 +49,3 @@ class Event
     public string Title { get; set; } = "";
     public DateTime Date { get; set; }
 }
-
-Console.ReadLine();

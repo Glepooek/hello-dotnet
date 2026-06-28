@@ -1,4 +1,4 @@
-﻿// =============================================================================
+// =============================================================================
 // Demo13.PolyByGenericConverter — Polymorphic deserialization using generic converter
 //
 // Demonstrates:
@@ -29,6 +29,7 @@ DemoData nData = JsonConvert.DeserializeObject<DemoData>(json, new JsonSubTypeCo
     { "color", new DemoA()},
     { "size", new DemoB() }
 }));
+
 
 
 Console.ReadLine();

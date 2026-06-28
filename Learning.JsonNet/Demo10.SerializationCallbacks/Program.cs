@@ -29,6 +29,8 @@ Console.WriteLine($"Id={restored!.Id}");
 Console.WriteLine($"ItemCount (computed in OnDeserialized)={restored.ItemCount}");
 Console.WriteLine($"Summary={restored.Summary}");
 
+Console.ReadLine();
+
 class Order
 {
     public int Id { get; set; }
@@ -61,4 +63,3 @@ class Order
     }
 }
 
-Console.ReadLine();

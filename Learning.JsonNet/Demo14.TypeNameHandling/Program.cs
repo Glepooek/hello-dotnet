@@ -35,6 +35,8 @@ Console.WriteLine("\n=== Deserialized (polymorphic) ===");
 foreach (var shape in restored!)
     Console.WriteLine($"  {shape.GetType().Name,-12} Color={shape.Color,-6}  Area={shape.Area(),7:F2}");
 
+Console.ReadLine();
+
 abstract class Shape
 {
     public string Color { get; set; } = "";
@@ -54,4 +56,3 @@ class Rectangle : Shape
     public override double Area() => Width * Height;
 }
 
-Console.ReadLine();

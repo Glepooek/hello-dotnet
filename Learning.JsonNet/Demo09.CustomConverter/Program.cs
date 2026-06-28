@@ -26,6 +26,8 @@ Console.WriteLine($"Background: R={restored!.Background.R} G={restored.Backgroun
 Console.WriteLine($"Foreground: R={restored.Foreground.R} G={restored.Foreground.G} B={restored.Foreground.B}");
 
 // ColorConverter: read/write Color as "#RRGGBB"
+Console.ReadLine();
+
 class ColorConverter : JsonConverter<Color>
 {
     public override void WriteJson(JsonWriter writer, Color value, JsonSerializer serializer)
@@ -60,4 +62,3 @@ readonly struct Color(int r, int g, int b)
     public int B { get; } = b;
 }
 
-Console.ReadLine();

@@ -47,6 +47,8 @@ catch (JsonSerializationException ex)
     Console.WriteLine($"Caught: {ex.Message[..60]}...");
 }
 
+Console.ReadLine();
+
 class Department
 {
     public string Name { get; set; } = "";
@@ -60,4 +62,3 @@ class Employee
     public Employee? Manager { get; set; }
 }
 
-Console.ReadLine();

@@ -49,6 +49,8 @@ var restored = JsonConvert.DeserializeObject<UserProfile>(snakeJson, snakeSettin
 Console.WriteLine($"\n=== Deserialized from snake_case ===");
 Console.WriteLine($"FirstName={restored!.FirstName}, Email={restored.EmailAddress}");
 
+Console.ReadLine();
+
 class UserProfile
 {
     public string FirstName    { get; set; } = "";
@@ -57,4 +59,3 @@ class UserProfile
     public string PhoneNumber  { get; set; } = "";
 }
 
-Console.ReadLine();

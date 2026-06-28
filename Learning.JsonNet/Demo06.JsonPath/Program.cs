@@ -51,4 +51,5 @@ foreach (var p in allPrices) Console.WriteLine($"  ${p}");
 var secondTitle = root.SelectToken("store.book[1].title");
 Console.WriteLine($"\n=== Array index [1].title ===\n  {secondTitle}");
 
+
 Console.ReadLine();

@@ -33,6 +33,8 @@ string typedJson = """{"Name":"Bob","Age":25,"Sex":1,"Address":{"City":"Shanghai
 var person = JsonConvert.DeserializeObject<Person>(typedJson);
 Console.WriteLine($"[Typed] Name={person!.Name}, City={person.Address?.City}, Sex={person.Sex}");
 
+Console.ReadLine();
+
 class Person
 {
     public string Name { get; set; } = "";
@@ -51,4 +53,3 @@ class Address
 
 enum Gender { Male = 0, Female }
 
-Console.ReadLine();

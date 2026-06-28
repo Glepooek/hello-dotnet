@@ -43,6 +43,8 @@ var young = new User { FirstName = "Bob", LastName = "Li", Age = 20, InternalId 
 Console.WriteLine(JsonConvert.SerializeObject(young, conditionalSettings));
 
 // HideInternalIdResolver: suppresses InternalId from output
+Console.ReadLine();
+
 class HideInternalIdResolver : DefaultContractResolver
 {
     protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
@@ -74,4 +76,3 @@ class User
     public int    InternalId { get; set; }
 }
 
-Console.ReadLine();

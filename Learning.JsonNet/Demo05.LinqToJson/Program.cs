@@ -8,15 +8,15 @@
 //   - LINQ queries (Select, Where) over JArray collections
 // =============================================================================
 
+using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
-using Newtonsoft.Json.Linq;
 
 // Build JObject manually
 var person = new JObject
 {
     ["name"] = "Alice",
-    ["age"]  = 30,
+    ["age"] = 30,
     ["address"] = new JObject { ["city"] = "Beijing", ["zip"] = "100000" }
 };
 Console.WriteLine("=== Constructed JObject ===");
@@ -46,5 +46,6 @@ Console.WriteLine($"\n=== LINQ select ids ===\n{string.Join(", ", ids)}");
 // Filter with LINQ where
 var filtered = posts.Where(p => p["id"]!.Value<int>() > 1).Select(p => p["title"]).ToList();
 Console.WriteLine($"\n=== LINQ filter id > 1 ===\n{string.Join(", ", filtered)}");
+
 
 Console.ReadLine();

@@ -33,6 +33,8 @@ var item = new Item { Name = "Book", Category = Category.Education };
 Console.WriteLine("\n=== [JsonConverter] on enum type ===");
 Console.WriteLine(JsonConvert.SerializeObject(item, Formatting.Indented));
 
+Console.ReadLine();
+
 enum OrderStatus { Pending, Processing, Shipped, Delivered }
 
 class Order
@@ -50,4 +52,3 @@ class Item
     public Category Category { get; set; }
 }
 
-Console.ReadLine();

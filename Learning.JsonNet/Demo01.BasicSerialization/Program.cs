@@ -36,6 +36,7 @@ Console.WriteLine(JsonConvert.SerializeObject(people, Formatting.Indented));
 Console.WriteLine("\n=== Compact output ===");
 Console.WriteLine(JsonConvert.SerializeObject(person));
 
+
 Console.ReadLine();
 
 class Person

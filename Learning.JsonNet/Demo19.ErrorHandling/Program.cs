@@ -41,6 +41,8 @@ foreach (var s in results)
 Console.WriteLine($"\n=== Errors ({errors.Count}) ===");
 foreach (var e in errors) Console.WriteLine(e);
 
+Console.ReadLine();
+
 class Student
 {
     public int    Id    { get; set; }
@@ -48,4 +50,3 @@ class Student
     public int    Score { get; set; }
 }
 
-Console.ReadLine();

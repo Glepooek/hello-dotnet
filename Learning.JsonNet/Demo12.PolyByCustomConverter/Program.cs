@@ -12,6 +12,8 @@ using System.Collections.Generic;
 
 namespace JsonSubtypesDemo2
 {
+Console.ReadLine();
+
     class Program
     {
         static void Main(string[] args)
@@ -28,4 +30,3 @@ namespace JsonSubtypesDemo2
     }
 }
 
-Console.ReadLine();

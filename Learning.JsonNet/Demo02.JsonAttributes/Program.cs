@@ -39,6 +39,7 @@ catch (JsonSerializationException ex)
     Console.WriteLine($"Caught: {ex.Message}");
 }
 
+
 Console.ReadLine();
 
 class User
