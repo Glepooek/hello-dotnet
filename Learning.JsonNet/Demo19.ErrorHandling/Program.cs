@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-// Batch deserialize: bad items are skipped, good ones succeed
+// Batch deserialize: bad fields fall back to defaults; Handled=true prevents the whole deserialization from throwing
 string json = """
 [
   {"Id":1,"Name":"Alice","Score":95},
