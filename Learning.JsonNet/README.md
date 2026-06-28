@@ -55,7 +55,7 @@ dotnet build Learning.JsonNet.slnx
 
 ## 项目约定
 
-- 目标框架：.NET 9.0
+- 目标框架：.NET 10.0
 - 代码风格：顶级语句（top-level statements），无 namespace
 - NuGet 版本：通过 `Directory.Packages.props` 集中管理（CPM）
 - 模型类内联定义在各自 `Program.cs` 末尾，每个 Demo 完全独立
