@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.MusicStore.Helpers;
+using Avalonia.MusicStore.Messages;
+using Avalonia.MusicStore.Models;
 using Avalonia.MusicStore.Views;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using Avalonia.MusicStore.Models;
-using Avalonia.MusicStore.Messages;
+using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Avalonia.MusicStore.ViewModels
 {
@@ -33,6 +30,7 @@ namespace Avalonia.MusicStore.ViewModels
         public RelayCommand UnloadedCommand { get; private set; }
         public RelayCommand ShowAlbumsCommand { get; private set; }
         public RelayCommand ShowWebCommand { get; private set; }
+        public RelayCommand ShowWebDialogCommand { get; private set; }
         public RelayCommand CallJSMethodCommand { get; private set; }
 
         #endregion
@@ -51,6 +49,11 @@ namespace Avalonia.MusicStore.ViewModels
                 WeakReferenceMessenger.Default.UnregisterAll(this);
             });
 
+            CallJSMethodCommand = new RelayCommand(() =>
+            {
+                WeakReferenceMessenger.Default.Send<MessageParam>(new MessageParam { Reult = true });
+            });
+
             ShowWebCommand = new RelayCommand(() =>
             {
                 WebViewWindow dialog = new WebViewWindow();
@@ -58,10 +61,8 @@ namespace Avalonia.MusicStore.ViewModels
                 dialog.Show(AvaloniaHelper.GetMainWindow());
             });
 
-            CallJSMethodCommand = new RelayCommand(() =>
-            {
-                WeakReferenceMessenger.Default.Send<MessageParam>(new MessageParam { Reult = true });
-            });
+            // NativeWebDialog hosts web content in its own native window, with no Avalonia Window wrapper.
+            ShowWebDialogCommand = new RelayCommand(ShowNativeWebDialog);
 
             ShowAlbumsCommand = new RelayCommand(() =>
             {
@@ -90,6 +91,44 @@ namespace Avalonia.MusicStore.ViewModels
                 Albums.Add(albumVM);
                 await albumVM.SaveToDiskAsync();
             }
+        }
+
+        /// <summary>
+        /// Demonstrates NativeWebDialog: a native window hosting web content, shown owned by the main window.
+        /// </summary>
+        private void ShowNativeWebDialog()
+        {
+            var dialog = new NativeWebDialog
+            {
+                Title = "NativeWebDialog Demo",
+                CanUserResize = true,
+                Source = new Uri("https://avaloniaui.net/"),
+            };
+
+            dialog.NavigationCompleted += async (s, e) =>
+            {
+                if (!e.IsSuccess)
+                {
+                    return;
+                }
+
+                var title = await dialog.InvokeScript("document.title");
+                Debug.WriteLine($"NativeWebDialog loaded, document.title = {title}");
+            };
+
+            dialog.Closing += (s, e) => Debug.WriteLine("NativeWebDialog closing");
+
+            var owner = AvaloniaHelper.GetMainWindow();
+            if (owner is not null)
+            {
+                dialog.Show(owner);
+            }
+            else
+            {
+                dialog.Show();
+            }
+
+            dialog.Resize(1000, 700);
         }
 
         public async void LoadAlbums()

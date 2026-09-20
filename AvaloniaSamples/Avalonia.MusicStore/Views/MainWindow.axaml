@@ -2,8 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
-        xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Xaml.Behaviors.Interactivity"
+        xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Xaml.Behaviors.Interactions"
         xmlns:html="using:TheArtOfDev.HtmlRenderer.Avalonia"
         xmlns:vm="using:Avalonia.MusicStore.ViewModels"
         xmlns:model="using:Avalonia.MusicStore.Models"
@@ -143,6 +143,9 @@
                 <Button Classes="Call"
                         Content="{x:Static lang:Resources.btn_ShowWeb}"
                         Command="{Binding ShowWebCommand}" />
+                <Button Classes="Call"
+                        Content="NativeWebDialog"
+                        Command="{Binding ShowWebDialogCommand}" />
                 <Button Classes="Icon" Command="{Binding ShowAlbumsCommand}">
                     <PathIcon Data="{StaticResource store_microsoft_regular}" />
                 </Button>

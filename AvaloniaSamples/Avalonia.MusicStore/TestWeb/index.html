@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,11 +7,10 @@
     <title></title>
 </head>
 <body>
-    <div id="app3" style="height:20px"></div>
     <div id="app4">
         <p>{{ message }}</p>
-        <button style="margin-left:10px" v-on:click="closeWindow">关闭主窗口</button>
-        <button style="margin-left:10px" v-on:click="minimizeWindow">最小化主窗口</button>
+        <button style="margin-left:10px" v-on:click="closeWindow">关闭窗口</button>
+        <button style="margin-left:10px" v-on:click="minimizeWindow">最小化窗口</button>
         <button style="margin-left:10px" v-on:click="maximizeWindow">最大化、还原窗口</button>
         <button style="margin-left:10px" v-on:click="getHttpHeaderParamsInfo">获取httpheader参数方法</button>
         <button style="margin-left:10px" v-on:click="checkAppUpdate">检查更新</button>
@@ -19,53 +18,63 @@
     </div>
 
     <script>
-        var hostObject = window.AvaWebView;
+        // Bridge over NativeWebView's one-way invokeCSharpAction channel.
+        // Each call gets a requestId; C# replies via window.avaBridge.resolve(requestId, value).
+        window.avaBridge = (function () {
+            var pending = {};
+            var seq = 0;
 
-        // 拖动窗体
-        window.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('app3').addEventListener('mousedown', evt => {
-                AvaWebView.mouseDownDrag();
-            });
-        });
+            return {
+                invoke: function (action) {
+                    var requestId = 'r' + (++seq);
+                    var promise = new Promise(function (resolve) {
+                        pending[requestId] = resolve;
+                    });
+                    invokeCSharpAction(JSON.stringify({ action: action, requestId: requestId }));
+                    return promise;
+                },
+                resolve: function (requestId, value) {
+                    var resolver = pending[requestId];
+                    if (resolver) {
+                        delete pending[requestId];
+                        resolver(value);
+                    }
+                }
+            };
+        })();
+    </script>
 
+    <script>
         var app4 = new Vue({
             el: '#app4',
             data: {
-                message: 'Hello WebView2！以下测试JS调用C#方法！',
-                result: 'Hello WebView2！以下测试C#调用JS方法！'
+                message: 'Hello NativeWebView！以下测试JS调用C#方法！',
+                result: 'Hello NativeWebView！以下测试C#调用JS方法！'
             },
             methods: {
-                async closeWindow() {
-                    await hostObject.closeWindow();
+                closeWindow() {
+                    avaBridge.invoke('closeWindow');
                 },
-                async minimizeWindow() {
-                    await hostObject.minimizeWindow();
+                minimizeWindow() {
+                    avaBridge.invoke('minimizeWindow');
                 },
-                async maximizeWindow() {
-                    await hostObject.MaximizeWindow();
+                maximizeWindow() {
+                    avaBridge.invoke('maximizeWindow');
                 },
-                // 获取httpheader参数
-                // JSON格式: {"x-device-name":"DESKTOP-C9V2GQS","x-device-model":"Microsoft Windows 10 教育版","x-app-key":"unischool_student_pc", ...}
                 async getHttpHeaderParamsInfo() {
-                    this.message = await hostObject.GetHttpHeaderParamsInfo();
+                    var info = await avaBridge.invoke('getHttpHeaderParamsInfo');
+                    this.message = JSON.stringify(info);
                 },
                 async checkAppUpdate() {
-                    await hostObject.CheckAppUpdate();
-                },
-                // C#调用JS方法1：app4.calculateAdd(12,13)
-                calculateAdd(num1, num2) {
-                    this.result = num1 + num2;
-                    alert("传入参数: num1=" + num1 + " num2=" + num2 + " result=" + this.result);
-                    return this.result;
+                    this.message = await avaBridge.invoke('checkAppUpdate');
                 }
             }
         })
 
-        // C#调用JS方法2：calculateAdd(12,13)
-        function calculateAdd1(num1, num2) {
-            app4.result = num1 + num2;
-            alert("传入参数: num1=" + num1 + " num2=" + num2 + " result=" + app4.result);
-            return app4.result;
+        // C# calls this via InvokeScript("window.calculateAdd(12, 13)")
+        window.calculateAdd = function (num1, num2) {
+            app4.result = 'C#调用JS: ' + num1 + ' + ' + num2 + ' = ' + (num1 + num2);
+            return num1 + num2;
         }
     </script>
 </body>

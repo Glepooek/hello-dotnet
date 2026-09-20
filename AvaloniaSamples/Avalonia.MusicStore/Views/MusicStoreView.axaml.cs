@@ -14,14 +14,14 @@ public partial class MusicStoreView : UserControl
     {
         InitializeComponent();
 
-        //// ÊôĞÔ¸ü¸Ä£¬´¥·¢µÄ·½·¨¶©ÔÄ
+        //// å±æ€§æ›´æ”¹ï¼Œè§¦å‘çš„æ–¹æ³•è®¢é˜…
         //var repeatCount = this.GetObservable(MusicStoreView.RepeatCountProperty);
         //repeatCount.Subscribe(OnRepeatCountPropertyChanged);
     }
 
     //static MusicStoreView()
     //{
-    //    // ÊôĞÔ¸ü¸Ä£¬´¥·¢µÄ·½·¨¶©ÔÄ
+    //    // å±æ€§æ›´æ”¹ï¼Œè§¦å‘çš„æ–¹æ³•è®¢é˜…
     //    RepeatCountProperty.Changed.AddClassHandler<MusicStoreView>(OnRepeatCountPropertyChanged1);
     //}
 
@@ -35,7 +35,7 @@ public partial class MusicStoreView : UserControl
 
     //}
 
-    #region ÑùÊ½»¯ÊôĞÔ¡¢¸½¼ÓÊôĞÔ
+    #region æ ·å¼åŒ–å±æ€§ã€é™„åŠ å±æ€§
 
     public static readonly StyledProperty<int> RepeatCountProperty =
         AvaloniaProperty.Register<MusicStoreView, int>(nameof(RepeatCount), defaultValue: 1);
@@ -48,7 +48,7 @@ public partial class MusicStoreView : UserControl
 
     #endregion
 
-    #region Â·ÓÉÊÂ¼ş¶¨Òå¼°Òı·¢
+    #region è·¯ç”±äº‹ä»¶å®šä¹‰åŠå¼•å‘
 
     public static readonly RoutedEvent<RoutedEventArgs> ValueChangedEvent =
         RoutedEvent.Register<MusicStoreView, RoutedEventArgs>(nameof(ValueChanged), RoutingStrategies.Bubble);

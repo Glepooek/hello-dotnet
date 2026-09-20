@@ -1,7 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Logging;
 using System;
-using Xilium.CefGlue.Avalonia;
 
 namespace Avalonia.MusicStore
 {

@@ -1,7 +1,5 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
-using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Avalonia.MusicStore.ViewModels;
 using Avalonia.MusicStore.Views;
@@ -22,9 +20,8 @@ namespace Avalonia.MusicStore
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                // Line below is needed to remove Avalonia data validation.
-                // Without this line you will get duplicate validations from both Avalonia and CT
-                BindingPlugins.DataValidators.RemoveAt(0);
+                // Avalonia 12 disables the DataAnnotations validation plugin by default,
+                // so the previous BindingPlugins.DataValidators.RemoveAt(0) workaround is no longer needed.
                 desktop.MainWindow = new MainWindow
                 {
                     DataContext = new MainWindowViewModel(),

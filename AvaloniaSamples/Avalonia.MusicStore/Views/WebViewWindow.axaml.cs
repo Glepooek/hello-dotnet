@@ -1,107 +1,128 @@
 using Avalonia.Controls;
-using Avalonia.Input;
 using Avalonia.MusicStore.Messages;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Diagnostics;
-using Xilium.CefGlue.Avalonia;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace Avalonia.MusicStore.Views;
 
+/// <summary>
+/// Demonstrates the embedded <see cref="NativeWebView"/> control shipped with Avalonia 12
+/// (WebView2 on Windows, WKWebView on macOS, WPE/WebKitGTK on Linux).
+/// </summary>
 public partial class WebViewWindow : Window, IRecipient<MessageParam>
 {
-    private AvaloniaCefBrowser cefBrowser;
-
     public WebViewWindow()
     {
         InitializeComponent();
-        this.Loaded += WebViewWindow_Loaded;
-        this.Unloaded += WebViewWindow_Unloaded;
         WeakReferenceMessenger.Default.Register<MessageParam>(this);
+        Closed += OnClosed;
+
+        var page = Path.Combine(AppContext.BaseDirectory, "TestWeb", "index.html");
+        webView.Source = new Uri(page);
     }
 
-    private void WebViewWindow_Unloaded(object? sender, Interactivity.RoutedEventArgs e)
+    private void OnClosed(object? sender, EventArgs e)
     {
         WeakReferenceMessenger.Default.Unregister<MessageParam>(this);
-        cefBrowser?.Dispose();
     }
 
-    private void WebViewWindow_Loaded(object? sender, Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Hides the loading spinner once the page is rendered.
+    /// </summary>
+    private void WebView_NavigationCompleted(object? sender, WebViewNavigationCompletedEventArgs e)
     {
-        cefBrowser = new AvaloniaCefBrowser();
-        //cefBrowser.Address = "https://www.cnblogs.com";
-        cefBrowser.Address = $"{AppDomain.CurrentDomain.BaseDirectory}TestWeb\\index.html";
-        cefBrowser.LoadEnd += CefBrowser_LoadEnd;
-
-        //this.Content = cefBrowser;
-        panel.Children.Add(cefBrowser);
-        cefBrowser.RegisterJavascriptObject(new JSCallback(this), "AvaWebView");
+        Dispatcher.UIThread.Post(() => canvas.IsVisible = false);
     }
 
-    private void CefBrowser_LoadEnd(object sender, Xilium.CefGlue.Common.Events.LoadEndEventArgs e)
+    /// <summary>
+    /// JS -> C#. The host injects a global invokeCSharpAction(body); the body is a JSON envelope
+    /// { action, requestId, payload } so a reply can be correlated back to the awaiting JS promise.
+    /// This replaces CefGlue's RegisterJavascriptObject host-object binding, which NativeWebView has no equivalent for.
+    /// </summary>
+    private async void WebView_WebMessageReceived(object? sender, WebMessageReceivedEventArgs e)
     {
-        Dispatcher.UIThread.Invoke(new Action(() =>
-        {
-            panel.Children.Remove(canvas);
-        }));
-    }
-
-    protected override void OnPointerPressed(PointerPressedEventArgs e)
-    {
-        base.OnPointerPressed(e);
-
-        if (e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
-        {
-            this.BeginMoveDrag(e);
-        }
-    }
-
-    public void Receive(MessageParam message)
-    {
-        if (message == null)
+        if (string.IsNullOrWhiteSpace(e.Body))
         {
             return;
         }
 
-        if (message.Reult)
+        string action;
+        string? requestId;
+        try
         {
-            //cefBrowser.ExecuteJavaScript("calculateAdd1(12,13)");
-            cefBrowser.ExecuteJavaScript("app4.calculateAdd(12,13)");
+            var envelope = JsonNode.Parse(e.Body)?.AsObject();
+            action = envelope?["action"]?.GetValue<string>() ?? string.Empty;
+            requestId = envelope?["requestId"]?.GetValue<string>();
+        }
+        catch (JsonException ex)
+        {
+            Debug.WriteLine($"Invalid web message: {ex.Message}");
+            return;
+        }
+
+        var result = Dispatch(action);
+
+        if (requestId is not null)
+        {
+            var json = JsonSerializer.Serialize(result);
+            await webView.InvokeScript($"window.avaBridge.resolve({JsonSerializer.Serialize(requestId)}, {json})");
         }
     }
 
-    public class JSCallback
+    /// <summary>
+    /// Host methods callable from JavaScript. Replaces the CefGlue JSCallback host object.
+    /// </summary>
+    private object? Dispatch(string action)
     {
-        private Window webViewWindow;
-
-        public JSCallback(Window window)
+        switch (action)
         {
-            webViewWindow = window;
+            case "closeWindow":
+                Close();
+                return null;
+
+            case "minimizeWindow":
+                WindowState = WindowState.Minimized;
+                return null;
+
+            case "maximizeWindow":
+                WindowState = WindowState == WindowState.Maximized
+                    ? WindowState.Normal
+                    : WindowState.Maximized;
+                return null;
+
+            case "getHttpHeaderParamsInfo":
+                return new
+                {
+                    deviceName = Environment.MachineName,
+                    deviceModel = Environment.OSVersion.VersionString,
+                    appKey = "avalonia_musicstore_demo",
+                };
+
+            case "checkAppUpdate":
+                return $"Already up to date ({DateTime.Now:yyyy-MM-dd HH:mm:ss})";
+
+            default:
+                Debug.WriteLine($"Unknown web action: {action}");
+                return null;
+        }
+    }
+
+    /// <summary>
+    /// C# -> JS, triggered by the main window's "call JS method" button.
+    /// </summary>
+    public async void Receive(MessageParam message)
+    {
+        if (message?.Reult != true)
+        {
+            return;
         }
 
-        // 方法名小写开头
-        public void closeWindow()
-        {
-            Debug.WriteLine("JS Call C#: closeWindow");
-            Dispatcher.UIThread.Invoke(() =>
-            {
-                webViewWindow.Close();
-            });
-        }
-
-        public void minimizeWindow()
-        {
-            Debug.WriteLine("JS Call C#: minimizeWindow");
-            Dispatcher.UIThread.Invoke(() =>
-            {
-                webViewWindow.WindowState = WindowState.Minimized;
-            });
-        }
-
-        public void mouseDownDrag()
-        {
-            Debug.WriteLine("JS Call C#: mouseDownDrag");
-        }
+        var result = await webView.InvokeScript("window.calculateAdd(12, 13)");
+        Debug.WriteLine($"JS returned: {result}");
     }
 }
