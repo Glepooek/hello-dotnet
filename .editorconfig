@@ -1,0 +1,32 @@
+# EditorConfig — https://editorconfig.org
+# Purpose: pin file encoding so Chinese comments never get saved as GBK again.
+# Scope: this repo root, applies to all 200+ sample projects below it.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# C# / XAML: the repo overwhelmingly uses UTF-8 with BOM here
+# (.cs 1291 BOM vs 648 no-BOM, .xaml 632 BOM vs 36 no-BOM), which is what
+# Visual Studio writes by default. Keep it to avoid churn in existing files.
+[*.{cs,xaml}]
+charset = utf-8-bom
+
+# Avalonia .axaml files are all no-BOM in this repo (8/8).
+[*.axaml]
+charset = utf-8
+
+[*.{csproj,props,targets,slnx,config,xml,resx}]
+indent_size = 2
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+[*.md]
+# Markdown uses two trailing spaces for a hard line break.
+trim_trailing_whitespace = false
