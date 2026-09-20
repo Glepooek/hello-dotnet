@@ -12,7 +12,16 @@ namespace Avalonia.MusicStore.Models
     {
         private static iTunesSearchManager s_SearchManager = new();
         private static HttpClient s_httpClient = new();
-        private string CachePath => $"./Cache/{Artist} - {Title}";
+        private string CachePath => $"./Cache/{SanitizeFileName($"{Artist} - {Title}")}";
+
+        /// <summary>
+        /// Replaces characters that are illegal in a file name (e.g. the '/' in "AC/DC",
+        /// which Windows would otherwise treat as a directory separator) with '_'.
+        /// </summary>
+        private static string SanitizeFileName(string name)
+        {
+            return string.Join("_", name.Split(Path.GetInvalidFileNameChars()));
+        }
 
         public string Artist { get; set; }
         public string Title { get; set; }
@@ -55,8 +64,6 @@ namespace Avalonia.MusicStore.Models
                 Directory.CreateDirectory("./Cache");
             }
 
-            //string safeFileName = System.IO.Path.GetInvalidFileNameChars().Aggregate(CachePath, (current, c) => current.Replace(c.ToString(), ""));
-
             using (var fs = File.OpenWrite(CachePath))
             {
                 await SaveToStreamAsync(this, fs);
@@ -65,8 +72,6 @@ namespace Avalonia.MusicStore.Models
 
         public Stream SaveCoverBitmapStream()
         {
-            //string safeFileName = System.IO.Path.GetInvalidFileNameChars().Aggregate(CachePath, (current, c) => current.Replace(c.ToString(), ""));
-
             return File.OpenWrite(CachePath + ".bmp");
         }
 
